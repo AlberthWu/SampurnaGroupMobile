@@ -2,11 +2,12 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:sampurnagroupmobile/homepage.dart';
-// import 'package:sampurnagroupmobile/login.dart';
+// import 'package:sampurnagroupmobile/homepage.dart';
+
 import 'package:sampurnagroupmobile/intro_screens/intro_page_1.dart';
 import 'package:sampurnagroupmobile/intro_screens/intro_page_2.dart';
 import 'package:sampurnagroupmobile/intro_screens/intro_page_3.dart';
+import 'package:sampurnagroupmobile/login.dart';
 
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -20,7 +21,7 @@ class OnBoardingScreen extends StatefulWidget {
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
   // controller to keep track of which page we're on
-  PageController _controller = PageController();
+  final PageController _controller = PageController();
 
   // keep track of if we are on the last page or not
   bool onLastPage = false; 
@@ -71,7 +72,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                             context, 
                             MaterialPageRoute(
                               builder: (context){
-                                return const Homepage();
+                                return const LoginScreen();
                               },
                             ),
                           );
