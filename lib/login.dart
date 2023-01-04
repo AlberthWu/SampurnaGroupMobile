@@ -30,7 +30,7 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 300,
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage("assets/images/sgcomp.jpg"),
+                  image: AssetImage("images/asmcomp.jpg"),
                   fit: BoxFit.fill
                 )
               ),
@@ -50,7 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       children: [
                         TextSpan(
-                          text: isSignupScreen ? "Sampurna Group," : "Back,",
+                          text: isSignupScreen ? " Sampurna Group," : "Back,",
                           style: TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.bold,
