@@ -1,6 +1,7 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
+// import 'package:sampurnagroupmobile/homepage.dart';
 
 // import 'package:sampurnagroupmobile/homepage.dart';
 
@@ -72,7 +73,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                             context, 
                             MaterialPageRoute(
                               builder: (context){
-                                return const LoginScreen();
+                                return LoginPage();
                               },
                             ),
                           );
