@@ -13,10 +13,10 @@ class _HomePageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(213, 255, 255, 255),
+      backgroundColor: const Color.fromARGB(213, 255, 255, 255),
       bottomNavigationBar: CurvedNavigationBar(
         backgroundColor: Pallete.backgroundColor,
-        color: Color.fromARGB(255, 255, 255, 255),
+        color: const Color.fromARGB(255, 255, 255, 255),
         animationDuration: const Duration(milliseconds: 300),
         onTap: (index){
           // ignore: avoid_print

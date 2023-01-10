@@ -22,13 +22,13 @@ class EmployeeList extends StatelessWidget {
                 mainAxisSpacing: 15.0,
                 childAspectRatio: 0.8,
                 children: <Widget>[
-                  _buildCard('Cookie mint', '\$3.99', 'assets/cookiemint.jpg',
+                  _buildCard('People', 'Driver', 'images/person.png',
                       false, false, context),
-                  _buildCard('Cookie cream', '\$5.99', 'assets/cookiecream.jpg',
+                  _buildCard('People', 'Driver', 'images/person.png',
                       true, false, context),
-                  _buildCard('Cookie classic', '\$1.99',
-                      'assets/cookieclassic.jpg', false, true, context),
-                  _buildCard('Cookie choco', '\$2.99', 'assets/cookiechoco.jpg',
+                  _buildCard('People', 'Driver','images/person.png', 
+                      false, true, context),
+                  _buildCard('People', 'Driver', 'images/person.png',
                       false, false, context)
                 ],
               )),
@@ -44,6 +44,8 @@ class EmployeeList extends StatelessWidget {
         padding: const EdgeInsets.only(top: 5.0, bottom: 5.0, left: 5.0, right: 5.0),
         child: InkWell(
             onTap: () {
+              // ignore: prefer_typing_uninitialized_variables
+              var ocuppation;
               Navigator.of(context).push(
                   MaterialPageRoute(builder: (context) => EmployeeDetail(
                     assetPath: imgPath,
@@ -68,9 +70,9 @@ class EmployeeList extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             isFavorite
-                                ? const Icon(Icons.favorite, color: Color(0xFFEF7532))
-                                : const Icon(Icons.favorite_border,
-                                    color: Color(0xFFEF7532))
+                                ? const Icon(Icons.bookmark, color: Color.fromARGB(255, 0, 0, 0))
+                                : const Icon(Icons.bookmark_border,
+                                    color: Color.fromARGB(255, 0, 0, 0))
                           ])),
                   Hero(
                       tag: imgPath,
@@ -84,7 +86,7 @@ class EmployeeList extends StatelessWidget {
                   const SizedBox(height: 7.0),
                   Text(occupation,
                       style: const TextStyle(
-                          color: Color(0xFFCC8053),
+                          color: Color.fromARGB(255, 0, 0, 0),
                           fontFamily: 'Nexa',
                           fontSize: 14.0)),
                   Text(name,
@@ -102,24 +104,24 @@ class EmployeeList extends StatelessWidget {
                           children: [
                             if (!added) ...[
                               const Icon(Icons.shopping_basket,
-                                  color: Color(0xFFD17E50), size: 12.0),
+                                  color: Color.fromARGB(255, 0, 0, 0), size: 12.0),
                               const Text('Add to cart',
                                   style: TextStyle(
-                                      fontFamily: 'Varela',
-                                      color: Color(0xFFD17E50),
+                                      fontFamily: 'Nexa',
+                                      color: Color.fromARGB(255, 0, 0, 0),
                                       fontSize: 12.0))
                             ],
                             if (added) ...[
                               const Icon(Icons.remove_circle_outline,
-                                  color: Color(0xFFD17E50), size: 12.0),
+                                  color: Color.fromARGB(255, 0, 0, 0), size: 12.0),
                               const Text('3',
                                   style: TextStyle(
-                                      fontFamily: 'Varela',
-                                      color: Color(0xFFD17E50),
+                                      fontFamily: 'Nexa',
+                                      color: Color.fromARGB(255, 0, 0, 0),
                                       fontWeight: FontWeight.bold,
                                       fontSize: 12.0)),
                               const Icon(Icons.add_circle_outline,
-                                  color: Color(0xFFD17E50), size: 12.0),
+                                  color: Color.fromARGB(255, 0, 0, 0), size: 12.0),
                             ]
                           ]))
                 ]))));
