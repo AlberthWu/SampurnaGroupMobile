@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:sampurnagroupmobile/components/my_bottombar.dart';
 
 class EmployeeDetail extends StatelessWidget {
-  final assetPath, cookieprice, cookiename;
+  final assetPath, occupationemployee, employeename;
 
-  const EmployeeDetail({super.key, this.assetPath, this.cookieprice, this.cookiename});
+  const EmployeeDetail({super.key, this.assetPath, this.occupationemployee, this.employeename});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,11 +20,11 @@ class EmployeeDetail extends StatelessWidget {
             Navigator.of(context).pop();
           },
         ),
-        title: const Text('Pickup',
-            style: TextStyle(
-                fontFamily: 'Nexa',
-                fontSize: 20.0,
-                color: Color(0xFF545D68))),
+        // title: const Text('Pickup',
+        //     style: TextStyle(
+        //         fontFamily: 'Nexa',
+        //         fontSize: 20.0,
+        //         color: Color(0xFF545D68))),
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.notifications_none, color: Color(0xFF545D68)),
@@ -39,7 +39,7 @@ class EmployeeDetail extends StatelessWidget {
           const Padding(
             padding: EdgeInsets.only(left: 20.0),
             child: Text(
-              'Cookie',
+              'Employee',
               style: TextStyle(
                       fontFamily: 'Nexa',
                       fontSize: 42.0,
@@ -58,7 +58,7 @@ class EmployeeDetail extends StatelessWidget {
             ),
             const SizedBox(height: 20.0),
             Center(
-              child: Text(cookieprice,
+              child: Text(occupationemployee,
                   style: const TextStyle(
                       fontFamily: 'Nexa',
                       fontSize: 22.0,
@@ -67,7 +67,7 @@ class EmployeeDetail extends StatelessWidget {
             ),
             const SizedBox(height: 10.0),
             Center(
-              child: Text(cookiename,
+              child: Text(employeename,
                   style: const TextStyle(
                       color: Color(0xFF575E67),
                       fontFamily: 'Nexa',
@@ -77,7 +77,7 @@ class EmployeeDetail extends StatelessWidget {
             Center(
               child: SizedBox(
                 width: MediaQuery.of(context).size.width - 50.0,
-                child: const Text('Cold, creamy ice cream sandwiched between delicious deluxe cookies. Pick your favorite deluxe cookies and ice cream flavor.',
+                child: const Text('',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                       fontFamily: 'Nexa',
@@ -93,10 +93,10 @@ class EmployeeDetail extends StatelessWidget {
                 height: 50.0,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(25.0),
-                  color: Color.fromARGB(255, 0, 0, 0)
+                  color: const Color.fromARGB(255, 0, 0, 0)
                 ),
                 child: const Center(
-                  child: Text('Add to cart',
+                  child: Text('Edit',
                     style: TextStyle(
                       fontFamily: 'Nexa',
                       fontSize: 14.0,
@@ -111,7 +111,7 @@ class EmployeeDetail extends StatelessWidget {
       ),
 
       floatingActionButton: FloatingActionButton(onPressed: () {},
-      backgroundColor: Color.fromARGB(255, 0, 0, 0),
+      backgroundColor: const Color.fromARGB(255, 0, 0, 0),
       child: const Icon(Icons.fastfood),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

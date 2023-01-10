@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sampurnagroupmobile/homepage.dart';
+import 'package:sampurnagroupmobile/dashboard.dart';
 
 class MyButton extends StatelessWidget {
   final Function()? onTap;
@@ -14,7 +14,7 @@ class MyButton extends StatelessWidget {
           context, 
           MaterialPageRoute(
             builder: (context){
-              return const Homepage();
+              return const MyHomePage();
             },
           ),
         );
