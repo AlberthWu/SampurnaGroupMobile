@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sampurnagroupmobile/components/my_button.dart';
 import 'package:sampurnagroupmobile/components/my_textfile.dart';
 import 'package:sampurnagroupmobile/components/square_tile.dart';
+import 'package:sampurnagroupmobile/dashboard.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
