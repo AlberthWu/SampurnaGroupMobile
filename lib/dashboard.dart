@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:sampurnagroupmobile/components/my_employeelist.dart';
 import 'package:sampurnagroupmobile/components/my_bottombar.dart';
+import 'package:sampurnagroupmobile/index.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -93,6 +94,7 @@ class _MyHomePageState extends State<MyHomePage>
                     EmployeeList(),
                     EmployeeList(),
                     EmployeeList(),
+                    IndexPage(),
                   ]
                 )
               )

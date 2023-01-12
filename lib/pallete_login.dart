@@ -9,4 +9,6 @@ class Pallete {
     static const Color facebookColor = Color.fromARGB(255, 59, 89, 153);
     static const Color googleColor = Color.fromARGB(213, 222, 75, 57);
     static const Color backgroundColor = Color.fromARGB(214, 166, 196, 235);
+    static const Color primary= Color.fromARGB(255, 85, 120, 218);
+    static const Color white = Color(0xffffffff);
 }
