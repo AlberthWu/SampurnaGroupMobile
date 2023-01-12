@@ -22,14 +22,14 @@ class EmployeeList extends StatelessWidget {
                 mainAxisSpacing: 15.0,
                 childAspectRatio: 0.8,
                 children: <Widget>[
-                  _buildCard('People', 'Driver', 'images/person.png',
+                  _buildCard('Your Name', 'Driver', 'images/person.png',
                       false, false, context),
-                  _buildCard('People', 'Driver', 'images/person.png',
-                      true, false, context),
-                  _buildCard('People', 'Driver','images/person.png', 
-                      false, true, context),
-                  _buildCard('People', 'Driver', 'images/person.png',
-                      false, false, context)
+                  // _buildCard('People2', 'Driver', 'images/person.png',
+                  //     true, false, context),
+                  // _buildCard('People3', 'Driver','images/person.png', 
+                  //     false, true, context),
+                  // _buildCard('People4', 'Driver', 'images/person.png',
+                  //     false, false, context)
                 ],
               )),
           const SizedBox(height: 15.0)
@@ -97,33 +97,33 @@ class EmployeeList extends StatelessWidget {
                   Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Container(color: const Color(0xFFEBEBEB), height: 1.0)),
-                  Padding(
-                      padding: const EdgeInsets.only(left: 5.0, right: 5.0),
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            if (!added) ...[
-                              const Icon(Icons.shopping_basket,
-                                  color: Color.fromARGB(255, 0, 0, 0), size: 12.0),
-                              const Text('Add to cart',
-                                  style: TextStyle(
-                                      fontFamily: 'Nexa',
-                                      color: Color.fromARGB(255, 0, 0, 0),
-                                      fontSize: 12.0))
-                            ],
-                            if (added) ...[
-                              const Icon(Icons.remove_circle_outline,
-                                  color: Color.fromARGB(255, 0, 0, 0), size: 12.0),
-                              const Text('3',
-                                  style: TextStyle(
-                                      fontFamily: 'Nexa',
-                                      color: Color.fromARGB(255, 0, 0, 0),
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 12.0)),
-                              const Icon(Icons.add_circle_outline,
-                                  color: Color.fromARGB(255, 0, 0, 0), size: 12.0),
-                            ]
-                          ]))
+                  // Padding(
+                  //     padding: const EdgeInsets.only(left: 5.0, right: 5.0),
+                  //     child: Row(
+                  //         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  //         children: [
+                  //           if (!added) ...[
+                  //             const Icon(Icons.shopping_basket,
+                  //                 color: Color.fromARGB(255, 0, 0, 0), size: 12.0),
+                  //             const Text('Add to cart',
+                  //                 style: TextStyle(
+                  //                     fontFamily: 'Nexa',
+                  //                     color: Color.fromARGB(255, 0, 0, 0),
+                  //                     fontSize: 12.0))
+                  //           ],
+                  //           if (added) ...[
+                  //             const Icon(Icons.remove_circle_outline,
+                  //                 color: Color.fromARGB(255, 0, 0, 0), size: 12.0),
+                  //             const Text('3',
+                  //                 style: TextStyle(
+                  //                     fontFamily: 'Nexa',
+                  //                     color: Color.fromARGB(255, 0, 0, 0),
+                  //                     fontWeight: FontWeight.bold,
+                  //                     fontSize: 12.0)),
+                  //             const Icon(Icons.add_circle_outline,
+                  //                 color: Color.fromARGB(255, 0, 0, 0), size: 12.0),
+                  //           ]
+                  //         ]))
                 ]))));
   }
 }

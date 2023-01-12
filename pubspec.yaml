@@ -84,8 +84,11 @@ flutter:
     - family: Nexa
       fonts:
         - asset: fonts/Nexa-Light.ttf
+          weight: 100
         - asset: fonts/Nexa-Regular.ttf
+          weight: 300
         - asset: fonts/Nexa-Bold.ttf
+          weight: 500
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
