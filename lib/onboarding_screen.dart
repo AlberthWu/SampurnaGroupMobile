@@ -1,7 +1,7 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
-import 'package:sampurnagroupmobile/dashboard.dart';
+import 'package:sampurnagroupmobile/index.dart';
 
 import 'package:sampurnagroupmobile/intro_screens/intro_page_1.dart';
 import 'package:sampurnagroupmobile/intro_screens/intro_page_2.dart';
@@ -71,7 +71,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                             context, 
                             MaterialPageRoute(
                               builder: (context){
-                                return const MyHomePage();
+                                return const IndexPage();
                               },
                             ),
                           );
