@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-class IntroPage1 extends StatelessWidget {
-  const IntroPage1({super.key});
+class Loading extends StatelessWidget {
+  const Loading({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class IntroPage1 extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(20.0), 
                   child: Lottie.network(
-                    'https://assets5.lottiefiles.com/packages/lf20_lsvr9gbs.json', height: 150),
+                    'https://assets4.lottiefiles.com/packages/lf20_trPelrcRcy.json'),
                 ),
             ],
           ),

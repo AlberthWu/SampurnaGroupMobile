@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sampurnagroupmobile/components/my_button.dart';
 import 'package:sampurnagroupmobile/components/my_textfile.dart';
 import 'package:sampurnagroupmobile/components/square_tile.dart';
-import 'package:sampurnagroupmobile/dashboard.dart';
+// import 'package:sampurnagroupmobile/dashboard.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
@@ -35,7 +35,7 @@ class LoginPage extends StatelessWidget {
 
               // welcome back, you've been missed!
               Text(
-                'Welcome back you\'ve been missed!',
+                'Welcome back!',
                 style: TextStyle(
                   color: Colors.grey[700],
                   fontSize: 16,
@@ -83,7 +83,7 @@ class LoginPage extends StatelessWidget {
                 onTap: signUserIn,
               ),
 
-              const SizedBox(height: 10),
+              const SizedBox(height: 15),
 
               // or continue with
               Padding(
@@ -97,7 +97,7 @@ class LoginPage extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 30.0),
                       child: Text(
                         'Or continue with',
                         style: TextStyle(color: Colors.grey[700]),
@@ -122,7 +122,7 @@ class LoginPage extends StatelessWidget {
                   // google button
                   SquareTile(imagePath: 'images/google.png'),
 
-                  SizedBox(width: 30),
+                  SizedBox(width: 20),
 
                   // apple button
                   SquareTile(imagePath: 'images/apple.png')

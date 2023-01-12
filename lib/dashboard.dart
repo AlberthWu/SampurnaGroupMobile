@@ -47,13 +47,13 @@ class _MyHomePageState extends State<MyHomePage>
       body: ListView(
         padding: const EdgeInsets.only(left: 20.0),
         children: <Widget>[
-          const SizedBox(height: 15.0),
+          const SizedBox(height: 10.0),
           const Text('Employee',
               style: TextStyle(
                   fontFamily: 'Nexa',
-                  fontSize: 42.0,
+                  fontSize: 20.0,
                   fontWeight: FontWeight.bold)),
-          const SizedBox(height: 15.0),
+          const SizedBox(height: 10.0),
           // TabBar(
           //     controller: _tabController,
           //     indicatorColor: Colors.transparent,
