@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:sampurnagroupmobile/components/my_employeelist.dart';
 import 'package:sampurnagroupmobile/components/my_bottombar.dart';
-import 'package:sampurnagroupmobile/index.dart';
+// import 'package:sampurnagroupmobile/index.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -88,14 +88,11 @@ class _MyHomePageState extends State<MyHomePage>
               SizedBox(
                 height: MediaQuery.of(context).size.height - 50.0,
                 width: double.infinity,
-                child: TabBarView(
-                  controller: _tabController,
-                  children: const [
+                child: TabBarView(controller: _tabController,children: const [
                     EmployeeList(),
                     EmployeeList(),
                     EmployeeList(),
-                    IndexPage(),
-                  ]
+                  ],
                 )
               )
         ],

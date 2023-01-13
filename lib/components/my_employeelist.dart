@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sampurnagroupmobile/components/my_employeedetail.dart';
+// import 'package:sampurnagroupmobile/components/my_employeedetail.dart';
+import 'package:sampurnagroupmobile/index.dart';
 
 class EmployeeList extends StatelessWidget {
   const EmployeeList({super.key});
@@ -45,12 +46,11 @@ class EmployeeList extends StatelessWidget {
         child: InkWell(
             onTap: () {
               // ignore: prefer_typing_uninitialized_variables
-              var ocuppation;
               Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => EmployeeDetail(
-                    assetPath: imgPath,
-                    occupationemployee: ocuppation,
-                    employeename: name,
+                  MaterialPageRoute(builder: (context) => const IndexPage(
+                    // assetPath: imgPath,
+                    // occupationemployee: ocuppation,
+                    // employeename: name,
                   )));
             },
             child: Container(
