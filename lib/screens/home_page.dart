@@ -5,8 +5,6 @@ import 'package:sampurnagroupmobile/models/employ.dart';
 import 'package:sampurnagroupmobile/screens/detail_page.dart';
 import 'package:sampurnagroupmobile/screens/employee_widget.dart';
 
-// import 'package:homepage/screens.dart/plant_widget.dart'; 
-
 import 'package:page_transition/page_transition.dart';
 
 class HomePage extends StatefulWidget {

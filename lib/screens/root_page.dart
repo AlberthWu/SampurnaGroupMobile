@@ -63,7 +63,7 @@ class _RootPageState extends State<RootPage> {
               fontWeight: FontWeight.w500,
               fontSize: 24,
             ),),
-            Icon(Icons.notifications, color: Constants.blackColor, size: 30.0,)
+            Icon(Icons.notifications, color: Constants.primaryColor, size: 30.0,)
           ],
         ),
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,

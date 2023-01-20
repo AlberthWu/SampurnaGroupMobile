@@ -95,7 +95,7 @@ class Employee {
     Employee(
         employId: 8,
         category: 'Pool',
-        employeeName: 'Tritonia',
+        employeeName: 'Fritonia',
         occupation: 'Driver',
         grouppt: 'PT Alam Sampurna Makmur',
         imageURL: 'assets/images/truck-one.png',

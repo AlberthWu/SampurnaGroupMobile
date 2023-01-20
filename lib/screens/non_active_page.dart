@@ -55,27 +55,6 @@ class _NonActivePageState extends State<NonActivePage> {
                         index: index, employeeList: widget.nonActiveEmploy);
                   }),
             ),
-            // Column(
-            //   children: [
-            //     const Divider(thickness: 1.0,),
-            //     Row(
-            //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //       crossAxisAlignment: CrossAxisAlignment.center,
-            //       children: [
-            //         const Text('Totals',style: TextStyle(
-            //           fontSize: 23,
-            //           fontWeight: FontWeight.w300,
-            //         ),
-            //         ),
-            //           Text(r'$65', style: TextStyle(
-            //             fontSize: 24.0,
-            //             color: Constants.primaryColor,
-            //             fontWeight: FontWeight.bold,
-            //           ),),
-            //       ],
-            //     ),
-            //   ],
-            // ),
           ],
         ),
       ),
