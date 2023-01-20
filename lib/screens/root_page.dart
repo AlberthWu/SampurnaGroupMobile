@@ -78,7 +78,7 @@ class _RootPageState extends State<RootPage> {
           Navigator.push(context, PageTransition(child: const ScanPage(), type: PageTransitionType.bottomToTop));
         },
         backgroundColor: Constants.primaryColor,
-        child: Image.asset('assets/images/code-scan.png', height: 30.0,),
+        child: Image.asset('assets/images/code-scan-two.png', height: 30.0,),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: AnimatedBottomNavigationBar(

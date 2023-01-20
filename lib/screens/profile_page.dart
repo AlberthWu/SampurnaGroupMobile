@@ -63,7 +63,7 @@ class ProfilePage extends StatelessWidget {
               height: 30,
             ),
             SizedBox(
-              height: size.height * .5,
+              height: size.height * .4,
               width: size.width,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,

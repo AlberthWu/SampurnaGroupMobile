@@ -1,9 +1,12 @@
 import 'package:sampurnagroupmobile/data/users.dart';
 import 'package:sampurnagroupmobile/models/user.dart';
+import 'package:sampurnagroupmobile/screens/root_page.dart';
 import 'package:sampurnagroupmobile/widget/scrollable_widget.dart';
 import 'package:flutter/material.dart';
 
 class SortablePage extends StatefulWidget {
+  const SortablePage({super.key});
+
   @override
   _SortablePageState createState() => _SortablePageState();
 }
@@ -22,6 +25,31 @@ class _SortablePageState extends State<SortablePage> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
+    appBar: AppBar(
+      backgroundColor: Colors.white,
+      elevation: 0.0,
+      centerTitle: true,
+      leading: IconButton(
+        icon: const Icon(Icons.arrow_back, color: Color.fromARGB(255, 41, 48, 110)),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const RootPage())
+          );
+        },
+      ),
+      title: const Text('Slip',
+          style: TextStyle(
+              fontFamily: 'Nexa',
+              fontSize: 20.0,
+              color: Color.fromARGB(255, 41, 48, 110))),
+      actions: <Widget>[
+        IconButton(
+          icon: const Icon(Icons.search_outlined, color: Color.fromARGB(255, 41, 48, 110)),
+          onPressed: () {},
+        ),
+      ],
+    ),
         body: ScrollableWidget(child: buildDataTable()),
       );
 
