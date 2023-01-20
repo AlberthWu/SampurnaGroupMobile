@@ -424,14 +424,16 @@ class _DetailPageState extends State<DetailPage> {
             const SizedBox(
               width: 20,
             ),
-            Expanded(
-              child: Container(
+            // Expanded(
+              Container(
+                height: 100,
+                width: 200,
                 decoration: BoxDecoration(
                     color: Constants.primaryColor,
                     borderRadius: BorderRadius.circular(10),
                     boxShadow: [
                       BoxShadow(
-                        offset: const Offset(0, 1),
+                        offset: const Offset(0, 0),
                         blurRadius: 5,
                         color: Constants.primaryColor.withOpacity(.3),
                       )
@@ -446,7 +448,7 @@ class _DetailPageState extends State<DetailPage> {
                   ),
                 ),
               ),
-            ),
+            // ),
           ],
         ),
       ),

@@ -43,8 +43,8 @@ class _ActivatedPageState extends State<ActivatedPage> {
               ),
             )
           : Container(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 30),
-              height: size.height * .5,
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
+              height: size.height * .9,
               child: ListView.builder(
                   itemCount: widget.activatedEmploy.length,
                   scrollDirection: Axis.vertical,
