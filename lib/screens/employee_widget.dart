@@ -34,7 +34,7 @@ class EmployWidget extends StatelessWidget {
         ),
         height: 55.0,
         padding: const EdgeInsets.only(left: 10, top: 15),
-        margin: const EdgeInsets.only(bottom: 7, top: 5),
+        margin: const EdgeInsets.only(bottom: 10, top: 5),
         width: size.width,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

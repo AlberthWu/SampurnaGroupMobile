@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:sampurnagroupmobile/constants.dart';
 import 'package:sampurnagroupmobile/models/employ.dart';
+import 'package:sampurnagroupmobile/page/editable_page.dart';
+import 'package:sampurnagroupmobile/page/selectable_page.dart';
+import 'package:sampurnagroupmobile/page/sortable_page.dart';
 
 class DetailPage extends StatefulWidget {
   final int employId;
@@ -168,115 +172,220 @@ class _DetailPageState extends State<DetailPage> {
                             ),
                           ),
                           const SizedBox(
-                            height: 5,
+                            height: 20,
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.pushReplacement(
+                                context,
+                                PageTransition(
+                                  child: EditablePage(),
+                                  type: PageTransitionType.bottomToTop));
+                            },
+                            child: Container(
+                                decoration: BoxDecoration(
+                                    color: Constants.primaryColor,
+                                    borderRadius: BorderRadius.circular(10),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        offset: const Offset(0, 1),
+                                        blurRadius: 5,
+                                        color: Constants.primaryColor.withOpacity(.3)
+                                      )
+                                    ]),
+                                    padding: 
+                                      const EdgeInsets.symmetric(horizontal: 100, vertical: 10),
+                                      child: Center(
+                                      child: Text.rich(
+                                        TextSpan(children: <TextSpan>[
+                                          TextSpan(text: 'Loan ', style: TextStyle(color: Colors.white)),
+                                          TextSpan(text: 'Here ', style: TextStyle(color: Colors.white)),
+                                        ]),
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(fontSize: 12, fontFamily: 'Nexa'),
+                                      ),
+                                    ),
+                              ),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.pushReplacement(
+                                context,
+                                PageTransition(
+                                  child: SelectablePage(),
+                                  type: PageTransitionType.bottomToTop));
+                            },
+                            child: Container(
+                                decoration: BoxDecoration(
+                                    color: Constants.primaryColor,
+                                    borderRadius: BorderRadius.circular(10),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        offset: const Offset(0, 1),
+                                        blurRadius: 5,
+                                        color: Constants.primaryColor.withOpacity(.3)
+                                      )
+                                    ]),
+                                    padding: 
+                                      const EdgeInsets.symmetric(horizontal: 97, vertical: 10),
+                                      child: Center(
+                                      child: Text.rich(
+                                        TextSpan(children: <TextSpan>[
+                                          TextSpan(text: 'Order ', style: TextStyle(color: Colors.white)),
+                                          TextSpan(text: 'Here ', style: TextStyle(color: Colors.white)),
+                                        ]),
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(fontSize: 12, fontFamily: 'Nexa'),
+                                      ),
+                                    ),
+                              ),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.pushReplacement(
+                                context,
+                                PageTransition(
+                                  child: SortablePage(),
+                                  type: PageTransitionType.bottomToTop));
+                            },
+                            child: Container(
+                                decoration: BoxDecoration(
+                                    color: Constants.primaryColor,
+                                    borderRadius: BorderRadius.circular(10),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        offset: const Offset(0, 1),
+                                        blurRadius: 5,
+                                        color: Constants.primaryColor.withOpacity(.3)
+                                      )
+                                    ]),
+                                    padding: 
+                                      const EdgeInsets.symmetric(horizontal: 103, vertical: 10),
+                                      child: Center(
+                                      child: Text.rich(
+                                        TextSpan(children: <TextSpan>[
+                                          TextSpan(text: 'Slip ', style: TextStyle(color: Colors.white)),
+                                          TextSpan(text: 'Here ', style: TextStyle(color: Colors.white)),
+                                        ]),
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(fontSize: 12, fontFamily: 'Nexa'),
+                                      ),
+                                    ),
+                              ),
                           ),
                         ],
                       ),
                     ],
                   ),
-                  Container(
-                    height: 50,
-                    margin: 
-                        const EdgeInsets.only(top: 150, left: 0, right: 0, bottom: 0),
-                    width: double.infinity,
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: 50,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Expanded(
-                                child: Container(
-                                  padding: const EdgeInsets.all(10),
-                                  decoration: BoxDecoration(
-                                      color: Constants.primaryColor,
-                                      borderRadius: BorderRadius.circular(10),
-                                      boxShadow: [
-                                        BoxShadow(
-                                          offset: const Offset(0, 1),
-                                          blurRadius: 5,
-                                          color: Constants.primaryColor.withOpacity(.3)
-                                        )
-                                      ]),
-                                  alignment: Alignment.center,
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                    children: const [
-                                      Icon(Icons.money, color: Colors.white),
-                                      Text(
-                                        "Slip",
-                                        style: TextStyle(fontFamily: "Nexa", color: Colors.white),
-                                      ),
-                                    ],
-                                  ),
-                              )),
-                              const SizedBox(
-                                width: 5,
-                              ),
-                              Expanded(
-                                child: Container(
-                                  padding: const EdgeInsets.all(10),
-                                  decoration: BoxDecoration(
-                                      color: Constants.primaryColor,
-                                      borderRadius: BorderRadius.circular(10),
-                                      boxShadow: [
-                                        BoxShadow(
-                                          offset: const Offset(0, 1),
-                                          blurRadius: 5,
-                                          color: Constants.primaryColor.withOpacity(.3)
-                                        ),
-                                      ]),
-                                  alignment: Alignment.center,
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: const [
-                                      Icon(Icons.car_rental_outlined, color: Colors.white),
-                                      Text(
-                                        "Order",
-                                        style: TextStyle(fontFamily: "Nexa", color: Colors.white),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(
-                                width: 5,
-                              ),
-                              Expanded(
-                                child: Container(
-                                  padding: const EdgeInsets.all(10),
-                                  decoration: BoxDecoration(
-                                      color: Constants.primaryColor,
-                                      borderRadius: BorderRadius.circular(10),
-                                      boxShadow: [
-                                        BoxShadow(
-                                          offset: const Offset(0, 1),
-                                          blurRadius: 5,
-                                          color: Constants.primaryColor.withOpacity(.3)
-                                        ),
-                                      ]),
-                                  alignment: Alignment.center,
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: const [
-                                      Icon(Icons.monetization_on, color: Colors.white),
-                                      Text(
-                                        "Loan",
-                                        style: TextStyle(fontFamily: "Nexa", color: Colors.white),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  )
+                  // Container(
+                  //   height: 50,
+                  //   margin: 
+                  //       const EdgeInsets.only(top: 150, left: 0, right: 0, bottom: 0),
+                  //   width: double.infinity,
+                  //   child: Column(
+                  //     children: [
+                  //       SizedBox(
+                  //         height: 50,
+                  //         child: Row(
+                  //           mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  //           children: [
+                  //             Expanded(
+                  //               child: Container(
+                  //                 padding: const EdgeInsets.all(10),
+                  //                 decoration: BoxDecoration(
+                  //                     color: Constants.primaryColor,
+                  //                     borderRadius: BorderRadius.circular(10),
+                  //                     boxShadow: [
+                  //                       BoxShadow(
+                  //                         offset: const Offset(0, 1),
+                  //                         blurRadius: 5,
+                  //                         color: Constants.primaryColor.withOpacity(.3)
+                  //                       )
+                  //                     ]),
+                  //                 alignment: Alignment.center,
+                  //                 child: Row(
+                  //                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  //                   children: const [
+                  //                     Icon(Icons.money, color: Colors.white),
+                  //                     Text(
+                  //                       "Slip",
+                  //                       style: TextStyle(fontFamily: "Nexa", color: Colors.white),
+                  //                     ),
+                  //                   ],
+                  //                 ),
+                  //             )),
+                  //             const SizedBox(
+                  //               width: 5,
+                  //             ),
+                  //             Expanded(
+                  //               child: Container(
+                  //                 padding: const EdgeInsets.all(10),
+                  //                 decoration: BoxDecoration(
+                  //                     color: Constants.primaryColor,
+                  //                     borderRadius: BorderRadius.circular(10),
+                  //                     boxShadow: [
+                  //                       BoxShadow(
+                  //                         offset: const Offset(0, 1),
+                  //                         blurRadius: 5,
+                  //                         color: Constants.primaryColor.withOpacity(.3)
+                  //                       ),
+                  //                     ]),
+                  //                 alignment: Alignment.center,
+                  //                 child: Row(
+                  //                   mainAxisAlignment:
+                  //                       MainAxisAlignment.spaceEvenly,
+                  //                   children: const [
+                  //                     Icon(Icons.car_rental_outlined, color: Colors.white),
+                  //                     Text(
+                  //                       "Order",
+                  //                       style: TextStyle(fontFamily: "Nexa", color: Colors.white),
+                  //                     ),
+                  //                   ],
+                  //                 ),
+                  //               ),
+                  //             ),
+                  //             const SizedBox(
+                  //               width: 5,
+                  //             ),
+                  //             Expanded(
+                  //               child: Container(
+                  //                 padding: const EdgeInsets.all(10),
+                  //                 decoration: BoxDecoration(
+                  //                     color: Constants.primaryColor,
+                  //                     borderRadius: BorderRadius.circular(10),
+                  //                     boxShadow: [
+                  //                       BoxShadow(
+                  //                         offset: const Offset(0, 1),
+                  //                         blurRadius: 5,
+                  //                         color: Constants.primaryColor.withOpacity(.3)
+                  //                       ),
+                  //                     ]),
+                  //                 alignment: Alignment.center,
+                  //                 child: Row(
+                  //                   mainAxisAlignment:
+                  //                       MainAxisAlignment.spaceEvenly,
+                  //                   children: const [
+                  //                     Icon(Icons.monetization_on, color: Colors.white),
+                  //                     Text(
+                  //                       "Loan",
+                  //                       style: TextStyle(fontFamily: "Nexa", color: Colors.white),
+                  //                     ),
+                  //                   ],
+                  //                 ),
+                  //               ),
+                  //             ),
+                  //           ],
+                  //         ),
+                  //       )
+                  //     ],
+                  //   ),
+                  // )
                 ],
               ),
             ),

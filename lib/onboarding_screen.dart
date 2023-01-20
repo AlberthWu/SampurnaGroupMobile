@@ -112,6 +112,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     );
   }
 
+
   //Extra Widgets
 
   //Create the indicator decorations widget
