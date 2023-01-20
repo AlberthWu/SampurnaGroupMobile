@@ -179,7 +179,7 @@ class _DetailPageState extends State<DetailPage> {
                               Navigator.pushReplacement(
                                 context,
                                 PageTransition(
-                                  child: EditablePage(),
+                                  child: const EditablePage(),
                                   type: PageTransitionType.bottomToTop));
                             },
                             child: Container(
@@ -195,7 +195,7 @@ class _DetailPageState extends State<DetailPage> {
                                     ]),
                                     padding: 
                                       const EdgeInsets.symmetric(horizontal: 100, vertical: 10),
-                                      child: Center(
+                                      child: const Center(
                                       child: Text.rich(
                                         TextSpan(children: <TextSpan>[
                                           TextSpan(text: 'Loan ', style: TextStyle(color: Colors.white)),
@@ -215,7 +215,7 @@ class _DetailPageState extends State<DetailPage> {
                               Navigator.pushReplacement(
                                 context,
                                 PageTransition(
-                                  child: SelectablePage(),
+                                  child: const SelectablePage(),
                                   type: PageTransitionType.bottomToTop));
                             },
                             child: Container(
@@ -231,7 +231,7 @@ class _DetailPageState extends State<DetailPage> {
                                     ]),
                                     padding: 
                                       const EdgeInsets.symmetric(horizontal: 97, vertical: 10),
-                                      child: Center(
+                                      child: const Center(
                                       child: Text.rich(
                                         TextSpan(children: <TextSpan>[
                                           TextSpan(text: 'Order ', style: TextStyle(color: Colors.white)),
@@ -251,7 +251,7 @@ class _DetailPageState extends State<DetailPage> {
                               Navigator.pushReplacement(
                                 context,
                                 PageTransition(
-                                  child: SortablePage(),
+                                  child: const SortablePage(),
                                   type: PageTransitionType.bottomToTop));
                             },
                             child: Container(
@@ -267,7 +267,7 @@ class _DetailPageState extends State<DetailPage> {
                                     ]),
                                     padding: 
                                       const EdgeInsets.symmetric(horizontal: 103, vertical: 10),
-                                      child: Center(
+                                      child: const Center(
                                       child: Text.rich(
                                         TextSpan(children: <TextSpan>[
                                           TextSpan(text: 'Slip ', style: TextStyle(color: Colors.white)),
