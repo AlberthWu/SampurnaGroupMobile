@@ -33,7 +33,7 @@ class EmployWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
         ),
         height: 55.0,
-        padding: const EdgeInsets.only(left: 10, top: 15),
+        padding: const EdgeInsets.only(left: 10, top: 5, bottom: 5),
         margin: const EdgeInsets.only(bottom: 10, top: 5),
         width: size.width,
         child: Row(
@@ -62,8 +62,9 @@ class EmployWidget extends StatelessWidget {
                   ),
                 ),
                 Positioned(
-                  bottom: 5,
-                  left: 80,
+                  top: -3,
+                  bottom: -10,
+                  left: 50,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -72,7 +73,7 @@ class EmployWidget extends StatelessWidget {
                         employeeList[index].employeeName,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 18,
+                          fontSize: 15,
                           color: Constants.blackColor,
                         ),
                       ),
