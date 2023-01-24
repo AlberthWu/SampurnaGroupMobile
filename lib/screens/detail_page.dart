@@ -3,6 +3,7 @@ import 'package:page_transition/page_transition.dart';
 import 'package:sampurnagroupmobile/constants.dart';
 import 'package:sampurnagroupmobile/models/employ.dart';
 import 'package:sampurnagroupmobile/page/editable_page.dart';
+import 'package:sampurnagroupmobile/page/employ_form.dart';
 import 'package:sampurnagroupmobile/page/selectable_page.dart';
 import 'package:sampurnagroupmobile/page/sortable_page.dart';
 
@@ -48,7 +49,7 @@ class _DetailPageState extends State<DetailPage> {
                     width: 40,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(25),
-                      color: Constants.primaryColor.withOpacity(.15),
+                      color: Constants.secondaryColor.withOpacity(.15),
                     ),
                     child: Icon(
                       Icons.close,
@@ -65,7 +66,7 @@ class _DetailPageState extends State<DetailPage> {
                     width: 40,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(25),
-                      color: Constants.primaryColor.withOpacity(.15),
+                      color: Constants.secondaryColor.withOpacity(.15),
                     ),
                     child: IconButton(
                         onPressed: () {
@@ -98,10 +99,10 @@ class _DetailPageState extends State<DetailPage> {
               child: Stack(
                 children: [
                   Positioned(
-                    top: 10,
-                    left: 115,
+                    top: -30,
+                    left: 105,
                     child: SizedBox(
-                      height: 140,
+                      height: 250,
                       child: Image.asset(employeeList[widget.employId].imageURL),
                     ),
                   ),
@@ -147,7 +148,7 @@ class _DetailPageState extends State<DetailPage> {
               height: size.height * .5,
               width: size.width,
               decoration: BoxDecoration(
-                color: Constants.primaryColor.withOpacity(.4),
+                color: Constants.secondaryColor.withOpacity(.4),
                 borderRadius: const BorderRadius.only(
                   topRight: Radius.circular(45),
                   topLeft: Radius.circular(45),
@@ -194,7 +195,7 @@ class _DetailPageState extends State<DetailPage> {
                                       )
                                     ]),
                                     padding: 
-                                      const EdgeInsets.symmetric(horizontal: 100, vertical: 10),
+                                      const EdgeInsets.symmetric(horizontal: 130, vertical: 10),
                                       child: const Center(
                                       child: Text.rich(
                                         TextSpan(children: <TextSpan>[
@@ -208,7 +209,7 @@ class _DetailPageState extends State<DetailPage> {
                               ),
                           ),
                           const SizedBox(
-                            height: 10,
+                            height: 5,
                           ),
                           GestureDetector(
                             onTap: () {
@@ -230,7 +231,7 @@ class _DetailPageState extends State<DetailPage> {
                                       )
                                     ]),
                                     padding: 
-                                      const EdgeInsets.symmetric(horizontal: 97, vertical: 10),
+                                      const EdgeInsets.symmetric(horizontal: 127, vertical: 10),
                                       child: const Center(
                                       child: Text.rich(
                                         TextSpan(children: <TextSpan>[
@@ -244,7 +245,7 @@ class _DetailPageState extends State<DetailPage> {
                               ),
                           ),
                           const SizedBox(
-                            height: 10,
+                            height: 5,
                           ),
                           GestureDetector(
                             onTap: () {
@@ -266,11 +267,47 @@ class _DetailPageState extends State<DetailPage> {
                                       )
                                     ]),
                                     padding: 
-                                      const EdgeInsets.symmetric(horizontal: 103, vertical: 10),
+                                      const EdgeInsets.symmetric(horizontal: 133, vertical: 10),
                                       child: const Center(
                                       child: Text.rich(
                                         TextSpan(children: <TextSpan>[
                                           TextSpan(text: 'Slip ', style: TextStyle(color: Colors.white)),
+                                          TextSpan(text: 'Here ', style: TextStyle(color: Colors.white)),
+                                        ]),
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(fontSize: 12, fontFamily: 'Nexa'),
+                                      ),
+                                    ),
+                              ),
+                          ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.pushReplacement(
+                                context,
+                                PageTransition(
+                                  child: const FormEmploy(),
+                                  type: PageTransitionType.bottomToTop));
+                            },
+                            child: Container(
+                                decoration: BoxDecoration(
+                                    color: Constants.primaryColor,
+                                    borderRadius: BorderRadius.circular(10),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        offset: const Offset(0, 1),
+                                        blurRadius: 5,
+                                        color: Constants.primaryColor.withOpacity(.3)
+                                      )
+                                    ]),
+                                    padding: 
+                                      const EdgeInsets.symmetric(horizontal: 133, vertical: 10),
+                                      child: const Center(
+                                      child: Text.rich(
+                                        TextSpan(children: <TextSpan>[
+                                          TextSpan(text: 'Edit ', style: TextStyle(color: Colors.white)),
                                           TextSpan(text: 'Here ', style: TextStyle(color: Colors.white)),
                                         ]),
                                         textAlign: TextAlign.center,
@@ -427,7 +464,7 @@ class _DetailPageState extends State<DetailPage> {
             // Expanded(
               Container(
                 height: 100,
-                width: 200,
+                width: 260,
                 decoration: BoxDecoration(
                     color: Constants.primaryColor,
                     borderRadius: BorderRadius.circular(10),

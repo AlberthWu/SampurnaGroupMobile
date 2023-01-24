@@ -29,7 +29,7 @@ class EmployWidget extends StatelessWidget {
       },
       child: Container(
         decoration: BoxDecoration(
-          color: Constants.primaryColor.withOpacity(.1),
+          color: Constants.secondaryColor.withOpacity(.1),
           borderRadius: BorderRadius.circular(10),
         ),
         height: 55.0,

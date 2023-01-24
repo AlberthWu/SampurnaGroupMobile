@@ -37,7 +37,7 @@ class _RootPageState extends State<RootPage> {
 
   //List of the pages icons
   List<IconData> iconList = [
-    Icons.home,
+    Icons.supervised_user_circle_outlined,
     Icons.check_outlined,
     Icons.work_off_outlined,
     Icons.person,
@@ -45,7 +45,7 @@ class _RootPageState extends State<RootPage> {
 
   //List of the pages titles
   List<String> titleList = [
-    'Home',
+    'Employee',
     'Active',
     'Non Active',
     'Profile',
@@ -63,7 +63,7 @@ class _RootPageState extends State<RootPage> {
               fontWeight: FontWeight.w500,
               fontSize: 24,
             ),),
-            Icon(Icons.notifications, color: Constants.primaryColor, size: 30.0,)
+            Icon(Icons.edit_note_outlined, color: Constants.primaryColor, size: 30.0,)
           ],
         ),
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,

@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 
 class Constants {
   //Primary color
-  static var primaryColor = const Color.fromARGB(255, 41, 48, 110);
+  static var primaryColor = const Color.fromARGB(255, 174, 0, 0);
   static var blackColor = Colors.black54;
+  static var buttonColor = const Color.fromARGB(255, 214, 137, 0);
+  static var secondaryColor = const Color.fromARGB(255, 187, 187, 187);
 
   //Onboarding texts
   static var titleOne = "Learn more about Sampurna Group";

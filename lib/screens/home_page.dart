@@ -24,8 +24,7 @@ class _HomePageState extends State<HomePage> {
 
     //Employee category
     List<String> employeeTypes = [
-      'Head Office',
-      'Pool',
+      'Employee',
     ];
 
     //Toggle Favorite button
@@ -49,7 +48,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   width: size.width * .9,
                   decoration: BoxDecoration(
-                    color: Constants.primaryColor.withOpacity(.1),
+                    color: Constants.secondaryColor.withOpacity(.1),
                     borderRadius: BorderRadius.circular(25),
                   ),
                   child: Row(
@@ -79,153 +78,156 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            height: 45.0,
-            width: size.width,
-            child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: employeeTypes.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          selectedIndex = index;
-                        });
-                      },
-                      child: Text(
-                        employeeTypes[index],
-                        style: TextStyle(
-                          fontSize: 16.0,
-                          fontWeight: selectedIndex == index
-                              ? FontWeight.bold
-                              : FontWeight.w300,
-                          color: selectedIndex == index
-                              ? Constants.primaryColor
-                              : Constants.blackColor,
-                        ),
-                      ),
-                    ),
-                  );
-                }),
-          ),
-          SizedBox(
-            height: size.height * .3,
-            child: ListView.builder(
-                itemCount: employeeList.length,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (BuildContext context, int index) {
-                  return GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          PageTransition(
-                              child: DetailPage(
-                                employId: employeeList[index].employId,
-                              ),
-                              type: PageTransitionType.bottomToTop));
-                    },
-                    child: Container(
-                      width: 200,
-                      margin: const EdgeInsets.symmetric(horizontal: 10),
-                      decoration: BoxDecoration(
-                        color: Constants.primaryColor.withOpacity(.8),
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                      child: Stack(
-                        children: [
-                          Positioned(
-                            top: 10,
-                            right: 20,
-                            child: Container(
-                              height: 50,
-                              width: 50,
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(50),
-                              ),
-                              child: IconButton(
-                                onPressed: () {
-                                  setState(() {
-                                    bool isActivated= toggleIsActivated(
-                                        employeeList[index].isActivated);
-                                    employeeList[index].isActivated = isActivated;
-                                  });
-                                },
-                                icon: Icon(
-                                  employeeList[index].isActivated == true
-                                      ? Icons.work
-                                      : Icons.work_off_outlined,
-                                  color: Constants.primaryColor,
-                                ),
-                                iconSize: 30,
-                              ),
-                            ),
-                          ),
-                          Positioned(
-                            left: 5,
-                            right: 30,
-                            top: 20,
-                            bottom: 30,
-                            child: Image.asset(employeeList[index].imageURL),
-                          ),
-                          Positioned(
-                            bottom: 15,
-                            left: 20,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  employeeList[index].category,
-                                  style: const TextStyle(
-                                    color: Colors.white70,
-                                    fontSize: 16,
-                                  ),
-                                ),
-                                Text(
-                                  employeeList[index].employeeName,
-                                  style: const TextStyle(
-                                    color: Colors.white70,
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Positioned(
-                            bottom: 15,
-                            right: 10,
-                            child: Container(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 10, vertical: 2),
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  );
-                }),
-          ),
-          Container(
-            padding: const EdgeInsets.only(left: 16, bottom: 10, top: 15),
-            child: const Text(
-              'Employee',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 18.0,
+          // Container(
+          //   padding: const EdgeInsets.symmetric(horizontal: 10),
+          //   height: 45.0,
+          //   width: size.width,
+          //   child: ListView.builder(
+          //       scrollDirection: Axis.horizontal,
+          //       itemCount: employeeTypes.length,
+          //       itemBuilder: (BuildContext context, int index) {
+          //         return Padding(
+          //           padding: const EdgeInsets.all(8.0),
+          //           child: GestureDetector(
+          //             onTap: () {
+          //               setState(() {
+          //                 selectedIndex = index;
+          //               });
+          //             },
+          //             child: Text(
+          //               employeeTypes[index],
+          //               style: TextStyle(
+          //                 fontSize: 16.0,
+          //                 fontWeight: selectedIndex == index
+          //                     ? FontWeight.bold
+          //                     : FontWeight.w300,
+          //                 color: selectedIndex == index
+          //                     ? Constants.primaryColor
+          //                     : Constants.blackColor,
+          //               ),
+          //             ),
+          //           ),
+          //         );
+          //       }),
+          // ),
+          // SizedBox(
+          //   height: size.height * .3,
+          //   child: ListView.builder(
+          //       itemCount: employeeList.length,
+          //       scrollDirection: Axis.horizontal,
+          //       itemBuilder: (BuildContext context, int index) {
+          //         return GestureDetector(
+          //           onTap: () {
+          //             Navigator.push(
+          //                 context,
+          //                 PageTransition(
+          //                     child: DetailPage(
+          //                       employId: employeeList[index].employId,
+          //                     ),
+          //                     type: PageTransitionType.bottomToTop));
+          //           },
+          //           child: Container(
+          //             width: 200,
+          //             margin: const EdgeInsets.symmetric(horizontal: 10),
+          //             decoration: BoxDecoration(
+          //               color: Constants.primaryColor.withOpacity(.8),
+          //               borderRadius: BorderRadius.circular(25),
+          //             ),
+          //             child: Stack(
+          //               children: [
+          //                 Positioned(
+          //                   top: 10,
+          //                   right: 20,
+          //                   child: Container(
+          //                     height: 50,
+          //                     width: 50,
+          //                     decoration: BoxDecoration(
+          //                       color: Colors.white,
+          //                       borderRadius: BorderRadius.circular(50),
+          //                     ),
+          //                     child: IconButton(
+          //                       onPressed: () {
+          //                         setState(() {
+          //                           bool isActivated= toggleIsActivated(
+          //                               employeeList[index].isActivated);
+          //                           employeeList[index].isActivated = isActivated;
+          //                         });
+          //                       },
+          //                       icon: Icon(
+          //                         employeeList[index].isActivated == true
+          //                             ? Icons.work
+          //                             : Icons.work_off_outlined,
+          //                         color: Constants.primaryColor,
+          //                       ),
+          //                       iconSize: 30,
+          //                     ),
+          //                   ),
+          //                 ),
+          //                 Positioned(
+          //                   left: 5,
+          //                   right: 30,
+          //                   top: 20,
+          //                   bottom: 30,
+          //                   child: Image.asset(employeeList[index].imageURL),
+          //                 ),
+          //                 Positioned(
+          //                   bottom: 15,
+          //                   left: 20,
+          //                   child: Column(
+          //                     crossAxisAlignment: CrossAxisAlignment.start,
+          //                     children: [
+          //                       Text(
+          //                         employeeList[index].category,
+          //                         style: const TextStyle(
+          //                           color: Colors.white70,
+          //                           fontSize: 16,
+          //                         ),
+          //                       ),
+          //                       Text(
+          //                         employeeList[index].employeeName,
+          //                         style: const TextStyle(
+          //                           color: Colors.white70,
+          //                           fontSize: 14,
+          //                           fontWeight: FontWeight.bold,
+          //                         ),
+          //                       ),
+          //                     ],
+          //                   ),
+          //                 ),
+          //                 Positioned(
+          //                   bottom: 15,
+          //                   right: 10,
+          //                   child: Container(
+          //                     padding: const EdgeInsets.symmetric(
+          //                         horizontal: 10, vertical: 2),
+          //                     decoration: BoxDecoration(
+          //                       color: Colors.white,
+          //                       borderRadius: BorderRadius.circular(20),
+          //                     ),
+          //                   ),
+          //                 ),
+          //               ],
+          //             ),
+          //           ),
+          //         );
+          //       }),
+          // ),
+          // Container(
+          //   padding: const EdgeInsets.only(left: 16, bottom: 10, top: 15),
+          //   child: const Text(
+          //     'Employee',
+          //     style: TextStyle(
+          //       fontWeight: FontWeight.bold,
+          //       fontSize: 18.0,
+          //     ),
+          //   ),
+          // ),
+          const SizedBox(
+                height: 10,
               ),
-            ),
-          ),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 10),
-            height: size.height * .3,
+            height: size.height * .7,
             child: ListView.builder(
                 itemCount: employeeList.length,
                 scrollDirection: Axis.vertical,
