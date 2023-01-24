@@ -75,7 +75,7 @@ class SignIn extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                height: 10,
+                height: 15,
               ),
               GestureDetector(
                 onTap: () {
@@ -107,73 +107,73 @@ class SignIn extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              Row(
-                children: const [
-                  Expanded(child: Divider()),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10),
-                    child: Text('OR'),
-                  ),
-                  Expanded(child: Divider()),
-                ],
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Container(
-                width: size.width,
-                decoration: BoxDecoration(
-                    border: Border.all(color: Constants.primaryColor),
-                    borderRadius: BorderRadius.circular(10)),
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    SizedBox(
-                      height: 20,
-                      child: Image.asset('assets/images/google.png'),
-                    ),
-                    Text(
-                      'Sign In with Google',
-                      style: TextStyle(
-                        color: Constants.blackColor,
-                        fontSize: 15.0,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(
-                height: 5,
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushReplacement(
-                      context,
-                      PageTransition(
-                          child: const SignUp(),
-                          type: PageTransitionType.bottomToTop));
-                },
-                child: Center(
-                  child: Text.rich(
-                    TextSpan(children: [
-                      TextSpan(
-                        text: 'New? ',
-                        style: TextStyle(
-                          color: Constants.blackColor,
-                        ),
-                      ),
-                      TextSpan(
-                        text: 'Register',
-                        style: TextStyle(
-                          color: Constants.primaryColor,
-                        ),
-                      ),
-                    ]),
-                  ),
-                ),
-              ),
+              // Row(
+              //   children: const [
+              //     Expanded(child: Divider()),
+              //     Padding(
+              //       padding: EdgeInsets.symmetric(horizontal: 10),
+              //       child: Text('OR'),
+              //     ),
+              //     Expanded(child: Divider()),
+              //   ],
+              // ),
+              // const SizedBox(
+              //   height: 10,
+              // ),
+              // Container(
+              //   width: size.width,
+              //   decoration: BoxDecoration(
+              //       border: Border.all(color: Constants.primaryColor),
+              //       borderRadius: BorderRadius.circular(10)),
+              //   padding:
+              //       const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              //   child: Row(
+              //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              //     children: [
+              //       SizedBox(
+              //         height: 20,
+              //         child: Image.asset('assets/images/google.png'),
+              //       ),
+              //       Text(
+              //         'Sign In with Google',
+              //         style: TextStyle(
+              //           color: Constants.blackColor,
+              //           fontSize: 15.0,
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // ),
+              // const SizedBox(
+              //   height: 5,
+              // ),
+              // GestureDetector(
+              //   onTap: () {
+              //     Navigator.pushReplacement(
+              //         context,
+              //         PageTransition(
+              //             child: const SignUp(),
+              //             type: PageTransitionType.bottomToTop));
+              //   },
+              //   child: Center(
+              //     child: Text.rich(
+              //       TextSpan(children: [
+              //         TextSpan(
+              //           text: 'New? ',
+              //           style: TextStyle(
+              //             color: Constants.blackColor,
+              //           ),
+              //         ),
+              //         TextSpan(
+              //           text: 'Register',
+              //           style: TextStyle(
+              //             color: Constants.primaryColor,
+              //           ),
+              //         ),
+              //       ]),
+              //     ),
+              //   ),
+              // ),
             ],
           ),
         ),
