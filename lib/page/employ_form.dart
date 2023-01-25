@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:intl/intl.dart';
 import 'package:sampurnagroupmobile/constants.dart';
+import 'package:sampurnagroupmobile/page/MyRadioButton.dart';
 import 'package:sampurnagroupmobile/page/details.dart';
 
 class FormEmploy extends StatefulWidget {
@@ -16,7 +17,6 @@ class FormEmploy extends StatefulWidget {
 class _FormEmployState extends State<FormEmploy> {
 
   _FormEmployState(){
-    
     _selectedVal = _groupList[0];
   }
 
@@ -24,10 +24,10 @@ class _FormEmployState extends State<FormEmploy> {
   final _informasiKaryawanController = TextEditingController();
   final _informasiNIKController = TextEditingController();
   final _informasiAliasController = TextEditingController();
-
+  InformasiTypeEnum? _informasiTypeEnum;
 
   final _groupList = ["PT. Alam Sampurna Makmur", "PT. Niaga Citra Abadi", "PT. Sampurna Makmur Sejahtera"];
-  String? _selectedVal = " ";
+  String? _selectedVal = "";
   // String? selectedCity;
 
   @override
@@ -101,7 +101,7 @@ class _FormEmployState extends State<FormEmploy> {
             ),
                   const SizedBox(height: 10.0),
                   CheckboxListTile(
-                    title: Text('Menikah'),
+                    title: const Text('Menikah'),
                     value: timeDilation !=0.5,
                     onChanged: (bool? value) {
                       setState(() {
@@ -109,12 +109,44 @@ class _FormEmployState extends State<FormEmploy> {
                       });
                     },
                     activeColor: Constants.primaryColor,
-                    secondary: Icon(
+                    secondary: const Icon(
                         Icons.family_restroom_outlined,
                         color: Color.fromARGB(255, 174, 0, 0),
                       ),
                       checkColor: Colors.white,
                   ),
+                  const SizedBox(height: 10.0),
+                  Row(
+                    children: [
+                      MyRadioButton(
+                        title: InformasiTypeEnum.Aktif.name, 
+                        value: InformasiTypeEnum.Aktif, 
+                        informasiTypeEnum: _informasiTypeEnum, 
+                        onChanged: (val){
+                          setState(() {
+                            _informasiTypeEnum = val;
+                          });
+                        }),
+                      SizedBox(width: 5.0,),
+                      Expanded(
+                        child: RadioListTile<InformasiTypeEnum>(
+                          contentPadding: EdgeInsets.all(0.0),
+                            shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                          value: InformasiTypeEnum.Tidak, 
+                          groupValue: _informasiTypeEnum, 
+                          title: Text(InformasiTypeEnum.Tidak.name),
+                          onChanged: (InformasiTypeEnum? value){
+                            setState(() {
+                              _informasiTypeEnum = value;
+                            });
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                  
                   const SizedBox(height: 10.0),
                   MyDateTime(),
                   const SizedBox(height: 10.0),
@@ -138,10 +170,10 @@ class _FormEmployState extends State<FormEmploy> {
             ),
           );
         },
-        child: Text(
+        child: const Text(
           "Submit Form",
           style: TextStyle(
-            color: const Color.fromARGB(255, 174, 0, 0),
+            color: Color.fromARGB(255, 174, 0, 0),
             fontWeight: FontWeight.bold,
             fontSize: 16,
           ),
@@ -194,14 +226,14 @@ class _MyDateTimeState extends State<MyDateTime> {
   late TextEditingController _controller1;
 
   //String _initialValue = '';
-  String _valueChanged1 = '';
-  String _valueToValidate1 = '';
-  String _valueSaved1 = '';
+  String _valueChanged2 = '';
+  String _valueToValidate2 = '';
+  String _valueSaved2 = '';
 
   @override
   void initState() {
     super.initState();
-    Intl.defaultLocale = 'pt_BR';
+    Intl.defaultLocale = 'en_US';
     //_initialValue = DateTime.now().toString();
     _controller1 = TextEditingController(text: DateTime.now().toString());
 
@@ -232,7 +264,7 @@ class _MyDateTimeState extends State<MyDateTime> {
       icon: const Icon(Icons.event, color: Color.fromARGB(255, 174, 0, 0)),
       dateLabelText: 'Tanggal',
       timeLabelText: "Waktu",
-      locale: Locale('en', 'US'),
+      locale: const Locale('en', 'US'),
       //use24HourFormat: false,
       //locale: Locale('pt', 'BR'),
       selectableDayPredicate: (date) {
@@ -241,12 +273,12 @@ class _MyDateTimeState extends State<MyDateTime> {
         }
         return true;
       },
-      onChanged: (val) => setState(() => _valueChanged1 = val),
-      validator: (val) {
-        setState(() => _valueToValidate1 = val ?? '');
-        return null;
-      },
-      onSaved: (val) => setState(() => _valueSaved1 = val ?? ''),
+      // onChanged: (val) => setState(() => _valueChanged2 = val),
+      // validator: (val) {
+      //   setState(() => _valueToValidate2 = val ?? '');
+      //   return null;
+      // },
+      // onSaved: (val) => setState(() => _valueSaved2 = val ?? ''),
     );
   }
 }
