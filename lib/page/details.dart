@@ -15,14 +15,14 @@ class Details extends StatelessWidget {
         title: Text(informasiKaryawan),
         leading: IconButton(onPressed: () {
           Navigator.pop(context);
-        }, icon: Icon(Icons.arrow_back_ios_outlined)),
+        }, icon: const Icon(Icons.arrow_back_ios_outlined)),
       ),
       body: Container(
-        padding: EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0),
         child: ListView(
           children: [
             ListTile(
-              leading: Icon(Icons.people),
+              leading: const Icon(Icons.people),
               title: Text(informasiKaryawan),
               subtitle: Text(informasiNIK),
             ),
