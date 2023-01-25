@@ -1,5 +1,7 @@
+import 'package:date_time_picker/date_time_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:intl/intl.dart';
 import 'package:sampurnagroupmobile/constants.dart';
 import 'package:sampurnagroupmobile/page/details.dart';
 
@@ -14,12 +16,11 @@ class FormEmploy extends StatefulWidget {
 class _FormEmployState extends State<FormEmploy> {
 
   _FormEmployState(){
+    
     _selectedVal = _groupList[0];
   }
 
   //Variables
-  final formKey = GlobalKey<FormState>();
-  final controllerCity = TextEditingController();
   final _informasiKaryawanController = TextEditingController();
   final _informasiNIKController = TextEditingController();
   final _informasiAliasController = TextEditingController();
@@ -27,7 +28,7 @@ class _FormEmployState extends State<FormEmploy> {
 
   final _groupList = ["PT. Alam Sampurna Makmur", "PT. Niaga Citra Abadi", "PT. Sampurna Makmur Sejahtera"];
   String? _selectedVal = " ";
-  String? selectedCity;
+  // String? selectedCity;
 
   @override
   void dispose() {
@@ -73,7 +74,7 @@ class _FormEmployState extends State<FormEmploy> {
             DropdownButtonFormField(
               value: _selectedVal,
               items: _groupList.map(
-                (e) => DropdownMenuItem(child: Text(e), value: e,)
+                (e) => DropdownMenuItem(value: e,child: Text(e),)
               ).toList(),
               onChanged: (val) {
                 setState(() {
@@ -84,41 +85,44 @@ class _FormEmployState extends State<FormEmploy> {
                 Icons.arrow_drop_down_circle_outlined,
                 color: const Color.fromARGB(255, 174, 0, 0),  
               ),
-              dropdownColor: const Color.fromARGB(255, 255, 255, 255),
-              decoration: const InputDecoration(
-                labelText: "Grup Perusahaan",
-                prefixIcon: Icon(
-                  Icons.group_add_outlined,
-                  color: Color.fromARGB(255, 174, 0, 0),
-                ),
+            dropdownColor: const Color.fromARGB(255, 255, 255, 255),
+            decoration: const InputDecoration(
+              labelText: "Grup Perusahaan",
+              labelStyle: TextStyle(color: Colors.black),
+              prefixIcon: Icon(
+                Icons.group_add_outlined,
+                color: Color.fromARGB(255, 174, 0, 0),
+              ),
                 border: OutlineInputBorder(),
                   focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: Color.fromARGB(255, 214, 137, 0)),
                 ),
               ),
             ),
-            const SizedBox(height: 10.0),
-            CheckboxListTile(
-              title: Text('Menikah'),
-              value: timeDilation !=0.5,
-              onChanged: (bool? value) {
-                setState(() {
-                  timeDilation = value! ? 1.0 : 0.5;
-                });
-              },
-              activeColor: Constants.primaryColor,
-              secondary: Icon(
-                  Icons.family_restroom_outlined,
-                  color: Color.fromARGB(255, 174, 0, 0),
-                ),
-            ),
-            const SizedBox(height: 10.0),
-            //Submit Button
-            myBtn(context),
-          ],
-        ),
-      )
-    );
+                  const SizedBox(height: 10.0),
+                  CheckboxListTile(
+                    title: Text('Menikah'),
+                    value: timeDilation !=0.5,
+                    onChanged: (bool? value) {
+                      setState(() {
+                        timeDilation = value! ? 1.0 : 0.5;
+                      });
+                    },
+                    activeColor: Constants.primaryColor,
+                    secondary: Icon(
+                        Icons.family_restroom_outlined,
+                        color: Color.fromARGB(255, 174, 0, 0),
+                      ),
+                      checkColor: Colors.white,
+                  ),
+                  const SizedBox(height: 10.0),
+                  MyDateTime(),
+                  const SizedBox(height: 10.0),
+                  //Submit Button
+                  myBtn(context),
+                ],
+              ),  
+  ));
   }
   
   OutlinedButton myBtn(BuildContext context) {
@@ -172,8 +176,77 @@ class MyTextField extends StatelessWidget {
         focusedBorder: const OutlineInputBorder(
           borderSide: BorderSide(color: Color.fromARGB(255, 214, 137, 0)),
       ),
-      labelStyle: const TextStyle(color: Color.fromARGB(255, 174, 0, 0)),
+      labelStyle: const TextStyle(color: Colors.black),
     ));
   }
+}
 
+//Custom Date Time Picker
+class MyDateTime extends StatefulWidget {
+  MyDateTime({Key? key}) : super(key: key);
+
+  @override
+  _MyDateTimeState createState() => _MyDateTimeState();
+}
+
+class _MyDateTimeState extends State<MyDateTime> {
+  GlobalKey<FormState> _oFormKey = GlobalKey<FormState>();
+  late TextEditingController _controller1;
+
+  //String _initialValue = '';
+  String _valueChanged1 = '';
+  String _valueToValidate1 = '';
+  String _valueSaved1 = '';
+
+  @override
+  void initState() {
+    super.initState();
+    Intl.defaultLocale = 'pt_BR';
+    //_initialValue = DateTime.now().toString();
+    _controller1 = TextEditingController(text: DateTime.now().toString());
+
+    String isHour = TimeOfDay.now().hour.toString().padLeft(2, '0');
+    String isMinute = TimeOfDay.now().minute.toString().padLeft(2, '0');
+
+    _getValue();
+  }
+
+  Future<void> _getValue() async {
+    await Future.delayed(const Duration(seconds: 3), () {
+      setState(() {
+        //_initialValue = '2000-10-22 14:30';
+        _controller1.text = '2000-09-20 14:30';
+      });
+    });
+  }
+  
+  @override
+  Widget build(BuildContext context) {
+    return DateTimePicker(
+      type: DateTimePickerType.dateTimeSeparate,
+      dateMask: 'd MMM, yyyy',
+      controller: _controller1,
+      //initialValue: _initialValue,
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2100),
+      icon: const Icon(Icons.event, color: Color.fromARGB(255, 174, 0, 0)),
+      dateLabelText: 'Tanggal',
+      timeLabelText: "Waktu",
+      locale: Locale('en', 'US'),
+      //use24HourFormat: false,
+      //locale: Locale('pt', 'BR'),
+      selectableDayPredicate: (date) {
+        if (date.weekday == 6 || date.weekday == 7) {
+          return false;
+        }
+        return true;
+      },
+      onChanged: (val) => setState(() => _valueChanged1 = val),
+      validator: (val) {
+        setState(() => _valueToValidate1 = val ?? '');
+        return null;
+      },
+      onSaved: (val) => setState(() => _valueSaved1 = val ?? ''),
+    );
+  }
 }

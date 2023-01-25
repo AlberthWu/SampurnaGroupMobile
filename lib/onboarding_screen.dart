@@ -189,7 +189,7 @@ class CreatePage extends StatelessWidget {
             style: const TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.w300,
-              color: const Color.fromARGB(255, 187, 187, 187),
+              color: Color.fromARGB(255, 187, 187, 187),
             ),
           ),
           const SizedBox(
