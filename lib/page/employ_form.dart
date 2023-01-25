@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:sampurnagroupmobile/constants.dart';
 import 'package:sampurnagroupmobile/page/details.dart';
 
 class FormEmploy extends StatefulWidget {
@@ -94,6 +96,21 @@ class _FormEmployState extends State<FormEmploy> {
                   borderSide: BorderSide(color: Color.fromARGB(255, 214, 137, 0)),
                 ),
               ),
+            ),
+            const SizedBox(height: 10.0),
+            CheckboxListTile(
+              title: Text('Menikah'),
+              value: timeDilation !=0.5,
+              onChanged: (bool? value) {
+                setState(() {
+                  timeDilation = value! ? 1.0 : 0.5;
+                });
+              },
+              activeColor: Constants.primaryColor,
+              secondary: Icon(
+                  Icons.family_restroom_outlined,
+                  color: Color.fromARGB(255, 174, 0, 0),
+                ),
             ),
             const SizedBox(height: 10.0),
             //Submit Button

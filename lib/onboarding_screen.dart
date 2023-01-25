@@ -176,7 +176,7 @@ class CreatePage extends StatelessWidget {
             textAlign: TextAlign.center,
             style: TextStyle(
               color: Constants.primaryColor,
-              fontSize: 20,
+              fontSize: 18,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -187,9 +187,9 @@ class CreatePage extends StatelessWidget {
             description,
             textAlign: TextAlign.center,
             style: const TextStyle(
-              fontSize: 15,
-              fontWeight: FontWeight.w400,
-              color: Colors.grey,
+              fontSize: 14,
+              fontWeight: FontWeight.w300,
+              color: const Color.fromARGB(255, 187, 187, 187),
             ),
           ),
           const SizedBox(
