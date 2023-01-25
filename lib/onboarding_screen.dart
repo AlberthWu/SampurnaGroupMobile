@@ -123,7 +123,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       width: isActive ? 20 : 8,
       margin: const EdgeInsets.only(right: 5.0),
       decoration: BoxDecoration(
-        color: Constants.primaryColor,
+        color: Constants.buttonColor,
         borderRadius: BorderRadius.circular(5),
       ),
     );
