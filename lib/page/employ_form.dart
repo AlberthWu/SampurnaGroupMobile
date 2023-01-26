@@ -1,10 +1,14 @@
+// import 'package:autocomplete_textfield/autocomplete_textfield.dart';
 import 'package:date_time_picker/date_time_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:intl/intl.dart';
 import 'package:sampurnagroupmobile/constants.dart';
-import 'package:sampurnagroupmobile/page/MyRadioButton.dart';
+// import 'package:sampurnagroupmobile/page/autocomplete_field.dart';
+// import 'package:sampurnagroupmobile/page/MyRadioButton.dart';
 import 'package:sampurnagroupmobile/page/details.dart';
+
+enum Fruit { apple, banana }
 
 class FormEmploy extends StatefulWidget {
   const FormEmploy({Key? key}) : super(key: key);
@@ -17,6 +21,7 @@ class FormEmploy extends StatefulWidget {
 class _FormEmployState extends State<FormEmploy> {
 
   _FormEmployState(){
+    
     _selectedVal = _groupList[0];
   }
 
@@ -24,10 +29,11 @@ class _FormEmployState extends State<FormEmploy> {
   final _informasiKaryawanController = TextEditingController();
   final _informasiNIKController = TextEditingController();
   final _informasiAliasController = TextEditingController();
-  InformasiTypeEnum? _informasiTypeEnum;
+  // InformasiTypeEnum? _informasiTypeEnum;
 
   final _groupList = ["PT. Alam Sampurna Makmur", "PT. Niaga Citra Abadi", "PT. Sampurna Makmur Sejahtera"];
-  String? _selectedVal = "";
+  String? _selectedVal = " ";
+  Fruit? _fruit = Fruit.apple;
   // String? selectedCity;
 
   @override
@@ -115,38 +121,78 @@ class _FormEmployState extends State<FormEmploy> {
                       ),
                       checkColor: Colors.white,
                   ),
-                  const SizedBox(height: 10.0),
-                  Row(
-                    children: [
-                      MyRadioButton(
-                        title: InformasiTypeEnum.Aktif.name, 
-                        value: InformasiTypeEnum.Aktif, 
-                        informasiTypeEnum: _informasiTypeEnum, 
-                        onChanged: (val){
-                          setState(() {
-                            _informasiTypeEnum = val;
-                          });
-                        }),
-                      SizedBox(width: 5.0,),
-                      Expanded(
-                        child: RadioListTile<InformasiTypeEnum>(
-                          contentPadding: EdgeInsets.all(0.0),
-                            shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5.0),
-                          ),
-                          value: InformasiTypeEnum.Tidak, 
-                          groupValue: _informasiTypeEnum, 
-                          title: Text(InformasiTypeEnum.Tidak.name),
-                          onChanged: (InformasiTypeEnum? value){
-                            setState(() {
-                              _informasiTypeEnum = value;
-                            });
-                          },
-                        ),
-                      ),
-                    ],
+                  const SizedBox(height: 5.0),
+                  RadioListTile<Fruit>(
+                    title: const Text('Aktif'),
+                    value: Fruit.apple,
+                    groupValue: _fruit,
+                    onChanged: (Fruit? value) {
+                      setState(() {
+                        _fruit = value;
+                      });
+                    },
+                    activeColor: Constants.primaryColor,
                   ),
-                  
+                  // RadioListTile<Fruit>(
+                  //   title: const Text('Tidak'),
+                  //   value: Fruit.banana,
+                  //   groupValue: _fruit,
+                  //   onChanged: (Fruit? value) {
+                  //     setState(() {
+                  //       _fruit = value;
+                  //     });
+                  //   },
+                  //   activeColor: Constants.primaryColor,
+                  // ),
+                  const SizedBox(height: 5.0),
+                  Autocomplete(
+                    optionsBuilder: (
+                      TextEditingValue textEditingValue) {
+                        if (textEditingValue.text == '') {
+                          return ['PT. Alam Sampurna Makmur', 'PT. Niaga Citra Abadi', 'PT. Sampurna Makmur Sejahtera'];
+                        }
+                        return ['PT. Alam Sampurna Makmur', 'PT. Niaga Citra Abadi', 'PT. Sampurna Makmur Sejahtera']
+                            .where((String option) {
+                          return option
+                              .toString()
+                              .contains(textEditingValue.text.toLowerCase());
+                        });
+                      },
+                      onSelected: (option) {
+                        print(option);
+                      },
+                  ),
+                  const SizedBox(height: 10.0),
+                  // Row(
+                  //   children: [
+                  //     MyRadioButton(
+                  //       title: InformasiTypeEnum.Aktif.name, 
+                  //       value: InformasiTypeEnum.Aktif, 
+                  //       informasiTypeEnum: _informasiTypeEnum, 
+                  //       onChanged: (val){
+                  //         setState(() {
+                  //           _informasiTypeEnum = val;
+                  //         });
+                  //       }),
+                  //     const SizedBox(width: 5.0,),
+                  //     Expanded(
+                  //       child: RadioListTile<InformasiTypeEnum>(
+                  //         contentPadding: const EdgeInsets.all(0.0),
+                  //           shape: RoundedRectangleBorder(
+                  //           borderRadius: BorderRadius.circular(5.0),
+                  //         ),
+                  //         value: InformasiTypeEnum.Tidak, 
+                  //         groupValue: _informasiTypeEnum, 
+                  //         title: Text(InformasiTypeEnum.Tidak.name),
+                  //         onChanged: (InformasiTypeEnum? val){
+                  //           setState(() {
+                  //             _informasiTypeEnum = val;
+                  //           });
+                  //         },
+                  //       ),
+                  //     ),
+                  //   ],
+                  // ),
                   const SizedBox(height: 10.0),
                   MyDateTime(),
                   const SizedBox(height: 10.0),
@@ -180,6 +226,7 @@ class _FormEmployState extends State<FormEmploy> {
         ),
       );
   }
+  
 }
 
 //Custom Stateless Widget Class that helps re-usability
@@ -222,18 +269,18 @@ class MyDateTime extends StatefulWidget {
 }
 
 class _MyDateTimeState extends State<MyDateTime> {
-  GlobalKey<FormState> _oFormKey = GlobalKey<FormState>();
+  // GlobalKey<FormState> _oFormKey = GlobalKey<FormState>();
   late TextEditingController _controller1;
 
   //String _initialValue = '';
-  String _valueChanged2 = '';
-  String _valueToValidate2 = '';
-  String _valueSaved2 = '';
+  String _valueChanged1 = '';
+  String _valueToValidate1 = '';
+  String _valueSaved1 = '';
 
   @override
   void initState() {
     super.initState();
-    Intl.defaultLocale = 'en_US';
+    Intl.defaultLocale = 'pt_BR';
     //_initialValue = DateTime.now().toString();
     _controller1 = TextEditingController(text: DateTime.now().toString());
 
@@ -273,12 +320,12 @@ class _MyDateTimeState extends State<MyDateTime> {
         }
         return true;
       },
-      // onChanged: (val) => setState(() => _valueChanged2 = val),
-      // validator: (val) {
-      //   setState(() => _valueToValidate2 = val ?? '');
-      //   return null;
-      // },
-      // onSaved: (val) => setState(() => _valueSaved2 = val ?? ''),
+      onChanged: (val) => setState(() => _valueChanged1 = val),
+      validator: (val) {
+        setState(() => _valueToValidate1 = val ?? '');
+        return null;
+      },
+      onSaved: (val) => setState(() => _valueSaved1 = val ?? ''),
     );
   }
 }
