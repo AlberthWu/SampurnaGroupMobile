@@ -9,7 +9,7 @@ class MyHomePage1 extends StatefulWidget {
 }
 
 class _MyHomePageState1 extends State<MyHomePage1> {
-  List<Widget> pages = [FirstPage()];
+  List<Widget> pages = [AutoComplete()];
   int selectedIndex = 0;
 
   @override
@@ -19,17 +19,17 @@ class _MyHomePageState1 extends State<MyHomePage1> {
   }
 }
 
-class FirstPage extends StatefulWidget {
+class AutoComplete extends StatefulWidget {
   @override
-  _FirstPageState createState() => _FirstPageState();
+  _AutoCompleteState createState() => _AutoCompleteState();
 }
 
-class _FirstPageState extends State<FirstPage> {
+class _AutoCompleteState extends State<AutoComplete> {
   List<String> added = [];
   String currentText = "";
   GlobalKey<AutoCompleteTextFieldState<String>> key = GlobalKey();
 
-  _FirstPageState() {
+  _AutoCompleteState() {
     textField = SimpleAutoCompleteTextField(
       key: key,
       decoration: const InputDecoration(errorText: "Beans"),
