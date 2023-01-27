@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class Details extends StatelessWidget {
   Details ({Key? key, required this.informasiKaryawan, required this.informasiNIK, required this.informasiAlias}) : super(key: key);
 

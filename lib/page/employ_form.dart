@@ -1,11 +1,9 @@
-// import 'package:autocomplete_textfield/autocomplete_textfield.dart';
 import 'package:date_time_picker/date_time_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:intl/intl.dart';
 import 'package:sampurnagroupmobile/constants.dart';
 // import 'package:sampurnagroupmobile/page/autocomplete_field.dart';
-// import 'package:sampurnagroupmobile/page/MyRadioButton.dart';
 import 'package:sampurnagroupmobile/page/details.dart';
 
 enum Fruit { apple, banana }

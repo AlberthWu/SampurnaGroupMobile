@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:simple_autocomplete_formfield/simple_autocomplete_formfield.dart';
 
 final people = <Person>[Person('Alice', '123 Main'), Person('Bob', '456 Main')];
-// final letters = 'abcdefghijklmnopqrstuvwxyz'.split('');
+final letters = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
 class _autocomplete_textfieldState extends State<autocomplete_textfield> {
   String? selectedLetter;
@@ -22,10 +22,10 @@ class _autocomplete_textfieldState extends State<autocomplete_textfield> {
             key: formKey,
             autovalidateMode: autovalidate ? AutovalidateMode.always : AutovalidateMode.disabled,
             child: ListView(children: <Widget>[
-              const SizedBox(height: 16.0),
+              // const SizedBox(height: 16.0),
               // Text('Selected person: "$selectedPerson"'),
               // Text('Selected letter: "$selectedLetter"'),
-              const SizedBox(height: 16.0),
+              // const SizedBox(height: 16.0),
               SimpleAutocompleteFormField<Person>(
                 decoration: const InputDecoration(labelText: 'Person', border: OutlineInputBorder()),
                 suggestionsHeight: 80.0,
@@ -50,35 +50,37 @@ class _autocomplete_textfieldState extends State<autocomplete_textfield> {
                 validator: (person) => person == null ? 'Invalid person.' : null,
               ),
               const SizedBox(height: 16.0),
-              // SimpleAutocompleteFormField<String>(
-              //   decoration: InputDecoration(labelText: 'Letter', border: OutlineInputBorder()),
+              SimpleAutocompleteFormField<String>(
+                decoration: InputDecoration(labelText: 'Letter', border: OutlineInputBorder()),
               //   // suggestionsHeight: 200.0,
-              //   maxSuggestions: 10,
-              //   itemBuilder: (context, item) => Padding(
-              //     padding: EdgeInsets.all(8.0),
-              //     child: Text(item!),
-              //   ),
-              //   onSearch: (String search) async => search.isEmpty
-              //       ? letters
-              //       : letters.where((letter) => search.toLowerCase().contains(letter)).toList(),
-              //   itemFromString: (string) =>
-              //       letters.singleWhere((letter) => letter == string.toLowerCase(), orElse: () => ''),
-              //   onChanged: (value) => setState(() => selectedLetter = value),
-              //   onSaved: (value) => setState(() => selectedLetter = value),
-              //   validator: (letter) => letter == null ? 'Invalid letter.' : null,
-              // ),
+                maxSuggestions: 10,
+                itemBuilder: (context, item) => Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text(item!),
+                ),
+                onSearch: (String search) async => search.isEmpty
+                    ? letters
+                    : letters.where((letter) => search.toLowerCase().contains(letter)).toList(),
+                itemFromString: (string) =>
+                    letters.singleWhere((letter) => letter == string.toLowerCase(), orElse: () => ''),
+                onChanged: (value) => setState(() => selectedLetter = value),
+                onSaved: (value) => setState(() => selectedLetter = value),
+                validator: (letter) => letter == null ? 'Invalid letter.' : null,
+              ),
               const SizedBox(height: 16.0),
-              ElevatedButton(
-                  child: const Text('Submit'),
-                  onPressed: () {
-                    if (formKey.currentState?.validate() ?? false) {
-                      formKey.currentState!.save();
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Fields valid!')));
-                    } else {
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Fix errors to continue.')));
-                      setState(() => autovalidate = true);
-                    }
-                  })
+              // ElevatedButton(
+              //     child: const Text('Submit'),
+              //     onPressed: () {
+              //       if (formKey.currentState?.validate() ?? false) {
+              //         formKey.currentState!.save();
+              //         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Fields valid!')));
+              //       } else {
+              //         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Fix errors to continue.')));
+              //         setState(() => autovalidate = true);
+              //       }
+              //     }),
+              const SizedBox(height: 16.0),
+              
             ]),
           ),
         ),
