@@ -3,6 +3,7 @@ import 'package:sampurnagroupmobile/page/employ_form.dart';
 
 enum InformasiTypeEnum { Aktif, Tidak }
 
+// ignore: must_be_immutable
 class MyRadioButton extends StatelessWidget {
   MyRadioButton({Key? key,
   required this.title,
