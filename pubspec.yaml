@@ -57,6 +57,9 @@ dependencies:
   get: ^4.6.5
   flutter_map: ^3.1.0
   latlong2: ^0.8.1
+  latlong: ^0.6.1
+  geocoder: ^0.2.1
+  geocoder2: ^1.4.0
 
 dev_dependencies:
   flutter_test:
@@ -84,6 +87,7 @@ flutter:
   assets:
     - assets/images/
     - assets/countries/
+    - assets/icons/
     - country_codes.json
     # - images/a_dot_burr.jpeg
     # - images/a_dot_ham.jpeg

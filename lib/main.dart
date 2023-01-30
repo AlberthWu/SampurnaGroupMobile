@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sampurnagroupmobile/constants.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:sampurnagroupmobile/menu.dart';
+import 'package:sampurnagroupmobile/sampurnamenu/hp_sg.dart';
 // import 'package:sampurnagroupmobile/onboarding_screen.dart';
 
 void main() {

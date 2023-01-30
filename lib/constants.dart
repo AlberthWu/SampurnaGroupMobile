@@ -7,6 +7,12 @@ class Constants {
   static var buttonColor = const Color.fromARGB(255, 214, 137, 0);
   static var secondaryColor = const Color.fromARGB(255, 187, 187, 187);
 
+  //Colors
+  Color red1 = const Color.fromARGB(255, 174, 0, 0);
+  Color gold1 = const Color.fromARGB(255, 214, 137, 0);
+  Color black1 = Colors.black54;
+  Color grey1 =  const Color.fromARGB(255, 187, 187, 187);
+
   //Onboarding texts
   static var titleOne = "Learn more about Sampurna Group";
   static var descriptionOne = "Read how to use a in the Sampurna Group guide application.";

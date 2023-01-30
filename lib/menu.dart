@@ -57,10 +57,10 @@ class Menu extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(80),
+        preferredSize: const Size.fromHeight(80),
         child: Container(
           color: Theme.of(context).primaryColor,
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: SafeArea(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -86,7 +86,7 @@ class Menu extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(width: 16,),
+                const SizedBox(width: 16,),
                 Material(
                   shape: const CircleBorder(),
                   clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -174,7 +174,7 @@ class Menu extends StatelessWidget {
                               color: Colors.black12,
                               shape: BoxShape.circle
                             ),
-                            child: Icon(Icons.more_horiz_outlined),
+                            child: const Icon(Icons.more_horiz_outlined),
                           ),
                           const SizedBox(height: 8,),
                           const Text('More'),
@@ -241,7 +241,7 @@ class _TabPageState extends State<TabPage> {
           setState(() {
             _currentIndex = index;
             pageController.animateToPage(index, 
-            duration: Duration(milliseconds: 300), 
+            duration: const Duration(milliseconds: 300), 
             curve: Curves.easeOutCirc,
             );
           });
@@ -257,23 +257,23 @@ class _TabPageState extends State<TabPage> {
         ),
         iconSize: 20,
         items: [
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(Icons.map_outlined),
             label: 'Maps',
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(Icons.add_box_rounded),
             label: 'Order',
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(Icons.work),
             label: 'Perusahaan',
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(Icons.notification_important_rounded),
             label: 'Pengajuan',
           ),
