@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sampurnagroupmobile/absensi/face_page.dart';
 import 'package:sampurnagroupmobile/constants.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:sampurnagroupmobile/menu.dart';
@@ -11,6 +12,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+  static final String title = 'Local Auth';
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(fontFamily: 'Nexa',
       primaryColor: Constants.primaryColor,
       ),
-      home: TabPage(),
+      home: FacePage(),
       localizationsDelegates: [
         GlobalWidgetsLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
