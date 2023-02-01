@@ -51,11 +51,11 @@ class _autocomplete_textfieldState extends State<autocomplete_textfield> {
               ),
               const SizedBox(height: 16.0),
               SimpleAutocompleteFormField<String>(
-                decoration: InputDecoration(labelText: 'Letter', border: OutlineInputBorder()),
+                decoration: const InputDecoration(labelText: 'Letter', border: OutlineInputBorder()),
               //   // suggestionsHeight: 200.0,
                 maxSuggestions: 10,
                 itemBuilder: (context, item) => Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Text(item!),
                 ),
                 onSearch: (String search) async => search.isEmpty
@@ -108,6 +108,8 @@ class Person {
 // }
 
 class autocomplete_textfield extends StatefulWidget {
+  const autocomplete_textfield({super.key});
+
   @override
   _autocomplete_textfieldState createState() => _autocomplete_textfieldState();
 }
