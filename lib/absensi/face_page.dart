@@ -5,10 +5,12 @@ import 'package:sampurnagroupmobile/absensi/home_page.dart';
 
 
 class FacePage extends StatelessWidget {
+  const FacePage({super.key});
+
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: Text(MyApp.title),
+          title: const Text(MyApp.title),
           centerTitle: true,
         ),
         body: Padding(
@@ -77,6 +79,7 @@ class FacePage extends StatelessWidget {
           final isAuthenticated = await LocalAuthApi.authenticate();
 
           if (isAuthenticated) {
+            // ignore: use_build_context_synchronously
             Navigator.of(context).pushReplacement(
               MaterialPageRoute(builder: (context) => const HomePage()),
             );

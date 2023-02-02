@@ -6,17 +6,19 @@ import 'package:intl/intl.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter DateTimePicker Demo',
       home: MyHomePage1(),
-      localizationsDelegates: [
+      localizationsDelegates: const [
         GlobalWidgetsLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: [const Locale('en', 'US')], //, Locale('pt', 'BR')],
+      supportedLocales: const [Locale('en', 'US')], //, Locale('pt', 'BR')],
     );
   }
 }
@@ -29,7 +31,7 @@ class MyHomePage1 extends StatefulWidget {
 }
 
 class _MyHomePage1State extends State<MyHomePage1> {
-  GlobalKey<FormState> _oFormKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _oFormKey = GlobalKey<FormState>();
   late TextEditingController _controller1;
   late TextEditingController _controller2;
   late TextEditingController _controller3;

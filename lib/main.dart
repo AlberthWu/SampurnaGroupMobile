@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:sampurnagroupmobile/absensi/face_page.dart';
 import 'package:sampurnagroupmobile/constants.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:sampurnagroupmobile/menu.dart';
-import 'package:sampurnagroupmobile/sampurnamenu/hp_sg.dart';
-// import 'package:sampurnagroupmobile/onboarding_screen.dart';
+// import 'package:sampurnagroupmobile/imagecam.dart';
+import 'package:sampurnagroupmobile/onboarding_screen.dart';
+
+
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +12,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  static final String title = 'Local Auth';
+  static const String title = 'Local Auth';
 
   @override
   Widget build(BuildContext context) {
@@ -21,13 +21,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(fontFamily: 'Nexa',
       primaryColor: Constants.primaryColor,
       ),
-      home: FacePage(),
-      localizationsDelegates: [
+      home: OnboardingScreen(),
+      localizationsDelegates: const [
         GlobalWidgetsLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: [const Locale('en', 'US')],
+      supportedLocales: const [Locale('en', 'US')],
     );
   }
 }

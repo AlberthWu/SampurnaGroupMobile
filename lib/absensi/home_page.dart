@@ -8,7 +8,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: Text(MyApp.title),
+          title: const Text(MyApp.title),
         ),
         body: Padding(
           padding: const EdgeInsets.all(32),
@@ -37,7 +37,7 @@ class HomePage extends StatelessWidget {
           style: TextStyle(fontSize: 20),
         ),
         onPressed: () => Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => FacePage()),
+          MaterialPageRoute(builder: (context) => const FacePage()),
         ),
       );
 }
