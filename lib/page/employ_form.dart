@@ -5,6 +5,11 @@ import 'package:intl/intl.dart';
 import 'package:sampurnagroupmobile/constants.dart';
 // import 'package:sampurnagroupmobile/page/autocomplete_field.dart';
 import 'package:sampurnagroupmobile/page/details.dart';
+// import 'package:sampurnagroupmobile/image_profile/widget/profile_widget.dart';
+
+import 'package:image_picker/image_picker.dart';
+import 'package:flutter/services.dart';
+import 'dart:io';
 
 enum Fruit { apple, banana }
 
@@ -17,6 +22,37 @@ class FormEmploy extends StatefulWidget {
 }
 
 class _FormEmployState extends State<FormEmploy> {
+
+  File? image;
+
+  Future pickImage() async {
+    try {
+      final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+
+      if(image == null) return;
+
+      final imageTemp = File(image.path);
+
+      setState(() => this.image = imageTemp);
+    } on PlatformException catch(e) {
+      print('Failed to pick image: $e');
+    }
+  }
+
+  Future pickImageC() async {
+    try {
+      final image = await ImagePicker().pickImage(source: ImageSource.camera);
+
+      if(image == null) return;
+
+      final imageTemp = File(image.path);
+
+      setState(() => this.image = imageTemp);
+    } on PlatformException catch(e) {
+      print('Failed to pick image: $e');
+    }
+  }
+
 
   _FormEmployState(){
     
@@ -53,7 +89,46 @@ class _FormEmployState extends State<FormEmploy> {
       body: Container(
         padding: const EdgeInsets.all(20.0),
         child: ListView(
-          children: [
+          children: [ 
+          const SizedBox(height: 30,),
+          image != null ? Image.file(image!): const Text('No image selected', textAlign: TextAlign.center,),
+          const SizedBox(height: 50,),
+            OutlinedButton(
+                style: ButtonStyle(
+                  side: MaterialStateProperty.all(BorderSide(
+                    color: const Color.fromARGB(255, 214, 137, 0),
+                    width: 1.0,
+                    style: BorderStyle.solid)),
+                ),
+                child: const Text(
+                    "Gallery",
+                  style: TextStyle(
+                    color: const Color.fromARGB(255, 174, 0, 0), fontWeight: FontWeight.bold
+                  )
+                ),
+                onPressed: () {
+                  pickImage();
+                },
+            ),
+            const SizedBox(height: 20,),
+            OutlinedButton(
+              style: ButtonStyle(
+                  side: MaterialStateProperty.all(BorderSide(
+                    color: const Color.fromARGB(255, 214, 137, 0),
+                    width: 1.0,
+                    style: BorderStyle.solid)),
+                ),
+                child: const Text(
+                    "Camera",
+                    style: TextStyle(
+                        color: const Color.fromARGB(255, 174, 0, 0), fontWeight: FontWeight.bold
+                    )
+                ),
+                onPressed: () {
+                  pickImageC();
+                }
+            ),
+            const SizedBox(height: 20,),
             MyTextField(
               myController: _informasiKaryawanController, 
               fieldName: "Nama Lengkap",

@@ -256,24 +256,24 @@ class _TabPageState extends State<TabPage> {
           color: Colors.black26,
         ),
         iconSize: 20,
-        items: [
-          const BottomNavigationBarItem(
+        items: const [
+          BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
           ),
-          const BottomNavigationBarItem(
+          BottomNavigationBarItem(
             icon: Icon(Icons.map_outlined),
             label: 'Maps',
           ),
-          const BottomNavigationBarItem(
+          BottomNavigationBarItem(
             icon: Icon(Icons.add_box_rounded),
             label: 'Order',
           ),
-          const BottomNavigationBarItem(
+          BottomNavigationBarItem(
             icon: Icon(Icons.work),
             label: 'Perusahaan',
           ),
-          const BottomNavigationBarItem(
+          BottomNavigationBarItem(
             icon: Icon(Icons.notification_important_rounded),
             label: 'Pengajuan',
           ),
