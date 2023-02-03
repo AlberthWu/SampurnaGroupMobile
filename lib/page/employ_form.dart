@@ -269,6 +269,16 @@ class _FormEmployState extends State<FormEmploy> {
                   const SizedBox(height: 10.0),
                   MyDateTime(),
                   const SizedBox(height: 10.0),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                    child: TextFormField(
+                      decoration: const InputDecoration(
+                        border: UnderlineInputBorder(),
+                        labelText: 'Enter your username',
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 10.0),
                   //Submit Button
                   myBtn(context),
                 ],
