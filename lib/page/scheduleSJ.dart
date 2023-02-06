@@ -1,9 +1,13 @@
 // import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:sampurnagroupmobile/constants.dart';
-// import 'package:sampurnagroupmobile/constants.dart';
+import 'package:sampurnagroupmobile/models/schedule_driver.dart';
 import 'package:sampurnagroupmobile/page/colors_utils.dart';
 import 'package:sampurnagroupmobile/page/date_utils.dart' as date_util;
+// import 'package:sampurnagroupmobile/page/schedule.dart';
+import 'package:sampurnagroupmobile/screens/detail_schedule.dart';
+import 'package:sampurnagroupmobile/screens/schedule_widget.dart';
 
 class ScheduleSurat extends StatefulWidget {
   final String title;
@@ -20,6 +24,15 @@ class _ScheduleSuratState extends State<ScheduleSurat> {
   List<DateTime> currentMonthList = List.empty();
   DateTime currentDateTime = DateTime.now();
   List<String> todos = <String>[];
+
+  int selectedIndex = 0;
+  List<ScheduleDriver> scheduleList = ScheduleDriver.scheduleList;
+
+  //Schedule Category 
+  List<String> scheduleTypes = [
+    'ScheduleDriver',
+  ];
+
   TextEditingController controller = TextEditingController();
 
   @override
@@ -37,12 +50,6 @@ class _ScheduleSuratState extends State<ScheduleSurat> {
     return Container(
       decoration: BoxDecoration(
         color: HexColor("#00000"),
-        // image: DecorationImage(
-        //   image: const AssetImage("assets/images/bg.png"),
-        //   fit: BoxFit.cover,
-        //   colorFilter: ColorFilter.mode(
-        //       Colors.black.withOpacity(0.2), BlendMode.lighten),
-        // ),
       ),
     );
   }
@@ -57,8 +64,8 @@ class _ScheduleSuratState extends State<ScheduleSurat> {
           Text(
             "Schedule",
             style: TextStyle(
-              color: Constants.buttonColor,
-              fontSize: 16.0,
+              color: Constants.blackColor,
+              fontSize: 20.0,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -66,8 +73,8 @@ class _ScheduleSuratState extends State<ScheduleSurat> {
           Text(
             "Surat Jalan",
             style: TextStyle(
-              color: Constants.buttonColor.withOpacity(0.7),
-              fontSize: 16.0,
+              color: Constants.blackColor.withOpacity(0.7),
+              fontSize: 18.0,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -82,8 +89,8 @@ class _ScheduleSuratState extends State<ScheduleSurat> {
               ' ' +
             currentDateTime.year.toString(),
             style: TextStyle(
-              color: Constants.primaryColor,
-              fontSize: 12.0,
+              color: Constants.blackColor,
+              fontSize: 14.0,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -95,7 +102,7 @@ class _ScheduleSuratState extends State<ScheduleSurat> {
   Widget hrizontalCapsuleListView() {
     return SizedBox(
       width: width,
-      height: 155,
+      height: 150,
       child: ListView.builder(
         controller: scrollController,
         scrollDirection: Axis.horizontal,
@@ -111,7 +118,7 @@ class _ScheduleSuratState extends State<ScheduleSurat> {
 
   Widget capsuleView(int index) {
     return Padding(
-        padding: const EdgeInsets.fromLTRB(15, 75, 0, 20),
+        padding: const EdgeInsets.fromLTRB(12, 75, 1, 20),
         child: GestureDetector(
           onTap: () {
             setState(() {
@@ -119,7 +126,7 @@ class _ScheduleSuratState extends State<ScheduleSurat> {
             });
           },
           child: Container(
-            width: 50,
+            width: 40,
             height: 200,
             decoration: BoxDecoration(
                 gradient: LinearGradient(
@@ -138,12 +145,12 @@ class _ScheduleSuratState extends State<ScheduleSurat> {
                     end: const FractionalOffset(0.0, 1.0),
                     stops: const [0.0, 0.5, 1.0],
                     tileMode: TileMode.clamp),
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(10),
                 boxShadow: const [
                   BoxShadow(
                     offset: Offset(4, 4),
-                    blurRadius: 4,
-                    spreadRadius: 2,
+                    blurRadius: 2,
+                    spreadRadius: 1,
                     color: Colors.black12,
                   )
                 ]),
@@ -158,14 +165,14 @@ class _ScheduleSuratState extends State<ScheduleSurat> {
                         fontWeight: FontWeight.bold,
                         color:
                             (currentMonthList[index].day != currentDateTime.day)
-                                ? HexColor("AE0000")
+                                ? HexColor("000000")
                                 : Colors.white),
                   ),
                   Text(
                     date_util.DateUtils
                         .weekdays[currentMonthList[index].weekday - 1],
                     style: TextStyle(
-                        fontSize: 9,
+                        fontSize: 10,
                         fontWeight: FontWeight.bold,
                         color:
                             (currentMonthList[index].day != currentDateTime.day)
@@ -181,7 +188,7 @@ class _ScheduleSuratState extends State<ScheduleSurat> {
 
   Widget topView() {
     return Container(
-      height: height * 0.32,
+      height: height * 0.30,
       width: width,
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -204,141 +211,172 @@ class _ScheduleSuratState extends State<ScheduleSurat> {
     );
   }
 
-  Widget floatingActionBtn() {
-    return Align(
-      alignment: Alignment.bottomRight,
-      child: FloatingActionButton(
-        child: Container(
-          width: 100,
-          height: 100,
-          decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              gradient: LinearGradient(
-                  colors: [
-                    HexColor("AE0000"),
-                    HexColor("AE0000"),
-                    HexColor("AE0000")
-                  ],
-                  begin: const FractionalOffset(0.0, 0.0),
-                  end: const FractionalOffset(0.0, 1.0),
-                  stops: const [0.0, 0.5, 1.0],
-                  tileMode: TileMode.clamp)),
-          child: const Icon(
-            Icons.add,
-            size: 30,
-          ),
-        ),
-        onPressed: () {
-          controller.text = "";
-          showDialog(
-              context: context,
-              builder: (BuildContext context) {
-                return Dialog(
-                  backgroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20)),
-                  child: Container(
-                    height: 200,
-                    width: 320,
-                    padding: const EdgeInsets.all(12),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        const Text(
-                          "Schedule Surat Jalan",
-                          style: TextStyle(
-                              color: Color.fromARGB(255, 174, 0, 0),
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        const SizedBox(
-                          height: 30,
-                        ),
-                        TextField(
-                          controller: controller,
-                          style: const TextStyle(color: Colors.black),
-                          autofocus: true,
-                          decoration: const InputDecoration(
-                              hintText: 'Add your schedule',
-                              hintStyle: TextStyle(color: Colors.black),
-                              border: OutlineInputBorder(),
-                              focusedBorder: const OutlineInputBorder(
-                                borderSide: BorderSide(color: Color.fromARGB(255, 214, 137, 0)),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        SizedBox(
-                          width: 320,
-                          child: OutlinedButton(
-                            style: ButtonStyle(
-                              side: MaterialStateProperty.all(BorderSide(
-                                color: const Color.fromARGB(255, 214, 137, 0),
-                                width: 1.0,
-                                style: BorderStyle.solid)),
-                            ),
-                            onPressed: () {
-                              setState(() {
-                                todos.add(controller.text);
-                              });
-                              Navigator.of(context).pop();
-                            },
-                            child: const Text(
-                              "Add", 
-                              style: TextStyle(
-                                color: const Color.fromARGB(255, 174, 0, 0), fontWeight: FontWeight.bold
-                            )),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                );
-              });
-        },
-      ),
-    );
-  }
+  // Widget floatingActionBtn() {
+  //   return Align(
+  //     alignment: Alignment.bottomRight,
+  //     child: FloatingActionButton(
+  //       child: Container(
+  //         width: 100,
+  //         height: 100,
+  //         decoration: BoxDecoration(
+  //             shape: BoxShape.circle,
+  //             gradient: LinearGradient(
+  //                 colors: [
+  //                   HexColor("AE0000"),
+  //                   HexColor("AE0000"),
+  //                   HexColor("AE0000")
+  //                 ],
+  //                 begin: const FractionalOffset(0.0, 0.0),
+  //                 end: const FractionalOffset(0.0, 1.0),
+  //                 stops: const [0.0, 0.5, 1.0],
+  //                 tileMode: TileMode.clamp)),
+  //         child: const Icon(
+  //           Icons.add,
+  //           size: 20,
+  //         ),
+  //       ),
+        // onPressed: () {
+        //   controller.text = "";
+        //   showDialog(
+        //       context: context,
+        //       builder: (BuildContext context) {
+        //         return Dialog(
+        //           backgroundColor: Colors.white,
+        //           shape: RoundedRectangleBorder(
+        //               borderRadius: BorderRadius.circular(20)),
+        //           child: Container(
+        //             height: 220,
+        //             width: 320,
+        //             padding: const EdgeInsets.all(12),
+        //             child: Column(
+        //               mainAxisAlignment: MainAxisAlignment.center,
+        //               children: <Widget>[
+        //                 const SizedBox(
+        //                   height: 10,
+        //                 ),
+        //                 const Text(
+        //                   "Schedule Surat Jalan",
+        //                   style: TextStyle(
+        //                       color: Color.fromARGB(255, 174, 0, 0),
+        //                       fontSize: 16,
+        //                       fontWeight: FontWeight.bold),
+        //                 ),
+        //                 const SizedBox(
+        //                   height: 20,
+        //                 ),
+        //                 TextField(
+        //                   controller: controller,
+        //                   style: const TextStyle(color: Colors.black),
+        //                   autofocus: true,
+        //                   decoration: const InputDecoration(
+        //                       hintText: 'Add your schedule',
+        //                       hintStyle: TextStyle(color: Colors.black),
+        //                       border: OutlineInputBorder(),
+        //                       focusedBorder: const OutlineInputBorder(
+        //                         borderSide: BorderSide(color: Color.fromARGB(255, 214, 137, 0)),
+        //                     ),
+        //                   ),
+        //                 ),
+        //                 const SizedBox(
+        //                   height: 20,
+        //                 ),
+        //                 SizedBox(
+        //                   width: 300,
+        //                   child: OutlinedButton(
+        //                     style: ButtonStyle(
+        //                       side: MaterialStateProperty.all(const BorderSide(
+        //                         color: Color.fromARGB(255, 214, 137, 0),
+        //                         width: 1.0,
+        //                         style: BorderStyle.solid)),
+        //                     ),
+        //                     onPressed: () {
+        //                       setState(() {
+        //                         todos.add(controller.text);
+        //                       });
+        //                       Navigator.of(context).pop();
+        //                     },
+        //                     child: const Text(
+        //                       "Add", 
+        //                       style: TextStyle(
+        //                         color: const Color.fromARGB(255, 174, 0, 0), fontWeight: FontWeight.bold
+        //                     )),
+        //                   ),
+        //                 )
+        //               ],
+        //             ),
+        //           ),
+        //         );
+        //       });
+        // },
+  //     ),
+  //   );
+  // }
 
-  Widget todoList() {
+  // Widget todoList() {
+  //   return Container(
+      // margin: EdgeInsets.fromLTRB(10, height * 0.32, 10, 5),
+      // padding: const EdgeInsets.symmetric(horizontal: 10),
+      // width: width,
+      // height: height * .7,
+      // child: ListView.builder(
+      //     itemCount: scheduleList.length,
+      //     scrollDirection: Axis.vertical,
+      //     physics: const BouncingScrollPhysics(),
+          // padding: EdgeInsets.zero,
+          // itemBuilder: (BuildContext context, int index) {
+          //   return GestureDetector(
+          //     onTap: () {
+          //       Navigator.push(context, PageTransition(child: DetailSchedule(sDriverId: scheduleList[index].sDriverId), type: PageTransitionType.bottomToTop));
+          //     },
+          //   );
+            // Container(
+            //   margin: const EdgeInsets.fromLTRB(0, 0, 0, 15),
+            //   width: width - 20,
+            //   height: 50,
+            //   decoration: BoxDecoration(
+            //       color: Constants.secondaryColor.withOpacity(.3),
+            //       borderRadius: BorderRadius.circular(10),
+            //       boxShadow: const [
+            //         BoxShadow(
+            //             color: Colors.white12,
+            //             blurRadius: 2,
+            //             offset: Offset(2, 2),
+            //             spreadRadius: 3)
+            //       ]),
+            //   child: Center(
+            //     child: Text(
+            //       todos[index],
+            //       style: const TextStyle(
+            //           color: Colors.black,
+            //           fontSize: 14,
+            //           fontWeight: FontWeight.normal),
+            //     ),
+            //   ),
+            // );
+          // }),
+    // );
+  // }
+
+  //Widget Listing
+  Widget listingSchedule() {
     return Container(
-      margin: EdgeInsets.fromLTRB(10, height * 0.38, 10, 10),
+      margin: EdgeInsets.fromLTRB(10, height * 0.32, 10, 5),
+      padding: const EdgeInsets.symmetric(horizontal: 10),
       width: width,
-      height: height * 0.80,
+      height: height * .7,
+      // padding: const EdgeInsets.symmetric(horizontal: 10),
+      // height: height * .7,
       child: ListView.builder(
-          itemCount: todos.length,
-          padding: EdgeInsets.zero,
-          itemBuilder: (BuildContext context, int index) {
-            return Container(
-              margin: const EdgeInsets.fromLTRB(0, 0, 0, 15),
-              width: width - 30,
-              height: 50,
-              decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 174, 0, 0),
-                  borderRadius: BorderRadius.circular(30),
-                  boxShadow: const [
-                    BoxShadow(
-                        color: Colors.white12,
-                        blurRadius: 2,
-                        offset: Offset(2, 2),
-                        spreadRadius: 3)
-                  ]),
-              child: Center(
-                child: Text(
-                  todos[index],
-                  style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold),
-                ),
-              ),
-            );
-          }),
+        itemCount: scheduleList.length,
+        scrollDirection: Axis.vertical,
+        physics: const BouncingScrollPhysics(),
+        itemBuilder: (BuildContext context, int index) {
+        return GestureDetector(
+            onTap: (){
+              Navigator.push(context, PageTransition(child: DetailSchedule(sDriverId: scheduleList[index].sDriverId), type: PageTransitionType.bottomToTop));
+            },
+            child: ScheduleWidget(index: index, scheduleList: scheduleList));
+      }),
     );
   }
 
@@ -346,19 +384,27 @@ class _ScheduleSuratState extends State<ScheduleSurat> {
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
     height = MediaQuery.of(context).size.height;
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 174, 0, 0),
-        title: const Text("Schedule"),
-        centerTitle: true,
-      ),
-        body: Stack(
-          children: <Widget>[
-            backgroundView(), 
-            topView(),
-            todoList()
-          ],
+    // var size;
+    return Container(
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: const Color.fromARGB(255, 174, 0, 0),
+          title: const Text("Schedule"),
+          centerTitle: true,
         ),
-        floatingActionButton: floatingActionBtn());
+          body: Stack(
+            children: <Widget>[
+              backgroundView(), 
+              topView(),
+              listingSchedule()
+              // todoList()
+            ],   
+          ),
+        ),
+    );
+          // const SizedBox(
+          //   height: 10,
+          // ),
+        // floatingActionButton: floatingActionBtn()
   }
 }
