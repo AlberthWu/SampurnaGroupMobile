@@ -13,6 +13,20 @@ class DetailSchedule extends StatefulWidget {
 }
 
 class _DetailScheduleState extends State<DetailSchedule> {
+  // with SingleTickerProviderStateMixin {
+
+  // late TabController _tabController;
+
+  // @override
+  // void initState() {
+  //   _tabController = TabController(length: 2, vsync: this);
+  // }
+
+  // @override
+  // void dispose() {
+  //   super.dispose();
+  //   _tabController.dispose();
+  // }
 
   //Toggle Activated button
   // bool toggleIsActivated(bool isActivated) {
@@ -32,7 +46,7 @@ class _DetailScheduleState extends State<DetailSchedule> {
       body: Stack(
         children: [
           Positioned(
-            top: 20,
+            top: 30,
             left: 20,
             right: 10,
             child: Row(
@@ -109,7 +123,7 @@ class _DetailScheduleState extends State<DetailSchedule> {
                     right: 0,
                     left: 0,
                     child: SizedBox(
-                      height: 140,
+                      height: 130,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -117,51 +131,62 @@ class _DetailScheduleState extends State<DetailSchedule> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              ScheduleFeature(
-                                title: 'Asal',
-                                scheduleFeature: 
-                                    scheduleList[widget.sDriverId].asal,
+                              Container(
+                                width: size.width * 0.4,
+                                child: ScheduleFeature(
+                                  title: 'Asal',
+                                  scheduleFeature: 
+                                      scheduleList[widget.sDriverId].asal,
+                                ),
                               ),
-                              ScheduleFeature(
-                                title: 'Tujuan',
-                                scheduleFeature:
-                                    scheduleList[widget.sDriverId].tujuan,
-                              ),
-                            ],
-                          ),
-                          Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  ScheduleFeature(
-                                    title: 'Nomor SJ',
-                                    scheduleFeature:
-                                        scheduleList[widget.sDriverId].nomorSJ.toString(),
-                                  ),
-                                  ScheduleFeature(
-                                    title: 'Pool',
-                                    scheduleFeature:
-                                        scheduleList[widget.sDriverId].pool,
-                                  ),
-                                ],
-                              ),
-                              Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  ScheduleFeature(
-                                    title: 'Tanggal SJ',
-                                    scheduleFeature:
-                                        scheduleList[widget.sDriverId].tanggal.toString(),
-                                  ),
-                                ],
+                              Container(
+                                width: size.width * 0.4,
+                                child: ScheduleFeature(
+                                  title: 'Tujuan',
+                                  scheduleFeature:
+                                      scheduleList[widget.sDriverId].tujuan,
+                                ),
                               ),
                             ],
                           ),
-                            ],
+                          Expanded(
+                            child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Container(
+                                      width: size.width * 0.4,
+                                      child: ScheduleFeature(
+                                        title: 'Nomor SJ',
+                                        scheduleFeature:
+                                            scheduleList[widget.sDriverId].nomorSJ.toString(),
+                                      ),
+                                    ),
+                                    Container(
+                                      width: size.width * 0.4,
+                                      child: ScheduleFeature(
+                                        title: 'Pool',
+                                        scheduleFeature:
+                                            scheduleList[widget.sDriverId].pool,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                           ),
+                              Expanded(
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Container(
+                                      width: size.width * 0.4,
+                                      child: ScheduleFeature(
+                                        title: 'Tanggal SJ',
+                                        scheduleFeature:
+                                            scheduleList[widget.sDriverId].tanggal.toString(),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
                         ],
                       ),
                     ),
@@ -171,7 +196,7 @@ class _DetailScheduleState extends State<DetailSchedule> {
             ),
           ),
           const Positioned(
-            top: -125,
+            top: -170,
             left: 30,
             bottom: 0,
             child: CircleAvatar(
@@ -188,16 +213,16 @@ class _DetailScheduleState extends State<DetailSchedule> {
             child: Column(
               children: [
                 Container(
-                  padding: const EdgeInsets.all(3),
+                  padding: const EdgeInsets.all(1),
                   margin: const EdgeInsets.all(5),
                   decoration: BoxDecoration(
                       color: Constants.secondaryColor.withOpacity(0.4),
                   ),
                 ),
                 const Padding(
-                  padding: EdgeInsets.only(left: 0, bottom: 0, right: 0, top: 3),
+                  padding: EdgeInsets.only(left: 0, bottom: 0, right: 0, top: 15),
                   child: Text(
-                    'Driver',
+                    'Nama Driver',
                     textDirection: TextDirection.ltr,
                     style: TextStyle(
                       fontSize: 16,
@@ -205,51 +230,119 @@ class _DetailScheduleState extends State<DetailSchedule> {
                     ),
                   ),
                 ),
-                const Padding(
-                  padding: EdgeInsets.only(left: 0, bottom: 0, right: 0, top: 5),
-                  child: Text(
-                    'Nama Driver',
-                    textDirection: TextDirection.ltr,
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
+                Row(
+                  children: const [
+                    Padding(
+                      padding: EdgeInsets.only(left: 100, bottom: 0, right: 0, top: 5),
+                      child: Text(
+                        'Nomor Polisi',
+                        textDirection: TextDirection.ltr,
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(left: 0, bottom: 0, right: 0, top: 5),
-                  child: Text(
-                    'Nomor Polisi',
-                    textDirection: TextDirection.ltr,
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
+                    Padding(
+                      padding: EdgeInsets.only(left: 10, bottom: 0, right: 0, top: 5),
+                      child: Text(
+                        'Nomor SIM',
+                        textDirection: TextDirection.ltr,
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
-                  ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 10, bottom: 0, right: 0, top: 5),
+                      child: Text(
+                        'Expired Date SIM',
+                        textDirection: TextDirection.ltr,
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
-
           ),   
           Positioned(
             top: 325,
             right: 0,
             left: 0,
             child: Container(
-              padding: const EdgeInsets.all(3),
+              padding: const EdgeInsets.all(1),
               decoration: BoxDecoration(
                   color: Constants.secondaryColor.withOpacity(0.4),
                   // borderRadius: BorderRadius.circular(15),
               ),
             ),
           ),
+          // Positioned(
+          //   top: 340,
+          //   right: 0,
+          //   left: 10,
+          //   child: Container(
+          //     child: Row(
+          //       children: [
+          //         const SizedBox(width: 12.0),
+          //         InkWell(
+          //           onTap: () {},
+          //           child: const Text('Memo Potongan'),
+          //         ),
+          //         const SizedBox(width: 12.0),
+          //         InkWell(
+          //           onTap: () {},
+          //           child: const Text('Kasbon'),
+          //         ),
+          //       ],
+          //     ),
+          //   ), 
+          // ),
+          Positioned(
+            top: 330,
+            right: 0,
+            left: 0,
+            child: Container(
+              height: 40,
+              // decoration: BoxDecoration(
+              //   color: Constants.whiteColor,
+                // borderRadius: BorderRadius.circular(15,),
+              // ),
+              child: DefaultTabController(
+                length: 2,
+                child: Container(
+                  child: TabBar(
+                    // controller: _tabController,
+                    indicator: const UnderlineTabIndicator(
+                      borderSide: BorderSide(width: 1.0),
+                      // color: Constants.blackColor,
+                    ),
+                    labelColor: Constants.primaryColor,
+                    unselectedLabelColor: Constants.blackColor,
+                    tabs: const [
+                      Tab(
+                        child: Text('Memo Potongan'),
+                      ),
+                      Tab(
+                        child: Text('Kasbon'),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            )),
           Positioned(
             bottom: 0,
             left: 0,
             right: 0,
             child: Container(
               padding: const EdgeInsets.only(top: 30, left: 30, right: 30),
-              height: size.height * .2,
+              height: size.height * .12,
               width: size.width,
               decoration: BoxDecoration(
                 color: Constants.secondaryColor.withOpacity(.4),
@@ -267,16 +360,16 @@ class _DetailScheduleState extends State<DetailSchedule> {
                     children: [
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            scheduleList[widget.sDriverId].asal,
-                            style: TextStyle(
-                              color: Constants.primaryColor,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20.0,
-                            ),
-                          ),
-                          const SizedBox(
+                        children: const [
+                          // Text(
+                          //   scheduleList[widget.sDriverId].asal,
+                          //   style: TextStyle(
+                          //     color: Constants.primaryColor,
+                          //     fontWeight: FontWeight.bold,
+                          //     fontSize: 20.0,
+                          //   ),
+                          // ),
+                          SizedBox(
                             height: 20,
                           ),
                         ],
@@ -416,12 +509,14 @@ class ScheduleFeature extends StatelessWidget {
             color: Constants.blackColor,
           ),
         ),
-        Text(
-          scheduleFeature,
-          style: TextStyle(
-            color: Constants.primaryColor,
-            fontSize: 16.0,
-            fontWeight: FontWeight.bold,
+        FittedBox(
+          child: Text(
+            scheduleFeature,
+            style: TextStyle(
+              color: Constants.primaryColor,
+              fontSize: 14.0,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         )
       ],

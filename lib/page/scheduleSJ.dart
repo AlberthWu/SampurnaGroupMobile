@@ -126,7 +126,7 @@ class _ScheduleSuratState extends State<ScheduleSurat> {
             });
           },
           child: Container(
-            width: 40,
+            width: 45,
             height: 200,
             decoration: BoxDecoration(
                 gradient: LinearGradient(
