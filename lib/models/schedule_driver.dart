@@ -22,7 +22,7 @@ class ScheduleDriver {
       sDriverId: 0,
       tanggal: 2023,
       asal: 'Depo Cianjur',
-      tujuan: 'MYR - Tangerang',
+      tujuan: 'MYR - Tangerang - Tangerang ',
       nomorSJ: 3230100005,
       noSchedule: 'CA2301004',
       pool: 'Head Office'),
