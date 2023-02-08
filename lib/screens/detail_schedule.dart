@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// import 'package:get/get.dart';
 import 'package:sampurnagroupmobile/constants.dart';
 
 //schedule 
@@ -13,6 +14,11 @@ class DetailSchedule extends StatefulWidget {
 }
 
 class _DetailScheduleState extends State<DetailSchedule> {
+  
+
+  // String? selectedValue;
+
+
   // with SingleTickerProviderStateMixin {
 
   // late TabController _tabController;
@@ -46,7 +52,7 @@ class _DetailScheduleState extends State<DetailSchedule> {
       body: Stack(
         children: [
           Positioned(
-            top: 30,
+            top: 40,
             left: 20,
             right: 10,
             child: Row(
@@ -57,8 +63,8 @@ class _DetailScheduleState extends State<DetailSchedule> {
                     Navigator.pop(context);
                   },
                   child: Container(
-                    height: 40,
-                    width: 40,
+                    height: 30,
+                    width: 30,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(25),
                       color: Constants.secondaryColor.withOpacity(.15),
@@ -196,8 +202,8 @@ class _DetailScheduleState extends State<DetailSchedule> {
             ),
           ),
           const Positioned(
-            top: -170,
-            left: 30,
+            top: -175,
+            left: 25,
             bottom: 0,
             child: CircleAvatar(
               radius: 25,
@@ -303,65 +309,120 @@ class _DetailScheduleState extends State<DetailSchedule> {
           //     ),
           //   ), 
           // ),
+          Container(
+              margin: EdgeInsets.symmetric(horizontal: 100, vertical: 40),
+              padding: EdgeInsets.all(10),
+              alignment: Alignment.bottomCenter,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(backgroundColor: Constants.statusColor),
+                    child: Text("Terima", style:TextStyle(color: Constants.blackColor, fontSize: 14.0, fontStyle: FontStyle.normal),),
+                    onPressed: () {},
+                  ),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(backgroundColor: Constants.closeColor),
+                    child: Text("Tolak", style: TextStyle(color: Constants.blackColor, fontSize: 14.0, fontStyle: FontStyle.normal),),
+                    onPressed: () {},
+                  ),
+                ],
+              ),
+            ),
           Positioned(
-            top: 330,
+            top: 300,
             right: 0,
             left: 0,
             child: Container(
-              height: 40,
+              height: 300,
+              width: 300,
               // decoration: BoxDecoration(
               //   color: Constants.whiteColor,
                 // borderRadius: BorderRadius.circular(15,),
               // ),
               child: DefaultTabController(
                 length: 2,
-                child: Container(
-                  child: TabBar(
-                    // controller: _tabController,
-                    indicator: const UnderlineTabIndicator(
-                      borderSide: BorderSide(width: 1.0),
-                      // color: Constants.blackColor,
+                child: PreferredSize(
+                  preferredSize: Size.fromHeight(kToolbarHeight),
+                  child: Container(
+                    child: SafeArea(
+                      // height: 100.0,
+                      child: Column(
+                        children: <Widget>[
+                          TabBar(
+                            // controller: _tabController,
+                            indicator: const UnderlineTabIndicator(
+                              borderSide: BorderSide(width: 1.0),
+                              // color: Constants.blackColor,
+                            ),
+                            labelColor: Constants.primaryColor,
+                            unselectedLabelColor: Constants.blackColor,
+                            tabs: const <Widget>[
+                              Tab(
+                                text: "Memo Potongan",
+                                // child: Text('Memo Potongan'),
+                              ),
+                              Tab(
+                                text: "Kasbon",
+                                // child: Text('Kasbon'),
+                              ),
+                            ],
+                          ),
+                          Expanded(
+                            child: TabBarView(
+                              children: <Widget>[
+                                Container(
+                                  height: 100,
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [Text("Memo Potongan")],
+                                    // color: Constants.whiteColor,
+                                  ),
+                                ),
+                                Container(
+                                  width: 100,
+                                  height: 100,
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [Text("Kasbon")],
+                                    // color: Constants.primaryColor,
+                                  ),
+                                ),
+                              ])),
+                        ],
+                      ),
                     ),
-                    labelColor: Constants.primaryColor,
-                    unselectedLabelColor: Constants.blackColor,
-                    tabs: const [
-                      Tab(
-                        child: Text('Memo Potongan'),
-                      ),
-                      Tab(
-                        child: Text('Kasbon'),
-                      ),
-                    ],
                   ),
                 ),
               ),
             )),
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: Container(
-              padding: const EdgeInsets.only(top: 30, left: 30, right: 30),
-              height: size.height * .12,
-              width: size.width,
-              decoration: BoxDecoration(
-                color: Constants.secondaryColor.withOpacity(.4),
-                borderRadius: const BorderRadius.only(
-                  topRight: Radius.circular(45),
-                  topLeft: Radius.circular(45),
-                ),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
-                          // Text(
+            
+          // Positioned(
+          //   bottom: 0,
+          //   left: 0,
+          //   right: 0,
+          //   child: Container(
+          //     padding: const EdgeInsets.only(top: 30, left: 30, right: 30),
+          //     height: size.height * .12,
+          //     width: size.width,
+          //     decoration: BoxDecoration(
+          //       color: Constants.secondaryColor.withOpacity(.4),
+          //       borderRadius: const BorderRadius.only(
+          //         topRight: Radius.circular(45),
+          //         topLeft: Radius.circular(45),
+          //       ),
+          //     ),
+          //     child: Column(
+          //       crossAxisAlignment: CrossAxisAlignment.start,
+          //       children: [
+          //         Row(
+          //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //           crossAxisAlignment: CrossAxisAlignment.center,
+          //           children: [
+          //             Column(
+          //               crossAxisAlignment: CrossAxisAlignment.start,
+          //               children: const [
+          //                 // Text(
                           //   scheduleList[widget.sDriverId].asal,
                           //   style: TextStyle(
                           //     color: Constants.primaryColor,
@@ -369,13 +430,13 @@ class _DetailScheduleState extends State<DetailSchedule> {
                           //     fontSize: 20.0,
                           //   ),
                           // ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
+                  //         SizedBox(
+                  //           height: 20,
+                  //         ),
+                  //       ],
+                  //     ),
+                  //   ],
+                  // ),
                   // Container(
                   //   height: 50,
                   //   margin: 
@@ -479,12 +540,12 @@ class _DetailScheduleState extends State<DetailSchedule> {
                   //     ],
                   //   ),
                   // )
-                ],
-              ),
-            ),
-          ),
+          //       ],
+          //     ),
+          //   ),
+          // ),
         ],
-      ), 
+      ),
     );
   }
 }
