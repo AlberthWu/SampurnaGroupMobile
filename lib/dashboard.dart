@@ -55,36 +55,36 @@ class _MyHomePageState extends State<MyHomePage>
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold)),
           const SizedBox(height: 10.0),
-          // TabBar(
-          //     controller: _tabController,
-          //     indicatorColor: Colors.transparent,
-          //     labelColor: const Color.fromARGB(255, 0, 0, 0),
-          //     isScrollable: true,
-          //     labelPadding: const EdgeInsets.only(right: 45.0),
-          //     unselectedLabelColor: const Color(0xFFCDCDCD),
-          //     tabs: const [
-          //       Tab(
-          //         child: Text('Person',
-          //             style: TextStyle(
-          //               fontFamily: 'Nexa',
-          //               fontSize: 21.0,
-          //             )),
-          //       ),
-          //       Tab(
-          //         child: Text('Person',
-          //             style: TextStyle(
-          //               fontFamily: 'Nexa',
-          //               fontSize: 21.0,
-          //             )),
-          //       ),
-          //       Tab(
-          //         child: Text('Person',
-          //             style: TextStyle(
-          //               fontFamily: 'Nexa',
-          //               fontSize: 21.0,
-          //             )),
-          //       )
-          //     ]),
+          TabBar(
+              controller: _tabController,
+              indicatorColor: Colors.transparent,
+              labelColor: const Color.fromARGB(255, 0, 0, 0),
+              isScrollable: true,
+              labelPadding: const EdgeInsets.only(right: 45.0),
+              unselectedLabelColor: const Color(0xFFCDCDCD),
+              tabs: const [
+                Tab(
+                  child: Text('Person',
+                      style: TextStyle(
+                        fontFamily: 'Nexa',
+                        fontSize: 21.0,
+                      )),
+                ),
+                Tab(
+                  child: Text('Person',
+                      style: TextStyle(
+                        fontFamily: 'Nexa',
+                        fontSize: 21.0,
+                      )),
+                ),
+                Tab(
+                  child: Text('Person',
+                      style: TextStyle(
+                        fontFamily: 'Nexa',
+                        fontSize: 21.0,
+                      )),
+                )
+              ]),
               SizedBox(
                 height: MediaQuery.of(context).size.height - 50.0,
                 width: double.infinity,

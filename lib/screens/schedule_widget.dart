@@ -33,7 +33,7 @@ class ScheduleWidget extends StatelessWidget {
           color: Constants.secondaryColor.withOpacity(.1),
           borderRadius: BorderRadius.circular(10),
         ),
-        height: 70.0,
+        height: 130.0,
         padding: const EdgeInsets.only(left: 10, top: 5, bottom: 5),
         margin: const EdgeInsets.only(bottom: 10, top: 5),
         width: size.width,
@@ -47,10 +47,10 @@ class ScheduleWidget extends StatelessWidget {
                 Container(
                   width: 40.0,
                   height: 40.0,
-                  decoration: BoxDecoration(
-                    color: Constants.primaryColor.withOpacity(.8),
-                    shape: BoxShape.circle,
-                  ),
+                  // decoration: BoxDecoration(
+                  //   color: Constants.primaryColor.withOpacity(.8),
+                  //   shape: BoxShape.circle,
+                  // ),
                 ),
                 // Positioned(
                 //   bottom: 0,
@@ -63,22 +63,74 @@ class ScheduleWidget extends StatelessWidget {
                 //   ),
                 // ),
                 Positioned(
-                  top: -12,
-                  bottom: -30,
-                  left: 50,
+                  top: -28,
+                  bottom: -35,
+                  left: 10,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(scheduleList[index].asal),
-                      Text(
-                        scheduleList[index].tujuan,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 12,
-                          color: Constants.blackColor,
-                        ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            width: size.width * 0.7,
+                            child: Text(
+                              scheduleList[index].asal,
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14,
+                                color: Constants.blackColor,
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: size.width * 0.4,
+                            child: Text("5/5")
+                          ),
+                        ],
                       ),
-                      Text( r'$' + scheduleList[index].nomorSJ.toString()),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            width: size.width * 0.65,
+                            child: Text(
+                              scheduleList[index].tujuan,
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 12,
+                                color: Constants.blackColor,
+                              ),
+                            ),
+                          ),
+                          ElevatedButton(
+                            style: ElevatedButton.styleFrom(backgroundColor: Constants.statusColor),
+                            onPressed: () {},
+                            child: Container(
+                              child: const Text(
+                                'Open', 
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            // width: size.width * 0.64,
+                            child: Text( 
+                              r'$' + scheduleList[index].nomorSJ.toString(),
+                            ),
+                          ),
+                          
+                        ],
+                      ),
                     ],
                   ),
                 ),

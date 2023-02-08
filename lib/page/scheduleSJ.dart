@@ -33,7 +33,23 @@ class _ScheduleSuratState extends State<ScheduleSurat> {
     'ScheduleDriver',
   ];
 
+  // intial DropdownTab Value
+  String DropdownTabBarval = 'Open';
+
+  // List of items in our dropdown menu
+  List<String> items = [
+    "Open",
+    "Transfer",
+    "Transit",
+    "Loading",
+    "Unloading",
+    "Pending",
+  ];
+  int current = 0;
+
   TextEditingController controller = TextEditingController();
+
+  // String? selectedValue;
 
   @override
   void initState() {
@@ -54,18 +70,65 @@ class _ScheduleSuratState extends State<ScheduleSurat> {
     );
   }
 
+  Widget DropTab() {
+    return DefaultTabController(
+      initialIndex: 1,
+      length: 3,
+      child: PreferredSize(
+        preferredSize: Size.fromHeight(kToolbarHeight),
+        child: Container(
+          height: 50,
+          child: SafeArea(
+            child: Column(
+              children: <Widget>[
+                TabBar(
+                  labelColor: Constants.primaryColor,
+                  tabs: <Widget>[
+                    Tab(
+                      text: "1",
+                    ),
+                    Tab(
+                      text: "2",
+                    ),
+                    // Tab(
+                    //   text: "3",
+                    // ),
+                    DropdownButton(
+                      value: DropdownTabBarval,
+                      items: items.map((String items) {
+                        return DropdownMenuItem(
+                          value: items,
+                          child: Text(items),
+                        );
+                      }).toList(),
+                      onChanged: (String? newValue) {
+                        setState(() {
+                          DropdownTabBarval = newValue!;
+                        });
+                      },
+                    ),
+                  ]),
+              ],
+            ),
+          ),
+        ),
+        // TabBar(tabs: [],),
+      ),
+    );
+  }
+
   Widget titleView() {
     return Row(
       children: <Widget>[
       Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(4.0),
         child: Row(
         children: <Widget>[
           Text(
             "Schedule",
             style: TextStyle(
               color: Constants.blackColor,
-              fontSize: 20.0,
+              fontSize: 18.0,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -118,7 +181,7 @@ class _ScheduleSuratState extends State<ScheduleSurat> {
 
   Widget capsuleView(int index) {
     return Padding(
-        padding: const EdgeInsets.fromLTRB(12, 75, 1, 20),
+        padding: const EdgeInsets.fromLTRB(12, 40, 1, 50),
         child: GestureDetector(
           onTap: () {
             setState(() {
@@ -127,7 +190,7 @@ class _ScheduleSuratState extends State<ScheduleSurat> {
           },
           child: Container(
             width: 45,
-            height: 200,
+            height: 160,
             decoration: BoxDecoration(
                 gradient: LinearGradient(
                     colors: (currentMonthList[index].day != currentDateTime.day)
@@ -188,7 +251,7 @@ class _ScheduleSuratState extends State<ScheduleSurat> {
 
   Widget topView() {
     return Container(
-      height: height * 0.30,
+      height: height * 0.325,
       width: width,
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -206,6 +269,7 @@ class _ScheduleSuratState extends State<ScheduleSurat> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             titleView(),
+            DropTab(),
             hrizontalCapsuleListView(),
           ]),
     );
@@ -396,6 +460,7 @@ class _ScheduleSuratState extends State<ScheduleSurat> {
             children: <Widget>[
               backgroundView(), 
               topView(),
+              // DropTab(),
               listingSchedule()
               // todoList()
             ],   
