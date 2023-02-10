@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 // import 'package:page_transition/page_transition.dart';
 import 'package:sampurnagroupmobile/constants.dart';
-import 'package:sampurnagroupmobile/models/schedule_driver.dart';
+import 'package:sampurnagroupmobile/schedule-sj/schedule_driver.dart';
 import 'package:sampurnagroupmobile/page/colors_utils.dart';
 // import 'package:sampurnagroupmobile/page/date_utils.dart' as date_util;
 // import 'package:sampurnagroupmobile/page/schedule.dart';
