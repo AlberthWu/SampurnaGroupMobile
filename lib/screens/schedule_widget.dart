@@ -3,10 +3,10 @@ import 'package:sampurnagroupmobile/constants.dart';
 import 'package:page_transition/page_transition.dart';
 
 //schedule
-import 'package:sampurnagroupmobile/models/schedule_driver.dart';
-import 'package:sampurnagroupmobile/screens/detail_schedule.dart';
+import 'package:sampurnagroupmobile/schedule-sj/schedule_driver.dart';
+import 'package:sampurnagroupmobile/schedule-sj/detail_schedule.dart';
 
-class ScheduleWidget extends StatelessWidget {
+class ScheduleWidget extends StatefulWidget {
   const ScheduleWidget({
     Key? key, required this.index, required this.scheduleList,
   }) : super(key: key);
@@ -15,8 +15,27 @@ class ScheduleWidget extends StatelessWidget {
   final List<ScheduleDriver> scheduleList;
 
   @override
+  State<ScheduleWidget> createState() => _ScheduleWidgetState();
+}
+
+class _ScheduleWidgetState extends State<ScheduleWidget> {
+  @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+
+    // intial DropdownTab Value
+  String? DropdownSJ;
+
+  // List of items in our dropdown menu
+  List<String> items = [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+  ];
+
+  int current = 0;
 
     return GestureDetector(
       onTap: () {
@@ -24,7 +43,7 @@ class ScheduleWidget extends StatelessWidget {
             context,
             PageTransition(
                 child: DetailSchedule(
-                  sDriverId: scheduleList[index].sDriverId,
+                  sDriverId: widget.scheduleList[widget.index].sDriverId,
                 ),
                 type: PageTransitionType.bottomToTop));
       },
@@ -64,7 +83,7 @@ class ScheduleWidget extends StatelessWidget {
                 // ),
                 Positioned(
                   top: -28,
-                  bottom: -35,
+                  bottom: -40,
                   left: 10,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -73,9 +92,9 @@ class ScheduleWidget extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Container(
-                            width: size.width * 0.7,
+                            width: size.width * 0.6,
                             child: Text(
-                              scheduleList[index].asal,
+                              widget.scheduleList[widget.index].asal,
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 14,
@@ -84,8 +103,38 @@ class ScheduleWidget extends StatelessWidget {
                             ),
                           ),
                           Container(
-                            width: size.width * 0.4,
-                            child: Text("5/5")
+                            height: 37,
+                            width: 80,
+                            padding: EdgeInsets.symmetric(horizontal: 8.0),
+                            decoration: BoxDecoration(
+                              color: Constants.secondaryColor,
+                              borderRadius: BorderRadius.circular(5.0),
+                              // border: Border.all(
+                              //   color: Constants.primaryColor, style: BorderStyle.solid, width: 0.80),
+                            ),
+                            child: DropdownButtonHideUnderline(
+                              child: DropdownButton(
+                                isExpanded: true,
+                                hint: Text('0/5'),
+                                style: TextStyle(color: Colors.white, fontSize: 12, fontFamily: 'Nexa'),
+                                value: DropdownSJ,
+                                  onChanged: (newValue) {
+                                    setState(
+                                      () {
+                                        DropdownSJ = newValue.toString();
+                                      },
+                                    );
+                                  },
+                                  items: items.map<DropdownMenuItem<String>>(
+                                    (value) {
+                                      return DropdownMenuItem<String>(
+                                        value: value,
+                                        child: Text(value),
+                                      );
+                                    },
+                                  ).toList(),
+                              ),
+                            ),
                           ),
                         ],
                       ),
@@ -93,9 +142,9 @@ class ScheduleWidget extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Container(
-                            width: size.width * 0.65,
+                            width: size.width * 0.62,
                             child: Text(
-                              scheduleList[index].tujuan,
+                              widget.scheduleList[widget.index].tujuan,
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 12,
@@ -103,8 +152,20 @@ class ScheduleWidget extends StatelessWidget {
                               ),
                             ),
                           ),
+                          
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            width: size.width * 0.60,
+                            child: Text( 
+                              r'$' + widget.scheduleList[widget.index].nomorSJ.toString(),
+                            ),
+                          ),
                           ElevatedButton(
-                            style: ElevatedButton.styleFrom(backgroundColor: Constants.statusColor),
+                            style: ElevatedButton.styleFrom(backgroundColor: Constants.statusColor, padding: EdgeInsets.symmetric(horizontal: 25, vertical:-5)),
                             onPressed: () {},
                             child: Container(
                               child: const Text(
@@ -112,23 +173,11 @@ class ScheduleWidget extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 12,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.black
+                                  color: Colors.white
                                 ),
                               ),
                             ),
                           ),
-                        ],
-                      ),
-                      Row(
-                        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                            // width: size.width * 0.64,
-                            child: Text( 
-                              r'$' + scheduleList[index].nomorSJ.toString(),
-                            ),
-                          ),
-                          
                         ],
                       ),
                     ],
@@ -153,3 +202,4 @@ class ScheduleWidget extends StatelessWidget {
     );
   }
 }
+

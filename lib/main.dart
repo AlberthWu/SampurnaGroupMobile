@@ -4,7 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 // import 'package:sampurnagroupmobile/imagecam.dart';
 // import 'package:sampurnagroupmobile/onboarding_screen.dart';
 // import 'package:sampurnagroupmobile/page/schedule.dart';
-import 'package:sampurnagroupmobile/page/scheduleSJ.dart';
+import 'package:sampurnagroupmobile/schedule-sj/scheduleSJ.dart';
 
 
 

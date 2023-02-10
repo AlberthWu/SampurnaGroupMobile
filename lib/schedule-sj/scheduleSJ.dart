@@ -1,12 +1,14 @@
 // import 'package:flutter/gestures.dart';
+// import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:sampurnagroupmobile/constants.dart';
-import 'package:sampurnagroupmobile/models/schedule_driver.dart';
+import 'package:sampurnagroupmobile/schedule-sj/schedule_driver.dart';
 import 'package:sampurnagroupmobile/page/colors_utils.dart';
 import 'package:sampurnagroupmobile/page/date_utils.dart' as date_util;
 // import 'package:sampurnagroupmobile/page/schedule.dart';
-import 'package:sampurnagroupmobile/screens/detail_schedule.dart';
+import 'package:sampurnagroupmobile/schedule-sj/detail_schedule.dart';
 import 'package:sampurnagroupmobile/screens/schedule_widget.dart';
 
 class ScheduleSurat extends StatefulWidget {
@@ -34,10 +36,11 @@ class _ScheduleSuratState extends State<ScheduleSurat> {
   ];
 
   // intial DropdownTab Value
-  String DropdownTabBarval = 'Open';
+  String? DropdownTabBarval;
 
   // List of items in our dropdown menu
   List<String> items = [
+    // "Berlangsung",
     "Open",
     "Transfer",
     "Transit",
@@ -70,6 +73,119 @@ class _ScheduleSuratState extends State<ScheduleSurat> {
     );
   }
 
+  Widget OutTab() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        OutlinedButton(
+          style: ButtonStyle(
+            side: MaterialStateProperty.all(BorderSide(
+              color: Constants.primaryColor,
+              width: 0.80,
+              style: BorderStyle.solid))),
+          onPressed: () {},
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Align(
+                child: Padding(
+                  padding: 
+                    const EdgeInsets.symmetric(horizontal: 5.0),
+                  child: Icon(
+                    Icons.clear,
+                    size: 15,
+                    color: Constants.blackColor,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        OutlinedButton(
+          style: ButtonStyle(
+            side: MaterialStateProperty.all(BorderSide(
+              color: Constants.primaryColor,
+              width: 0.80,
+              style: BorderStyle.solid))),
+          onPressed: () {},
+          child: Text('Open', style: TextStyle(fontSize: 12, color: Constants.blackColor)),
+          // child: Column(
+            // mainAxisAlignment: MainAxisAlignment.center,
+            // children: [
+              // Align(
+                // child: Padding(
+                  // padding: 
+                    // const EdgeInsets.symmetric(horizontal: 10.0),
+                  // child: Icon(
+                    // Icons.clear,
+                    // size: 10,
+                  // ),
+                // ),
+              // ),
+            // ],
+          // ),
+        ),
+        Container(
+          height: 37,
+          width: 130,
+          padding: EdgeInsets.symmetric(horizontal: 10.0),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(5.0),
+            border: Border.all(
+              color: Constants.primaryColor, style: BorderStyle.solid, width: 0.80),
+          ),
+          child: DropdownButtonHideUnderline(
+            child: DropdownButton(
+              isExpanded: true,
+              hint: Text('Berlangsung'),
+              style: TextStyle(color: Constants.blackColor, fontSize: 12, fontFamily: 'Nexa'),
+              value: DropdownTabBarval,
+                onChanged: (newValue) {
+                  setState(
+                    () {
+                      DropdownTabBarval = newValue.toString();
+                    },
+                  );
+                },
+                items: items.map<DropdownMenuItem<String>>(
+                  (value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  },
+                ).toList(),
+            ),
+          ),
+        ),
+        OutlinedButton(
+          style: ButtonStyle(
+            side: MaterialStateProperty.all(BorderSide(
+              color: Constants.primaryColor,
+              width: 0.80,
+              style: BorderStyle.solid))),
+          onPressed: () {},
+          child: Text('Semua', style: TextStyle(fontSize: 12, color: Constants.blackColor)),
+          // child: Column(
+            // mainAxisAlignment: MainAxisAlignment.center,
+            // children: [
+              // Align(
+                // child: Padding(
+                  // padding: 
+                    // const EdgeInsets.symmetric(horizontal: 10.0),
+                  // child: Icon(
+                    // Icons.clear,
+                    // size: 10,
+                  // ),
+                // ),
+              // ),
+            // ],
+          // ),
+        ),
+      ],
+    );
+  }
+
   Widget DropTab() {
     return DefaultTabController(
       initialIndex: 1,
@@ -84,11 +200,14 @@ class _ScheduleSuratState extends State<ScheduleSurat> {
                 TabBar(
                   labelColor: Constants.primaryColor,
                   tabs: <Widget>[
+                    // Tab(
+                    //   text: "X",
+                    // ),
                     Tab(
-                      text: "1",
+                      text: "Open",
                     ),
                     Tab(
-                      text: "2",
+                      text: "Berlangsung",
                     ),
                     // Tab(
                     //   text: "3",
@@ -165,7 +284,7 @@ class _ScheduleSuratState extends State<ScheduleSurat> {
   Widget hrizontalCapsuleListView() {
     return SizedBox(
       width: width,
-      height: 150,
+      height: 120,
       child: ListView.builder(
         controller: scrollController,
         scrollDirection: Axis.horizontal,
@@ -181,7 +300,7 @@ class _ScheduleSuratState extends State<ScheduleSurat> {
 
   Widget capsuleView(int index) {
     return Padding(
-        padding: const EdgeInsets.fromLTRB(12, 40, 1, 50),
+        padding: const EdgeInsets.fromLTRB(12, 25, 1, 30),
         child: GestureDetector(
           onTap: () {
             setState(() {
@@ -190,7 +309,7 @@ class _ScheduleSuratState extends State<ScheduleSurat> {
           },
           child: Container(
             width: 45,
-            height: 160,
+            height: 140,
             decoration: BoxDecoration(
                 gradient: LinearGradient(
                     colors: (currentMonthList[index].day != currentDateTime.day)
@@ -269,7 +388,8 @@ class _ScheduleSuratState extends State<ScheduleSurat> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             titleView(),
-            DropTab(),
+            OutTab(),
+            // DropTab(),
             hrizontalCapsuleListView(),
           ]),
     );
