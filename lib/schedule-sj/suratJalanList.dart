@@ -5,6 +5,7 @@ import 'package:sampurnagroupmobile/schedule-sj/schedule_driver.dart';
 import 'package:sampurnagroupmobile/page/colors_utils.dart';
 import 'package:sampurnagroupmobile/page/date_utils.dart' as date_util;
 import 'package:sampurnagroupmobile/schedule-sj/detail_schedule.dart';
+import 'package:sampurnagroupmobile/schedule-sj/testing_detail.dart';
 import 'package:sampurnagroupmobile/screens/schedule_widget.dart';
 
 class ListingSJ extends StatefulWidget {
@@ -484,7 +485,7 @@ class _ListingSJState extends State<ListingSJ> {
         itemBuilder: (BuildContext context, int index) {
         return GestureDetector(
             onTap: (){
-              Navigator.push(context, PageTransition(child: DetailSchedule(sDriverId: scheduleList[index].sDriverId), type: PageTransitionType.bottomToTop));
+              Navigator.push(context, PageTransition(child: TestingDetail(sDriverId: scheduleList[index].sDriverId), type: PageTransitionType.bottomToTop));
             },
             child: ScheduleWidget(index: index, scheduleList: scheduleList));
       }),

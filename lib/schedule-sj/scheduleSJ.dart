@@ -9,6 +9,7 @@ import 'package:sampurnagroupmobile/page/colors_utils.dart';
 import 'package:sampurnagroupmobile/page/date_utils.dart' as date_util;
 // import 'package:sampurnagroupmobile/page/schedule.dart';
 import 'package:sampurnagroupmobile/schedule-sj/detail_schedule.dart';
+import 'package:sampurnagroupmobile/schedule-sj/testing_detail.dart';
 import 'package:sampurnagroupmobile/screens/schedule_widget.dart';
 
 class ScheduleSurat extends StatefulWidget {
@@ -60,7 +61,7 @@ class _ScheduleSuratState extends State<ScheduleSurat> {
     currentMonthList.sort((a, b) => a.day.compareTo(b.day));
     currentMonthList = currentMonthList.toSet().toList();
     scrollController =
-        ScrollController(initialScrollOffset: 70.0 * currentDateTime.day);
+        ScrollController(initialScrollOffset: 53.0 * currentDateTime.day);
     super.initState();
     
   }
@@ -82,7 +83,8 @@ class _ScheduleSuratState extends State<ScheduleSurat> {
             side: MaterialStateProperty.all(BorderSide(
               color: Constants.primaryColor,
               width: 0.80,
-              style: BorderStyle.solid))),
+              style: BorderStyle.solid))
+            ),
           onPressed: () {},
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -557,7 +559,7 @@ class _ScheduleSuratState extends State<ScheduleSurat> {
         itemBuilder: (BuildContext context, int index) {
         return GestureDetector(
             onTap: (){
-              Navigator.push(context, PageTransition(child: DetailSchedule(sDriverId: scheduleList[index].sDriverId), type: PageTransitionType.bottomToTop));
+              Navigator.push(context, PageTransition(child: TestingDetail(sDriverId: scheduleList[index].sDriverId), type: PageTransitionType.bottomToTop));
             },
             child: ScheduleWidget(index: index, scheduleList: scheduleList));
       }),
@@ -578,7 +580,7 @@ class _ScheduleSuratState extends State<ScheduleSurat> {
         ),
           body: Stack(
             children: <Widget>[
-              backgroundView(), 
+              // backgroundView(), 
               topView(),
               // DropTab(),
               listingSchedule()

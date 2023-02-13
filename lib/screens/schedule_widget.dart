@@ -5,6 +5,7 @@ import 'package:page_transition/page_transition.dart';
 //schedule
 import 'package:sampurnagroupmobile/schedule-sj/schedule_driver.dart';
 import 'package:sampurnagroupmobile/schedule-sj/detail_schedule.dart';
+import 'package:sampurnagroupmobile/schedule-sj/testing_detail.dart';
 
 class ScheduleWidget extends StatefulWidget {
   const ScheduleWidget({
@@ -42,7 +43,7 @@ class _ScheduleWidgetState extends State<ScheduleWidget> {
         Navigator.push(
             context,
             PageTransition(
-                child: DetailSchedule(
+                child: TestingDetail(
                   sDriverId: widget.scheduleList[widget.index].sDriverId,
                 ),
                 type: PageTransitionType.bottomToTop));
@@ -161,7 +162,7 @@ class _ScheduleWidgetState extends State<ScheduleWidget> {
                           Container(
                             width: size.width * 0.60,
                             child: Text( 
-                              r'$' + widget.scheduleList[widget.index].nomorSJ.toString(),
+                              widget.scheduleList[widget.index].nomorSJ.toString(),
                             ),
                           ),
                           ElevatedButton(

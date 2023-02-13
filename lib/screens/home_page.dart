@@ -168,7 +168,7 @@ class _HomePageState extends State<HomePage> {
           //                   right: 30,
           //                   top: 20,
           //                   bottom: 30,
-          //                   child: Image.asset(employeeList[index].imageURL),
+                            // child: Image.asset(employeeList[index].imageURL),
           //                 ),
           //                 Positioned(
           //                   bottom: 15,
