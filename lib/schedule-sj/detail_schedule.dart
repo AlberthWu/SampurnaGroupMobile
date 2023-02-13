@@ -491,30 +491,31 @@ class _DetailScheduleState extends State<DetailSchedule> {
                                             },
                                           ),
                                         ],
-                                      )
+                                      ),
+                                      Container(
+                                        // margin: EdgeInsets.symmetric(horizontal: 100, vertical: 20),
+                                        padding: EdgeInsets.all(10),
+                                        alignment: Alignment.bottomCenter,
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            ElevatedButton(
+                                              style: ElevatedButton.styleFrom(backgroundColor: Constants.statusColor),
+                                              child: Text("Terima", style:TextStyle(color: Constants.whiteColor, fontSize: 14.0, fontStyle: FontStyle.normal),),
+                                              onPressed: () {},
+                                            ),
+                                            ElevatedButton(
+                                              style: ElevatedButton.styleFrom(backgroundColor: Constants.closeColor),
+                                              child: Text("Tolak", style: TextStyle(color: Constants.whiteColor, fontSize: 14.0, fontStyle: FontStyle.normal),),
+                                              onPressed: () {},
+                                            ),
+                                          ],
+                                        ),
+                                      ),
                                   ],
                                 ),
           ),
-          Container(
-              margin: EdgeInsets.symmetric(horizontal: 100, vertical: 20),
-              padding: EdgeInsets.all(10),
-              alignment: Alignment.bottomCenter,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(backgroundColor: Constants.statusColor),
-                    child: Text("Terima", style:TextStyle(color: Constants.whiteColor, fontSize: 14.0, fontStyle: FontStyle.normal),),
-                    onPressed: () {},
-                  ),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(backgroundColor: Constants.closeColor),
-                    child: Text("Tolak", style: TextStyle(color: Constants.whiteColor, fontSize: 14.0, fontStyle: FontStyle.normal),),
-                    onPressed: () {},
-                  ),
-                ],
-              ),
-            ),
+          
           // Positioned(
           //   top: 500,
           //   right: 0,
