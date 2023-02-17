@@ -113,6 +113,7 @@ class _ScheduleWidgetState extends State<ScheduleWidget> {
                               // border: Border.all(
                               //   color: Constants.primaryColor, style: BorderStyle.solid, width: 0.80),
                             ),
+                            
                             child: DropdownButtonHideUnderline(
                               child: DropdownButton(
                                 isExpanded: true,

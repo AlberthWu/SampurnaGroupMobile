@@ -7,47 +7,42 @@ class Menu extends StatelessWidget {
   final List<Map> menuFavorites = [
     {
       'label': 'Sales',
-      'image': '',
+      'icon': 'assets/icons/sales.png',
       'color':  Colors.red
     },
     {
       'label': 'Fleet',
-      'image': '',
+      'icon': 'assets/icons/fleet.png',
       'color':  Colors.blueGrey
     },
     {
       'label': 'Purchase',
-      'image': '',
+      'icon': 'assets/icons/purchase.png',
       'color':  Colors.green
     },
     {
       'label': 'Inventory',
-      'image': '',
+      'icon': 'assets/icons/inventory.png',
       'color':  Colors.red
     },
     {
       'label': 'Finance',
-      'image': '',
+      'icon': 'assets/icons/finance.png',
       'color':  Colors.blueGrey
     },
     {
       'label': 'Payroll',
-      'image': '',
+      'icon': 'assets/icons/payroll.png',
       'color':  Colors.green
     },
     {
       'label': 'Employee',
-      'image': '',
+      'icon': 'assets/icons/employee.png',
       'color':  Colors.blueGrey
     },
     {
-      'label': 'TMS',
-      'image': '',
-      'color':  Colors.blueGrey
-    },
-    {
-      'label': 'New',
-      'image': '',
+      'label': 'GPS',
+      'icon': 'assets/icons/gps.png',
       'color':  Colors.blueGrey
     },
   ];
@@ -57,7 +52,7 @@ class Menu extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(80),
+        preferredSize: const Size.fromHeight(70),
         child: Container(
           color: Theme.of(context).primaryColor,
           padding: const EdgeInsets.all(10),
@@ -76,7 +71,7 @@ class Menu extends StatelessWidget {
                         child: Row(
                           children: const [
                             Icon(Icons.search_outlined),
-                            SizedBox(width: 16,),
+                            SizedBox(width: 15,),
                             Text('Find services, transportation, or place',
                               overflow: TextOverflow.ellipsis,
                             ),
@@ -86,7 +81,7 @@ class Menu extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(width: 16,),
+                const SizedBox(width: 15,),
                 Material(
                   shape: const CircleBorder(),
                   clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -94,7 +89,7 @@ class Menu extends StatelessWidget {
                     onTap: () {},
                     child: Padding(
                       padding: const EdgeInsets.all(10),
-                      child: Icon(Icons.person,
+                      child: Icon(Icons.notifications,
                         color: Theme.of(context).primaryColor,
                         size: 20,
                       ),
@@ -107,7 +102,7 @@ class Menu extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(15.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -131,11 +126,11 @@ class Menu extends StatelessWidget {
                             width: 60,
                             child: Stack(
                               children: [
-                                Align(
+                              Align(
                                   alignment: Alignment.topLeft,
                                   child: Container(
-                                    height: 50,
-                                    width: 50,
+                                    height: 90,
+                                    width: 90,
                                     decoration: BoxDecoration(
                                       color: menuFavorite['color'].withOpacity(0.2),
                                       borderRadius: BorderRadius.circular(16),
@@ -144,9 +139,11 @@ class Menu extends StatelessWidget {
                                 ),
                                 Align(
                                   alignment: Alignment.bottomRight,
-                                  child: Image.asset('assets/images/place.png',
-                                    height: 50,
-                                    width: 50,
+                                  child: Image.asset(
+                                    menuFavorite['icon'],
+                                    height: 60,
+                                    width: 60,
+                                    fit: BoxFit.fill,
                                   ),
                                 ),
                               ],
@@ -158,31 +155,31 @@ class Menu extends StatelessWidget {
                     ),
                   ),
                 ),
-                Material(
-                  borderRadius: BorderRadius.circular(16),
-                  clipBehavior: Clip.antiAliasWithSaveLayer,
-                  child: InkWell(
-                    onTap: (() {}),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        children: [
-                          Container(
-                            height: 50,
-                            width: 50,
-                            decoration: const BoxDecoration(
-                              color: Colors.black12,
-                              shape: BoxShape.circle
-                            ),
-                            child: const Icon(Icons.more_horiz_outlined),
-                          ),
-                          const SizedBox(height: 8,),
-                          const Text('More'),
-                        ],
-                      ),
-                    ),
-                  ),
-                )
+                // Material(
+                //   borderRadius: BorderRadius.circular(16),
+                //   clipBehavior: Clip.antiAliasWithSaveLayer,
+                //   child: InkWell(
+                //     onTap: (() {}),
+                //     child: Padding(
+                //       padding: const EdgeInsets.all(8.0),
+                //       child: Column(
+                //         children: [
+                //           Container(
+                //             height: 50,
+                //             width: 50,
+                //             decoration: const BoxDecoration(
+                //               color: Colors.black12,
+                //               shape: BoxShape.circle
+                //             ),
+                //             child: const Icon(Icons.more_horiz_outlined),
+                //           ),
+                //           const SizedBox(height: 8,),
+                //           const Text('More'),
+                //         ],
+                //       ),
+                //     ),
+                //   ),
+                // )
               ],
             ),
           ],

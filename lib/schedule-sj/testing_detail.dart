@@ -262,6 +262,60 @@ class _TestingDetailState extends State<TestingDetail> {
                               ),
                             ],
                           ),
+                          Column(
+                            children: [
+                              Container(
+                                child: ListView(
+                                  shrinkWrap: true,
+                                  children: [
+                                    const SizedBox(width: 40),
+                                    image != null ? Image.file(image!): const Text('No image selected', textAlign: TextAlign.center),
+                                    // const SizedBox(height: 20),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        OutlinedButton(
+                                          style: ButtonStyle(
+                                            side: MaterialStateProperty.all(BorderSide(
+                                              color: Constants.blackColor,
+                                              width: 1.0,
+                                              style: BorderStyle.solid)),
+                                          ),
+                                          child: const Text(
+                                            "Gallery",
+                                            style: TextStyle(
+                                              color: Colors.black, fontWeight: FontWeight.bold
+                                            ),
+                                          ),
+                                          onPressed: () {
+                                            pickImage();
+                                          }, 
+                                        ),
+                                        OutlinedButton(
+                                          style: ButtonStyle(
+                                            side: MaterialStateProperty.all(BorderSide(
+                                              color: Constants.blackColor,
+                                              width: 1.0,
+                                              style: BorderStyle.solid)),
+                                          ),
+                                          child: const Text(
+                                            "Gallery",
+                                            style: TextStyle(
+                                              color: Colors.black, fontWeight: FontWeight.bold
+                                            ),
+                                          ),
+                                          onPressed: () {
+                                            pickImageC();
+                                          }, 
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                          Column(),
                         ],
                       ),
                     ),

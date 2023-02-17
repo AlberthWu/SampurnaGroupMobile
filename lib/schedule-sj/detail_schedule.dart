@@ -509,6 +509,11 @@ class _DetailScheduleState extends State<DetailSchedule> {
                                               child: Text("Tolak", style: TextStyle(color: Constants.whiteColor, fontSize: 14.0, fontStyle: FontStyle.normal),),
                                               onPressed: () {},
                                             ),
+                                            OutlinedButton(
+                                              style: OutlinedButton.styleFrom(backgroundColor: Constants.secondaryColor),
+                                              child: Text("5/5", style: TextStyle(color: Constants.whiteColor, fontSize: 14.0, fontStyle: FontStyle.normal)),
+                                              onPressed: () {}, 
+                                            ),
                                           ],
                                         ),
                                       ),

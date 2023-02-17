@@ -6,7 +6,7 @@ class Constants {
   static var blackColor = Colors.black;
   static var whiteColor = Colors.white;
   static var buttonColor = const Color.fromARGB(255, 214, 137, 0);
-  static var statusColor = Color.fromARGB(255, 0, 179, 0);
+  static var statusColor = Color.fromARGB(1000, 66, 181, 73);
   static var closeColor = Color.fromARGB(255, 182, 0, 0);
   static var secondaryColor = const Color.fromARGB(255, 187, 187, 187);
 
