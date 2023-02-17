@@ -8,6 +8,6 @@ List<SampurnaIcon> menuIcons = [
   SampurnaIcon(icon: 'inventory', title: 'Inventory', color: Constants.primaryColor),
   SampurnaIcon(icon: 'finance', title: 'Finance', color: Constants.primaryColor),
   SampurnaIcon(icon: 'payroll', title: 'Payroll', color: Constants.primaryColor),
-  SampurnaIcon(icon: 'tms', title: 'TMS', color: Constants.primaryColor),
+  SampurnaIcon(icon: 'tms', title: 'GPS', color: Constants.primaryColor),
   SampurnaIcon(icon: 'employee', title: 'Employee', color: Constants.primaryColor),
 ];

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:sampurnagroupmobile/constants.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:sampurnagroupmobile/menu.dart';
+import 'package:sampurnagroupmobile/schedule-sj/expansion.dart';
 // import 'package:sampurnagroupmobile/imagecam.dart';
 // import 'package:sampurnagroupmobile/onboarding_screen.dart';
 // import 'package:sampurnagroupmobile/page/schedule.dart';
 import 'package:sampurnagroupmobile/schedule-sj/scheduleSJ.dart';
-
 
 
 void main() {
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(fontFamily: 'Nexa',
       primaryColor: Constants.primaryColor,
       ),
-      home: ScheduleSurat(title: 'Schedule',),
+      home: Menu(),
       localizationsDelegates: const [
         GlobalWidgetsLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,

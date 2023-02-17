@@ -10,7 +10,8 @@ class Menus extends StatelessWidget {
       padding: const EdgeInsets.only(left: 27, right: 27, top: 32),
       child: SizedBox(
         height: 157,
-        child: GridView.count(crossAxisCount: 4, mainAxisSpacing: 8, children: [
+        child: GridView.count(crossAxisCount: 4, mainAxisSpacing: 8, 
+        children: [
           ...menuIcons.map(
             (icon) => Column(
               children: [
