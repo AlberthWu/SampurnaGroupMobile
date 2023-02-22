@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sampurnagroupmobile/constants.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 class Menu extends StatelessWidget {
    Menu({Key? key}) : super(key: key);
@@ -47,6 +48,17 @@ class Menu extends StatelessWidget {
     },
   ];
 
+  final List<Map> picInformation = [
+    {
+      'image': 'assets/images/banner.png',
+    },
+    {
+      'icon': 'assets/images/banner.png',
+    },
+    {
+      'icon': 'assets/images/banner.png',
+    },
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -107,7 +119,7 @@ class Menu extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Wrap(
-              runSpacing: 8,
+              runSpacing: 10,
               alignment: WrapAlignment.spaceBetween,
               children: [
                 for (final menuFavorite in menuFavorites) Material(
@@ -118,19 +130,19 @@ class Menu extends StatelessWidget {
                     highlightColor: menuFavorite['color'].withOpacity(0.2),
                     onTap: () {},
                     child: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(10.0),
                       child: Column(
                         children: [
                           SizedBox(
-                            height: 60,
-                            width: 60,
+                            height: 75,
+                            width: 75,
                             child: Stack(
                               children: [
                               Align(
                                   alignment: Alignment.topLeft,
                                   child: Container(
-                                    height: 90,
-                                    width: 90,
+                                    height: 65,
+                                    width: 65,
                                     decoration: BoxDecoration(
                                       color: menuFavorite['color'].withOpacity(0.2),
                                       borderRadius: BorderRadius.circular(16),
@@ -155,6 +167,8 @@ class Menu extends StatelessWidget {
                     ),
                   ),
                 ),
+                // SliderScreen(),
+                // TabPage(),
                 // Material(
                 //   borderRadius: BorderRadius.circular(16),
                 //   clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -185,6 +199,65 @@ class Menu extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class SliderScreen extends StatefulWidget {
+  const SliderScreen({super.key});
+
+  @override
+  State<SliderScreen> createState() => _SliderScreenState();
+}
+
+class _SliderScreenState extends State<SliderScreen> {
+  List imageList = [
+    {"id":1, "image_path": 'assets/images/testing1.jpg'},
+    {"id":2, "image_path": 'assets/images/testing2.jpg'},
+    {"id":3, "image_path": 'assets/images/testing3.jpg'}
+  ];
+
+  final CarouselController carouselController = CarouselController();
+  int currentIndex = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(children: [
+        Stack(
+          children: [
+            InkWell(
+              onTap: () {
+                print(currentIndex);
+              },
+              child: CarouselSlider(
+                items: imageList
+                .map(
+                  (item) => Image.asset(
+                    item['image_path'],
+                    fit: BoxFit.cover,
+                    width: double.infinity,
+                  ),
+                )
+                .toList(),
+              carouselController: carouselController, 
+              options: CarouselOptions(
+                  scrollPhysics: const BouncingScrollPhysics(),
+                  autoPlay: true,
+                  aspectRatio: 2,
+                  viewportFraction: 1,
+                  onPageChanged: (index, reason) {
+                    setState(() {
+                      currentIndex = index;
+                    });
+                  },
+                ),
+              ),
+            ),
+          ],
+        ),
+      ],
+    ),
     );
   }
 }
