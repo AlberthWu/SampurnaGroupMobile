@@ -21,11 +21,11 @@ class Menu extends StatelessWidget {
       'icon': 'assets/icons/purchase.png',
       'color':  Colors.green
     },
-    {
-      'label': 'Inventory',
-      'icon': 'assets/icons/inventory.png',
-      'color':  Colors.red
-    },
+    // {
+    //   'label': 'Inventory',
+    //   'icon': 'assets/icons/inventory.png',
+    //   'color':  Colors.red
+    // },
     {
       'label': 'Finance',
       'icon': 'assets/icons/finance.png',
@@ -48,17 +48,17 @@ class Menu extends StatelessWidget {
     },
   ];
 
-  final List<Map> picInformation = [
-    {
-      'image': 'assets/images/banner.png',
-    },
-    {
-      'icon': 'assets/images/banner.png',
-    },
-    {
-      'icon': 'assets/images/banner.png',
-    },
-  ];
+  // final List<Map> picInformation = [
+  //   {
+  //     'image': 'assets/images/banner.png',
+  //   },
+  //   {
+  //     'icon': 'assets/images/banner.png',
+  //   },
+  //   {
+  //     'icon': 'assets/images/banner.png',
+  //   },
+  // ];
 
   @override
   Widget build(BuildContext context) {
@@ -167,33 +167,477 @@ class Menu extends StatelessWidget {
                     ),
                   ),
                 ),
-                // SliderScreen(),
-                // TabPage(),
-                // Material(
-                //   borderRadius: BorderRadius.circular(16),
-                //   clipBehavior: Clip.antiAliasWithSaveLayer,
-                //   child: InkWell(
-                //     onTap: (() {}),
-                //     child: Padding(
-                //       padding: const EdgeInsets.all(8.0),
-                //       child: Column(
-                //         children: [
-                //           Container(
-                //             height: 50,
-                //             width: 50,
-                //             decoration: const BoxDecoration(
-                //               color: Colors.black12,
-                //               shape: BoxShape.circle
-                //             ),
-                //             child: const Icon(Icons.more_horiz_outlined),
-                //           ),
-                //           const SizedBox(height: 8,),
-                //           const Text('More'),
-                //         ],
-                //       ),
-                //     ),
-                //   ),
-                // )
+                //SubMenu
+                Material(
+                  borderRadius: BorderRadius.circular(16),
+                  clipBehavior: Clip.antiAliasWithSaveLayer,
+                  child: InkWell(
+                    onTap: () {
+                    showModalBottomSheet(
+                      context: context, 
+                      backgroundColor: Constants.whiteColor,
+                      isScrollControlled: true,
+                      enableDrag: true,
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(40), 
+                          topRight: Radius.circular(40), 
+                        ),
+                      ),
+                            builder: (context) {
+                              return Container(
+                                padding: const EdgeInsets.all(30),
+                                child: Column(
+                                  children: [
+                                    SizedBox(
+                                      height: 805,
+                                      child: ListView(
+                                        // shrinkWrap: true,
+                                        children: [
+                                          Container(
+                                            child: Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                const Padding(
+                                                  padding: EdgeInsets.fromLTRB(0, 20, 0, 5),
+                                                  child: Text('SALES',textAlign: TextAlign.left, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),),
+                                                ),
+                                                Container(
+                                                child: ExpansionTile(
+                                                  textColor: Constants.buttonColor,
+                                                  iconColor: Constants.buttonColor,
+                                                  title: const Text('Master', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14)),
+                                                  children: [
+                                                    ListTile(
+                                                      contentPadding: const EdgeInsets.symmetric(horizontal: 40),
+                                                      onTap: () {},
+                                                      title: const Text('Pool', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),),
+                                                      leading: const Icon(Icons.house_outlined),
+                                                      iconColor: Constants.primaryColor,
+                                                    ),
+                                                    ListTile(
+                                                      contentPadding: const EdgeInsets.symmetric(horizontal: 40),
+                                                      onTap: () {},
+                                                      title: const Text('Product',style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),),
+                                                      leading: const Icon(Icons.add_box_outlined),
+                                                    ),
+                                                    ListTile(
+                                                      contentPadding: const EdgeInsets.symmetric(horizontal: 40),
+                                                      onTap: () {},
+                                                      title: const Text('Customer', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),),
+                                                      leading: const Icon(Icons.person_outline),
+                                                    ),
+                                                    ListTile(
+                                                      contentPadding: const EdgeInsets.symmetric(horizontal: 40),
+                                                      onTap: () {},
+                                                      title: const Text('Pricelist', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),),
+                                                      leading: const Icon(Icons.monetization_on_outlined),
+                                                    ),
+                                                    ListTile(
+                                                      contentPadding: const EdgeInsets.symmetric(horizontal: 40),
+                                                      onTap: () {},
+                                                      title: const Text('UJT List', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),),
+                                                      leading: const Icon(Icons.money),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              Container(
+                                                child: ExpansionTile(
+                                                  textColor: Constants.buttonColor,
+                                                  iconColor: Constants.buttonColor,
+                                                  title: const Text('Office', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14)),
+                                                  children: [
+                                                    ListTile(
+                                                      contentPadding: const EdgeInsets.symmetric(horizontal: 40),
+                                                      onTap: () {},
+                                                      title: const Text('PO Customer', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),),
+                                                      leading: const Icon(Icons.house_outlined),
+                                                    ),
+                                                    ListTile(
+                                                      contentPadding: const EdgeInsets.symmetric(horizontal: 40),
+                                                      onTap: () {},
+                                                      title: const Text('Invoice',style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),),
+                                                      leading: const Icon(Icons.add_box_outlined),
+                                                    ),
+                                                    ListTile(
+                                                      contentPadding: const EdgeInsets.symmetric(horizontal: 40),
+                                                      onTap: () {},
+                                                      title: const Text('Invoice', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),),
+                                                      leading: const Icon(Icons.person_outline),
+                                                    ),
+                                                    ListTile(
+                                                      contentPadding: const EdgeInsets.symmetric(horizontal: 40),
+                                                      onTap: () {},
+                                                      title: const Text('Order Manual Number', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),),
+                                                      leading: const Icon(Icons.monetization_on_outlined),
+                                                    ),
+                                                    ListTile(
+                                                      contentPadding: const EdgeInsets.symmetric(horizontal: 40),
+                                                      onTap: () {},
+                                                      title: const Text('Schedule', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),),
+                                                      leading: const Icon(Icons.money),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              Container(
+                                                child: ExpansionTile(
+                                                  textColor: Constants.buttonColor,
+                                                  iconColor: Constants.buttonColor,
+                                                  title: const Text('Order', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14)),
+                                                  children: [
+                                                    ListTile(
+                                                      contentPadding: const EdgeInsets.symmetric(horizontal: 40),
+                                                      onTap: () {},
+                                                      title: const Text('Manual UJT', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),),
+                                                      leading: const Icon(Icons.house_outlined),
+                                                    ),
+                                                    ListTile(
+                                                      contentPadding: const EdgeInsets.symmetric(horizontal: 40),
+                                                      onTap: () {},
+                                                      title: const Text('UJT',style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),),
+                                                      leading: const Icon(Icons.add_box_outlined),
+                                                    ),
+                                                    ListTile(
+                                                      contentPadding: const EdgeInsets.symmetric(horizontal: 40),
+                                                      onTap: () {},
+                                                      title: const Text('Non UJT', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),),
+                                                      leading: const Icon(Icons.person_outline),
+                                                    ),
+                                                    ListTile(
+                                                      contentPadding: const EdgeInsets.symmetric(horizontal: 40),
+                                                      onTap: () {},
+                                                      title: const Text('Mixing', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),),
+                                                      leading: const Icon(Icons.monetization_on_outlined),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: [
+                                                  const Padding(
+                                                padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
+                                                child: Text('FLEET', textAlign: TextAlign.left, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),),
+                                              ),
+                                              Container(
+                                                child: ExpansionTile(
+                                                  textColor: Constants.buttonColor,
+                                                  iconColor: Constants.buttonColor,
+                                                  title: const Text('Master', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14)),
+                                                  children: [
+                                                    ListTile(
+                                                      contentPadding: const EdgeInsets.symmetric(horizontal: 40),
+                                                      onTap: () {},
+                                                      title: const Text('Fleet Type', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),),
+                                                      leading: const Icon(Icons.house_outlined),
+                                                    ),
+                                                    ListTile(
+                                                      contentPadding: const EdgeInsets.symmetric(horizontal: 40),
+                                                      onTap: () {},
+                                                      title: const Text('Fleet',style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),),
+                                                      leading: const Icon(Icons.add_box_outlined),
+                                                    ),
+                                                    ListTile(
+                                                      contentPadding: const EdgeInsets.symmetric(horizontal: 40),
+                                                      onTap: () {},
+                                                      title: const Text('Fleet Formation', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),),
+                                                      leading: const Icon(Icons.person_outline),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: [
+                                                  const Padding(
+                                                padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
+                                                child: Text('PURCHASE', textAlign: TextAlign.left, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),),
+                                              ),
+                                              Container(
+                                                child: ExpansionTile(
+                                                  textColor: Constants.buttonColor,
+                                                  iconColor: Constants.buttonColor,
+                                                  title: const Text('Master', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14)),
+                                                  children: [
+                                                    ListTile(
+                                                      contentPadding: const EdgeInsets.symmetric(horizontal: 40),
+                                                      onTap: () {},
+                                                      title: const Text('Origin', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),),
+                                                      leading: const Icon(Icons.house_outlined),
+                                                    ),
+                                                    ListTile(
+                                                      contentPadding: const EdgeInsets.symmetric(horizontal: 40),
+                                                      onTap: () {},
+                                                      title: const Text('Transporter',style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),),
+                                                      leading: const Icon(Icons.add_box_outlined),
+                                                    ),
+                                                    ListTile(
+                                                      contentPadding: const EdgeInsets.symmetric(horizontal: 40),
+                                                      onTap: () {},
+                                                      title: const Text('Supplier', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),),
+                                                      leading: const Icon(Icons.person_outline),
+                                                    ),
+                                                    ListTile(
+                                                      contentPadding: const EdgeInsets.symmetric(horizontal: 40),
+                                                      onTap: () {},
+                                                      title: const Text('Sparepart',style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),),
+                                                      leading: const Icon(Icons.add_box_outlined),
+                                                    ),
+                                                    ListTile(
+                                                      contentPadding: const EdgeInsets.symmetric(horizontal: 40),
+                                                      onTap: () {},
+                                                      title: const Text('Cost List', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),),
+                                                      leading: const Icon(Icons.person_outline),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              Container(
+                                                child: ExpansionTile(
+                                                  textColor: Constants.buttonColor,
+                                                  iconColor: Constants.buttonColor,
+                                                  title: const Text('Office', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14)),
+                                                  children: [
+                                                    ListTile(
+                                                      contentPadding: const EdgeInsets.symmetric(horizontal: 40),
+                                                      onTap: () {},
+                                                      title: const Text('DO Origin', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),),
+                                                      leading: const Icon(Icons.house_outlined),
+                                                    ),
+                                                    ListTile(
+                                                      contentPadding: const EdgeInsets.symmetric(horizontal: 40),
+                                                      onTap: () {},
+                                                      title: const Text('Invoice',style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),),
+                                                      leading: const Icon(Icons.add_box_outlined),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: [
+                                                  const Padding(
+                                                    padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
+                                                    child: Text('FINANCE', textAlign: TextAlign.left, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),),
+                                                  ),
+                                                  Container(
+                                                    child: 
+                                                    ListTile(
+                                                      contentPadding: const EdgeInsets.symmetric(horizontal: 20),
+                                                      onTap: () {},
+                                                      title: const Text('Bank', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14),),
+                                                      leading: const Icon(Icons.price_change),
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    child: 
+                                                    ListTile(
+                                                      contentPadding: const EdgeInsets.symmetric(horizontal: 20),
+                                                      onTap: () {},
+                                                      title: const Text('Cashier', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14),),
+                                                      leading: const Icon(Icons.price_change),
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    child: 
+                                                    ListTile(
+                                                      contentPadding: const EdgeInsets.symmetric(horizontal: 20),
+                                                      onTap: () {},
+                                                      title: const Text('Closing Shift', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14),),
+                                                      leading: const Icon(Icons.price_change),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: [
+                                                  const Padding(
+                                                    padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
+                                                    child: Text('PAYROLL', textAlign: TextAlign.left, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),),
+                                                  ),
+                                                  Container(
+                                                    child: ExpansionTile(
+                                                      textColor: Constants.buttonColor,
+                                                      iconColor: Constants.buttonColor,
+                                                      title: const Text('Master', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14)),
+                                                      children: [
+                                                        ListTile(
+                                                          contentPadding: const EdgeInsets.symmetric(horizontal: 40),
+                                                          onTap: () {},
+                                                          title: const Text('Department', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),),
+                                                          leading: const Icon(Icons.house_outlined),
+                                                        ),
+                                                        ListTile(
+                                                          contentPadding: const EdgeInsets.symmetric(horizontal: 40),
+                                                          onTap: () {},
+                                                          title: const Text('Division',style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),),
+                                                          leading: const Icon(Icons.add_box_outlined),
+                                                        ),
+                                                        ListTile(
+                                                          contentPadding: const EdgeInsets.symmetric(horizontal: 40),
+                                                          onTap: () {},
+                                                          title: const Text('Occupation', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),),
+                                                          leading: const Icon(Icons.person_outline),
+                                                        ),
+                                                        ListTile(
+                                                          contentPadding: const EdgeInsets.symmetric(horizontal: 40),
+                                                          onTap: () {},
+                                                          title: const Text('Employee',style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),),
+                                                          leading: const Icon(Icons.add_box_outlined),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    child: ExpansionTile(
+                                                      textColor: Constants.buttonColor,
+                                                      iconColor: Constants.buttonColor,
+                                                      title: const Text('Office', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14)),
+                                                      children: [
+                                                        ListTile(
+                                                          contentPadding: const EdgeInsets.symmetric(horizontal: 40),
+                                                          onTap: () {},
+                                                          title: const Text('Loan', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),),
+                                                          leading: const Icon(Icons.house_outlined),
+                                                        ),
+                                                        ListTile(
+                                                          contentPadding: const EdgeInsets.symmetric(horizontal: 40),
+                                                          onTap: () {},
+                                                          title: const Text('Payroll',style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),),
+                                                          leading: const Icon(Icons.add_box_outlined),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    child: ExpansionTile(
+                                                      textColor: Constants.buttonColor,
+                                                      iconColor: Constants.buttonColor,
+                                                      title: const Text('Driver', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14)),
+                                                      children: [
+                                                        ListTile(
+                                                          contentPadding: const EdgeInsets.symmetric(horizontal: 40),
+                                                          onTap: () {},
+                                                          title: const Text('Dumptruck', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),),
+                                                          leading: const Icon(Icons.house_outlined),
+                                                        ),
+                                                        ListTile(
+                                                          contentPadding: const EdgeInsets.symmetric(horizontal: 40),
+                                                          onTap: () {},
+                                                          title: const Text('Cargo',style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),),
+                                                          leading: const Icon(Icons.add_box_outlined),
+                                                        ),
+                                                        ListTile(
+                                                          contentPadding: const EdgeInsets.symmetric(horizontal: 40),
+                                                          onTap: () {},
+                                                          title: const Text('Mixer',style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),),
+                                                          leading: const Icon(Icons.add_box_outlined),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    child: ExpansionTile(
+                                                      textColor: Constants.buttonColor,
+                                                      iconColor: Constants.buttonColor,
+                                                      title: const Text('Report', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14)),
+                                                      children: [
+                                                        ListTile(
+                                                          contentPadding: const EdgeInsets.symmetric(horizontal: 40),
+                                                          onTap: () {},
+                                                          title: const Text('Payslip', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),),
+                                                          leading: const Icon(Icons.house_outlined),
+                                                        ),
+                                                        ListTile(
+                                                          contentPadding: const EdgeInsets.symmetric(horizontal: 40),
+                                                          onTap: () {},
+                                                          title: const Text('Attendance',style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),),
+                                                          leading: const Icon(Icons.add_box_outlined),
+                                                        ),
+                                                        ListTile(
+                                                          contentPadding: const EdgeInsets.symmetric(horizontal: 40),
+                                                          onTap: () {},
+                                                          title: const Text('Overtime', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),),
+                                                          leading: const Icon(Icons.person_outline),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Column(
+                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                    children: [
+                                                      const Padding(
+                                                        padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
+                                                        child: Text('GPS', textAlign: TextAlign.left, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),),
+                                                      ),
+                                                      Container(
+                                                        child: 
+                                                        ListTile(
+                                                          contentPadding: const EdgeInsets.symmetric(horizontal: 20),
+                                                          onTap: () {},
+                                                          title: const Text('Order', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14),),
+                                                          leading: const Icon(Icons.price_change),
+                                                        ),
+                                                      ),
+                                                      Container(
+                                                        child: 
+                                                        ListTile(
+                                                          contentPadding: const EdgeInsets.symmetric(horizontal: 20),
+                                                          onTap: () {},
+                                                          title: const Text('POI', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14),),
+                                                          leading: const Icon(Icons.price_change),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                              
+                                                ],
+                                              ),
+                                                ],
+                                              ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    // SizedBox(
+                                    //   width: double.infinity,
+                                    //   child: ElevatedButton(
+                                    //     onPressed: () {}, 
+                                    //     child: const Text('Submit'),
+                                    //   ),
+                                    // ),
+                                  ],
+                                ),
+                              );
+                          });
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        children: [
+                          Container(
+                            height: 65,
+                            width: 65,
+                            decoration: const BoxDecoration(
+                              color: Colors.black12,
+                              shape: BoxShape.circle
+                            ),
+                            child: const Icon(Icons.more_horiz_outlined),
+                          ),
+                          const SizedBox(height: 8),
+                          const Text('More'),
+                        ],
+                      ),
+                    ),
+                  ),
+                )
               ],
             ),
           ],
