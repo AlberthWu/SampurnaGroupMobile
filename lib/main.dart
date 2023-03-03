@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sampurnagroupmobile/constants.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:sampurnagroupmobile/menu.dart';
+import 'package:sampurnagroupmobile/Final_Menu/menu.dart';
 import 'package:sampurnagroupmobile/sampurnamenu/Submenu.dart';
 // import 'package:sampurnagroupmobile/schedule-sj/testmenu.dart';
 
