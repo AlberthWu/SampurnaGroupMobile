@@ -1,3 +1,5 @@
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:sampurnagroupmobile/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -17,7 +19,7 @@ class DashboardFinal extends StatelessWidget {
     final List<Map> menuFavorites = [
       {
         'label': 'Sales',
-        'icon': 'assets/icons/sales.png',
+        'icon': 'assets/images/sales.png',
         'color': Colors.red,
         'url': '',
       },
@@ -59,11 +61,20 @@ class DashboardFinal extends StatelessWidget {
       },
       {
         'label': 'More',
-        'icon': 'assets/icons/gps.png',
+        'icon': 'assets/images/more1.png',
         'color': Colors.blueGrey,
         'url': '',
       },
     ];
+
+    final List<Map> imageList = [
+      {"id":1, "image_path": 'assets/images/testing1.jpg'},
+      {"id":2, "image_path": 'assets/images/testing2.jpg'},
+      {"id":3, "image_path": 'assets/images/testing3.jpg'},
+    ];
+
+    final CarouselController carouselController = CarouselController();
+    int currentIndex = 0;
 
     return Scaffold(
       body: Container(
@@ -71,6 +82,7 @@ class DashboardFinal extends StatelessWidget {
         height: size.height,
         color: Constants.whiteColor,
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Container(
@@ -106,11 +118,12 @@ class DashboardFinal extends StatelessWidget {
                     ),
                   ),
                   Positioned(
-                    top: 75,
+                    top: 68,
                     left: 30,
                     right: 30,
+                    bottom: 0,
                     child: Container(
-                      height: (size.height * .25) * .65,
+                      height: (size.height * .25) * .75,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(35),
                         color: Constants.whiteColor,
@@ -120,7 +133,7 @@ class DashboardFinal extends StatelessWidget {
                         ),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.all(18.0),
+                        padding: const EdgeInsets.all(12.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
@@ -129,10 +142,10 @@ class DashboardFinal extends StatelessWidget {
                               child: Image.asset('assets/images/asmlogo.png'),
                             ),
                             const SizedBox(
-                              width: 20,
+                              width: 10,
                             ),
                             Container(
-                              width: (size.width - 120) * .7,
+                              width: (size.width - 100) * .60,
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -147,20 +160,23 @@ class DashboardFinal extends StatelessWidget {
                                           fontFamily: 'Nexa',
                                         ),
                                       ),
+                                      const SizedBox(
+                                        width: 10,
+                                      ),
                                       Icon(
                                         Icons.arrow_forward_ios_outlined,
                                         color: Constants.buttonColor,
-                                        size: 10,
+                                        size: 12,
                                       ),
                                     ],
                                   ),
                                   const SizedBox(
-                                    height: 8,
+                                    height: 5,
                                   ),
                                   Container(
                                     width: double.infinity,
                                     padding: const EdgeInsets.symmetric(
-                                      horizontal: 15,
+                                      horizontal: 10,
                                       vertical: 10,
                                     ),
                                     decoration: BoxDecoration(
@@ -178,7 +194,7 @@ class DashboardFinal extends StatelessWidget {
                                     ),
                                   ),
                                   const SizedBox(
-                                    height: 8,
+                                    height: 5,
                                   ),
                                   const Text(
                                     "Information Technology | Manager",
@@ -200,11 +216,11 @@ class DashboardFinal extends StatelessWidget {
               ),
             ),
             Container(
-              height: size.height * .75,
+              height: size.height * .65,
               child: ListView(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 22.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
                     child: Container(
                       height: 100,
                       width: size.width * .8,
@@ -222,7 +238,7 @@ class DashboardFinal extends StatelessWidget {
                               child: Column(
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsets.only(bottom: 7),
+                                    padding: const EdgeInsets.only(bottom: 5),
                                     child: Container(
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(10),
@@ -326,23 +342,22 @@ class DashboardFinal extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
                   Container(
-                    height: size.height * .7,
+                    height: size.height * .35,
                     color: Constants.whiteColor,
                     child: Container(
-                      padding: const EdgeInsets.all(8),
+                      padding: const EdgeInsets.all(10),
                       child: GridView.builder(
                         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                           mainAxisSpacing: 2,
                           crossAxisSpacing: 2,
                           crossAxisCount: 4,
-                          childAspectRatio: 0.9,
+                          childAspectRatio: 0.8,
                         ),
                         itemBuilder: (context, index) => Padding(
-                                padding: const EdgeInsets.only(bottom: 8.0),
-                                // child: ItemWidget(product: menuFavorites[index]),
+                                padding: const EdgeInsets.only(bottom: 10.0),
                                 child: Material(
                                   color: Constants.whiteColor,
                                   borderRadius: BorderRadius.circular(16),
@@ -359,15 +374,15 @@ class DashboardFinal extends StatelessWidget {
                                       child: Column(
                                         children: [
                                           SizedBox(
-                                            height: 60,
-                                            width: 60,
+                                            height: 65,
+                                            width: 65,
                                             child: Stack(
                                               children: [
                                                 Align(
                                                   alignment: Alignment.topLeft,
                                                   child: Container(
-                                                    height: 90,
-                                                    width: 90,
+                                                    height: 55,
+                                                    width: 55,
                                                     decoration: BoxDecoration(
                                                       color:
                                                           menuFavorites[index]
@@ -399,29 +414,96 @@ class DashboardFinal extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                              ), 
-                            // : Container(
-                                // child: const Center(
-                                  // child: SizedBox(
-                                    // width: 30,
-                                    // height: 30,
-                                    // child: CircularProgressIndicator(),
-                                  // ),
-                                // ),
-                              // ),
+                              ),
                         itemCount: menuFavorites.length,
                       ),
                     ),
                   ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Column(
+                    children: [
+                      Stack(
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              print(currentIndex);
+                            },
+                            child: CarouselSlider(
+                              items: imageList
+                              .map(
+                                (item) => Image.asset(
+                                  item['image_path'],
+                                  fit: BoxFit.cover,
+                                  width: double.infinity,
+                                ),
+                              )
+                              .toList(),
+                              carouselController: carouselController,
+                              options: CarouselOptions(
+                                height: 85,
+                                scrollPhysics: const BouncingScrollPhysics(),
+                                autoPlay: true,
+                                autoPlayInterval: Duration(seconds: 3),
+                                autoPlayAnimationDuration: Duration(milliseconds: 500),
+                                autoPlayCurve: Curves.fastOutSlowIn,
+                                aspectRatio: 2,
+                                viewportFraction: 1,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ],
               ),
-            )
+            ),
+            Container(
+              child: CurvedNavigationBar(
+                height: 70.0,
+                backgroundColor: Constants.primaryColor,
+                color: const Color.fromARGB(255, 255, 255, 255),
+                animationDuration: const Duration(milliseconds: 300),
+                onTap: (index){
+                  // ignore: avoid_print
+                  print(index);
+                },
+                items: const [
+                  Icon(
+                    Icons.assignment_outlined,
+                    color: Colors.black,
+                    size: 25,
+                  ),
+                  Icon(
+                    Icons.home_outlined, 
+                    color: Colors.black,
+                    size: 25,
+                  ),
+                  Icon(
+                    Icons.person_outline, 
+                    color: Colors.black,
+                    size: 25,
+                  ),
+                  // Icon(
+                  //   Icons.payments_outlined, 
+                  //   color: Colors.black,
+                  // ),
+                  // Icon(
+                  //   Icons.person_outline, 
+                  //   color: Colors.black,
+                  // ), 
+                ],
+              ),
+            ),
           ],
         ),
       ),
     );
   }
 }
+
 
 class SubMenu extends StatelessWidget {
   const SubMenu({
