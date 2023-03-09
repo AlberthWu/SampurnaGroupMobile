@@ -19,50 +19,51 @@ class DashboardFinal extends StatelessWidget {
     final List<Map> menuFavorites = [
       {
         'label': 'Sales',
-        'icon': 'assets/images/sales.png',
-        'color': Colors.red,
+        'icon': 'assets/images/sales.gif',
+        'color': Colors.blueGrey,
         'url': '',
       },
       {
         'label': 'Fleet',
-        'icon': 'assets/icons/fleet.png',
-        'color': Colors.blueGrey,
+        'icon': 'assets/images/fleet2.gif',
+        'color': Colors.green,
         'url': '',
       },
       {
         'label': 'Purchase',
-        'icon': 'assets/icons/purchase.png',
-        'color': Colors.green,
+        'icon': 'assets/images/purchase2.gif',
+        'color': Colors.blueGrey,
         'url': '',
       },
       {
         'label': 'Finance',
-        'icon': 'assets/icons/finance.png',
-        'color': Colors.blueGrey,
-        'url': '',
-      },
-      {
-        'label': 'Payroll',
-        'icon': 'assets/icons/payroll.png',
+        'icon': 'assets/images/finance.gif',
         'color': Colors.green,
         'url': '',
       },
       {
-        'label': 'Employee',
-        'icon': 'assets/icons/employee.png',
+        'label': 'Payroll',
+        'icon': 'assets/images/payroll.gif',
         'color': Colors.blueGrey,
         'url': '',
       },
       {
+
+        'label': 'Employee',
+        'icon': 'assets/images/employee.gif',
+        'color': Colors.green,
+        'url': '',
+      },
+      {
         'label': 'GPS',
-        'icon': 'assets/icons/gps.png',
+        'icon': 'assets/images/gps.gif',
         'color': Colors.blueGrey,
         'url': '',
       },
       {
         'label': 'More',
-        'icon': 'assets/images/more1.png',
-        'color': Colors.blueGrey,
+        'icon': 'assets/images/more.gif',
+        'color': Colors.green,
         'url': '',
       },
     ];
@@ -133,12 +134,12 @@ class DashboardFinal extends StatelessWidget {
                         ),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.all(12.0),
+                        padding: const EdgeInsets.all(22.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Container(
-                              width: (size.width - 100) * .23,
+                              width: (size.width - 100) * .26,
                               child: Image.asset('assets/images/asmlogo.png'),
                             ),
                             const SizedBox(
@@ -153,7 +154,7 @@ class DashboardFinal extends StatelessWidget {
                                   Row(
                                     children: [
                                       const Text(
-                                        "Your Name",
+                                        "Kencana Alberth",
                                         style: TextStyle(
                                           fontSize: 14,
                                           fontWeight: FontWeight.bold,
@@ -200,7 +201,7 @@ class DashboardFinal extends StatelessWidget {
                                     "Information Technology | Manager",
                                     style: TextStyle(
                                       fontWeight: FontWeight.w600,
-                                      fontSize: 11,
+                                      fontSize: 10,
                                       fontFamily: 'Nexa',
                                     ),
                                   ),
@@ -220,7 +221,7 @@ class DashboardFinal extends StatelessWidget {
               child: ListView(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
                     child: Container(
                       height: 100,
                       width: size.width * .8,
@@ -345,7 +346,7 @@ class DashboardFinal extends StatelessWidget {
                     height: 10,
                   ),
                   Container(
-                    height: size.height * .35,
+                    height: size.height * .30,
                     color: Constants.whiteColor,
                     child: Container(
                       padding: const EdgeInsets.all(10),
@@ -390,7 +391,7 @@ class DashboardFinal extends StatelessWidget {
                                                               .withOpacity(0.2),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              16),
+                                                              25),
                                                     ),
                                                   ),
                                                 ),
@@ -419,9 +420,9 @@ class DashboardFinal extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
+                  // const SizedBox(
+                  //   height: 10,
+                  // ),
                   Column(
                     children: [
                       Stack(
@@ -442,7 +443,7 @@ class DashboardFinal extends StatelessWidget {
                               .toList(),
                               carouselController: carouselController,
                               options: CarouselOptions(
-                                height: 85,
+                                height: 165,
                                 scrollPhysics: const BouncingScrollPhysics(),
                                 autoPlay: true,
                                 autoPlayInterval: Duration(seconds: 3),
@@ -503,7 +504,6 @@ class DashboardFinal extends StatelessWidget {
     );
   }
 }
-
 
 class SubMenu extends StatelessWidget {
   const SubMenu({
