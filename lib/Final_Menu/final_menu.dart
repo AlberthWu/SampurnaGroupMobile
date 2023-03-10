@@ -78,6 +78,41 @@ class DashboardFinal extends StatelessWidget {
     int currentIndex = 0;
 
     return Scaffold(
+      bottomNavigationBar: CurvedNavigationBar(
+                height: 62.96,
+                backgroundColor: Constants.whiteColor,
+                color: Constants.primaryColor,
+                animationDuration: const Duration(milliseconds: 300),
+                onTap: (index){
+                  // ignore: avoid_print
+                  print(index);
+                },
+                items: const [
+                  Icon(
+                    Icons.assignment_outlined,
+                    color: Colors.white,
+                    size: 30,
+                  ),
+                  Icon(
+                    Icons.home_outlined, 
+                    color: Colors.white,
+                    size: 30,
+                  ),
+                  Icon(
+                    Icons.person_outline, 
+                    color: Colors.white,
+                    size: 30,
+                  ),
+                  // Icon(
+                  //   Icons.payments_outlined, 
+                  //   color: Colors.black,
+                  // ),
+                  // Icon(
+                  //   Icons.person_outline, 
+                  //   color: Colors.black,
+                  // ), 
+                ],
+              ),
       body: Container(
         width: size.width,
         height: size.height,
@@ -87,7 +122,7 @@ class DashboardFinal extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Container(
-              height: size.height * .25,
+              height: size.height * .23,
               child: Stack(
                 children: [
                   Container(
@@ -195,7 +230,7 @@ class DashboardFinal extends StatelessWidget {
                                     ),
                                   ),
                                   const SizedBox(
-                                    height: 5,
+                                    height: 8,
                                   ),
                                   const Text(
                                     "Information Technology | Manager",
@@ -217,7 +252,7 @@ class DashboardFinal extends StatelessWidget {
               ),
             ),
             Container(
-              height: size.height * .65,
+              height: size.height * .68,
               child: ListView(
                 children: [
                   Padding(
@@ -443,7 +478,7 @@ class DashboardFinal extends StatelessWidget {
                               .toList(),
                               carouselController: carouselController,
                               options: CarouselOptions(
-                                height: 165,
+                                height: 195,
                                 scrollPhysics: const BouncingScrollPhysics(),
                                 autoPlay: true,
                                 autoPlayInterval: Duration(seconds: 3),
@@ -458,43 +493,6 @@ class DashboardFinal extends StatelessWidget {
                       ),
                     ],
                   ),
-                ],
-              ),
-            ),
-            Container(
-              child: CurvedNavigationBar(
-                height: 70.0,
-                backgroundColor: Constants.primaryColor,
-                color: const Color.fromARGB(255, 255, 255, 255),
-                animationDuration: const Duration(milliseconds: 300),
-                onTap: (index){
-                  // ignore: avoid_print
-                  print(index);
-                },
-                items: const [
-                  Icon(
-                    Icons.assignment_outlined,
-                    color: Colors.black,
-                    size: 25,
-                  ),
-                  Icon(
-                    Icons.home_outlined, 
-                    color: Colors.black,
-                    size: 25,
-                  ),
-                  Icon(
-                    Icons.person_outline, 
-                    color: Colors.black,
-                    size: 25,
-                  ),
-                  // Icon(
-                  //   Icons.payments_outlined, 
-                  //   color: Colors.black,
-                  // ),
-                  // Icon(
-                  //   Icons.person_outline, 
-                  //   color: Colors.black,
-                  // ), 
                 ],
               ),
             ),
