@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sampurnagroupmobile/Final_Menu/currentPass.dart';
 
 class Profile extends StatefulWidget {
   static const routeName = "/profile";
@@ -26,7 +27,7 @@ class _ProfileState extends State<Profile> {
           SizedBox(
             height: 14,
           ),
-          _heading("Personal Details"),
+          _heading("Informasi Pribadi"),
           SizedBox(
             height: 6,
           ),
@@ -34,11 +35,11 @@ class _ProfileState extends State<Profile> {
           SizedBox(
             height: 10,
           ),
-          _heading("Settings"),
+          _heading("Pengaturan"),
           SizedBox(
             height: 6,
           ),
-          _settingsCard(),
+          _settingsCard(context),
           Spacer(),
           logoutButton()
         ],
@@ -121,18 +122,26 @@ class _ProfileState extends State<Profile> {
     );
   }
 
-  Widget _settingsCard() {
+  Widget _settingsCard(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.only(left: 25.0),
       child: Container(
         // elevation: 4,
         child: Column(
           children: [
             //row for each deatails
             ListTile(
-              leading: Icon(Icons.settings),
+              leading: Icon(Icons.lock_outline),
               iconColor: Color.fromARGB(255, 214, 137, 0),
-              title: Text("Settings"),
+              title: Text("Ganti Sandi"),
+              onTap: () {
+            Navigator.push(
+                context,
+                  MaterialPageRoute(
+                      builder: (context) => CurrentPass(),
+                  ),
+                );
+              },
             ),
             Divider(
               height: 0.6,
@@ -141,17 +150,8 @@ class _ProfileState extends State<Profile> {
             ListTile(
               leading: Icon(Icons.space_dashboard_outlined),
               iconColor: Color.fromARGB(255, 214, 137, 0),
-              title: Text("About Us"),
+              title: Text("Tentang kami"),
             ),
-            Divider(
-              height: 0.6,
-              color: Colors.black87,
-            ),
-            ListTile(
-              leading: Icon(Icons.shield_moon_outlined),
-              iconColor: Color.fromARGB(255, 214, 137, 0),
-              title: Text("Change Theme"),
-            )
           ],
         ),
       ),
