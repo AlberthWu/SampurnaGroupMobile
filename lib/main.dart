@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sampurnagroupmobile/Final_Menu/_profile.dart';
 import 'package:sampurnagroupmobile/Final_Menu/final_menu.dart';
 import 'package:sampurnagroupmobile/Final_Menu/history_page.dart';
 import 'package:sampurnagroupmobile/Final_Menu/menu.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(fontFamily: 'Nexa',
       primaryColor: Constants.primaryColor,
       ),
-      home: history(),
+      home: Profile(),
       localizationsDelegates: const [
         GlobalWidgetsLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,

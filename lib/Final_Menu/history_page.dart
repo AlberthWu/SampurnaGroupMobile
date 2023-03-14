@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sampurnagroupmobile/constants.dart';
-// import 'package:sampurnagroupmobile/Final_Menu/Models/history_models.dart';
-// import 'package:setting/SettingUI/history/history/screens/history1.dart';
 
 class history extends StatefulWidget {
   const history({Key? key}) : super(key: key);
@@ -17,7 +15,7 @@ class _historyState extends State<history> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('My Activity'),
+        title: const Text('Riwayat'),
         backgroundColor: Constants.primaryColor,
       ),
       body: SafeArea(
@@ -35,7 +33,7 @@ class _historyState extends State<history> with SingleTickerProviderStateMixin {
                       itemCount: 5,
                       itemBuilder: (context, index) {
                         return Container(
-                          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                          padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
                           margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),

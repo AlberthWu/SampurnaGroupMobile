@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sampurnagroupmobile/dashboard.dart';
+import 'package:sampurnagroupmobile/Final_Menu/_profile.dart';
+import 'package:sampurnagroupmobile/constants.dart';
 
 class MyButton extends StatelessWidget {
   final Function()? onTap;
@@ -14,21 +15,21 @@ class MyButton extends StatelessWidget {
           context, 
           MaterialPageRoute(
             builder: (context){
-              return const MyHomePage();
+              return Profile();
             },
           ),
         );
       },
       child: Container(
-        padding: const EdgeInsets.all(25),
+        padding: const EdgeInsets.all(20),
         margin: const EdgeInsets.symmetric(horizontal: 25),
         decoration: BoxDecoration(
-          color: Colors.black,
+          color: Constants.primaryColor,
           borderRadius: BorderRadius.circular(8),
         ),
         child: const Center(
           child: Text(
-            "Login",
+            "Ganti Kata Sandi",
             style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,
