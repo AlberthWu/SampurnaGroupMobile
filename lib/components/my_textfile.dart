@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sampurnagroupmobile/constants.dart';
 
 class MyTextField extends StatelessWidget {
   // ignore: prefer_typing_uninitialized_variables
@@ -22,13 +23,13 @@ class MyTextField extends StatelessWidget {
         obscureText: obscureText,
         decoration: InputDecoration(
             enabledBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.white),
+              borderSide: BorderSide(color: Color.fromARGB(255, 187, 187, 187)),
             ),
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.grey.shade400),
+              borderSide: BorderSide(color: Constants.buttonColor),
             ),
-            fillColor: Colors.grey.shade200,
-            filled: true,
+            // fillColor: Colors.grey.shade200,
+            // filled: true,
             hintText: hintText,
             hintStyle: TextStyle(fontSize: 13, color: Colors.grey[500])),
       ),
